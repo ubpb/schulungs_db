@@ -26,7 +26,7 @@
     = form.association :target_audiences, as: :check_boxes
 .row
   .col-12
-    = form.input :description
+    = form.input :description, input_html: {rows: 8}
 .row
   .col-12
-    = form.input :learning_targets
+    = form.input :learning_targets, input_html: {rows: 5}
