@@ -6,7 +6,7 @@
     = form.input :title
 .row
   .col-md-6
-    = form.input :date, prompt: true
+    = form.input :date, prompt: true, start_year: Date.today.year, end_year: Date.today.year + 3
   .col-md-6
     = form.input :time
 .row
