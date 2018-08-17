@@ -1,0 +1,39 @@
+ul.training-course-listing
+  - training_courses.each do |tc|
+    li.training-course-item
+      .title.font-weight-bold
+        = tc.title
+        - if tc.full?
+          .badge.badge-danger =< t("frontend.training_courses.defaults.full")
+
+      .d-flex.flex-column.align-items-start.flex-md-row.justify-content-md-between.align-items-md-center
+        .meta
+          .d-md-flex.align-items-center
+            .date
+              = icon("fas", "calendar-alt", class: "fa-fw")
+              =< l(tc.date)
+
+            .time.ml-md-2
+              = icon("far", "clock", class: "fa-fw")
+              =< t("frontend.training_courses.defaults.time", time: tc.time)
+
+          - if tc.registration_required?
+            .info
+              = icon("fas", "info", class: "fa-fw")
+              =< t("frontend.training_courses.defaults.registration_required")
+
+          - if tc.target_audiences.present?
+            .target-audiences.mt-1
+              = icon("fas", "bullseye", class: "fa-fw")
+              - tc.target_audiences.each do |ta|
+                .badge.badge-light =< ta.title
+
+          - if tc.categories.present?
+            .categories.mt-1
+              = icon("fas", "tags", class: "fa-fw")
+              - tc.categories.each do |c|
+                .badge.badge-light =< c.title
+
+        .actions.mt-3.mt-sm-0
+          = link_to frontend_training_course_path(tc), class: "btn btn-primary" do
+            = t(".details")

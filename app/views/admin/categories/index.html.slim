@@ -1,0 +1,15 @@
+.container-fluid
+  .row.justify-content-center
+    .col-md-8
+      .card
+        h5.card-header = t(".header")
+        - if @categories.present?
+          = render "listing", categories: @categories
+        - else
+          .card-body
+            .alert.alert-info.mb-0 = t(".no_categories")
+        .card-footer
+          .btn-toolbar.justify-content-start
+            = link_to new_admin_category_path, class: "btn btn-primary" do
+              = icon("fas", "plus")
+              =< t(".new_category")

@@ -1,0 +1,26 @@
+de:
+  admin:
+    target_audiences:
+      index:
+        header: "Zielgruppen"
+        no_target_audience: "Keine Zielgruppen verfügbar"
+        new_target_audience: "Neue Zielgruppe"
+
+      new:
+        header: "Neue Zielgruppe"
+
+      create:
+        flash:
+          success: "Zielgruppe erfolgreich angelegt"
+
+      edit:
+        header: "Zielgruppe bearbeiten"
+
+      update:
+        flash:
+          success: "Zielgruppe erfolgreich gespeichert"
+
+      destroy:
+        flash:
+          success: "Zielgruppe erfolgreich gelöscht"
+          error: "Zielgruppe konnte nicht gelöscht werden"

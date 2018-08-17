@@ -1,0 +1,27 @@
+<% if @registration.salutation == "herr" %>
+<%= "Sehr geehrter Herr #{@registration.lastname}," %>
+<% else %>
+<%= "Sehr geehrte Frau #{@registration.lastname}," %>
+<% end %>
+
+Sie haben Sich für die Schlungsveranstaltung "<%= @training_course.title %>" angemeldet. Wir möchten Sie hiermit darüber Informieren, dass sich der Termin der Veranstaltung geändert hat.
+
+Es gab folgende Änderungen:
+
+<% @training_course.changes.each do |k, v| %>
+<% if k == "date" %>
+Datum => Bisher: <%= l(v[0]) %>, NEU: <%= l(v[1]) %>
+<% end %>
+<% if k == "time" %>
+Uhrzeit => Bisher: <%= v[0] %> Uhr, NEU: <%= v[1] %> Uhr
+<% end %>
+<% if k == "location" %>
+Treffpunkt => Bisher: <%= v[0] %>, NEU: <%= v[1] %>
+<% end %>
+<% end %>
+
+Sollten Sie Fragen haben, oder auf Grund der Änderung nicht mehr teilnehmen, können Sie uns kontaktieren indem einfach auf diese E-Mail antworten.
+
+Viele Grüße,
+
+Ihr UB Paderborn Schulungsteam

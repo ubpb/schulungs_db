@@ -1,0 +1,22 @@
+.date
+  = icon("fas", "calendar-alt", class: "fa-fw")
+  =< l(training_course.date)
+
+.time
+  = icon("far", "clock", class: "fa-fw")
+  =< "#{training_course.time} Uhr"
+
+.duration
+  = icon("fas", "hourglass-half", class: "fa-fw")
+  =< t("frontend.training_courses.defaults.duration", duration: training_course.duration)
+
+.location
+  = icon("fas", "map-marker-alt", class: "fa-fw")
+  =< training_course.location
+
+.info
+  = icon("fas", "info", class: "fa-fw")
+  - if training_course.registration_required?
+    =< t("frontend.training_courses.defaults.registration_required")
+  - else
+    =< t("frontend.training_courses.defaults.no_registration_required")

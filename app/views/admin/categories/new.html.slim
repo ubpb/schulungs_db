@@ -1,0 +1,11 @@
+.container-fluid
+  .row.justify-content-center
+    .col-md-8
+      .card
+        h5.card-header = t(".header")
+        = simple_form_for [:admin, @category] do |f|
+          .card-body
+            = render "form_fields", form: f
+          .card-footer
+            = f.submit t("admin.application.btn_save"), class: "btn btn-primary"
+            =< link_to t("admin.application.btn_cancel"), admin_categories_path, class: "btn btn-secondary"

@@ -1,0 +1,8 @@
+nav(aria-label="breadcrumb")
+  ol.breadcrumb
+    li.breadcrumb-item = link_to "Universitätsbibliothek", "https://www.ub.uni-paderborn.de/"
+    li.breadcrumb-item = link_to "Unterstützung", "https://www.ub.uni-paderborn.de/unterstuetzung/"
+    li.breadcrumb-item = link_to "Schulungen", "https://www.ub.uni-paderborn.de/unterstuetzung/schulungen/"
+    li.breadcrumb-item = link_to "Termine", frontend_training_courses_path
+    /- breadcrumbs.each do |_breadcrumb|
+      li = link_to t("actions.#{_breadcrumb[:name]}"), _breadcrumb[:url]

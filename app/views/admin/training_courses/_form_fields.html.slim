@@ -1,0 +1,32 @@
+.row
+  .col-12
+    = form.input :published, as: :boolean
+.row
+  .col-12
+    = form.input :title
+.row
+  .col-md-6
+    = form.input :date, prompt: true
+  .col-md-6
+    = form.input :time
+.row
+  .col-6
+    = form.input :duration
+  .col-md-6
+    = form.input :location
+.row
+  .col-md-6
+    = form.input :registration_required, as: :boolean
+  .col-md-6
+    = form.input :max_no_of_participants
+.row
+  .col-md-6
+    = form.association :categories, as: :check_boxes
+  .col-md-6
+    = form.association :target_audiences, as: :check_boxes
+.row
+  .col-12
+    = form.input :description
+.row
+  .col-12
+    = form.input :learning_targets

@@ -1,0 +1,15 @@
+.container-fluid
+  .row.justify-content-center
+    .col-md-8
+      .card
+        h5.card-header = t(".header")
+        - if @target_audiences.present?
+          = render "listing", target_audiences: @target_audiences
+        - else
+          .card-body
+            .alert.alert-info.mb-0 = t(".no_target_audience")
+        .card-footer
+          .btn-toolbar.justify-content-start
+            = link_to new_admin_target_audience_path, class: "btn btn-primary" do
+              = icon("fas", "plus")
+              =< t(".new_target_audience")

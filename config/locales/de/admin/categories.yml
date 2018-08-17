@@ -1,0 +1,26 @@
+de:
+  admin:
+    categories:
+      index:
+        header: "Themen"
+        no_categories: "Keine Themen verfügbar"
+        new_category: "Neues Thema"
+
+      new:
+        header: "Neues Thema"
+
+      create:
+        flash:
+          success: "Thema erfolgreich angelegt"
+
+      edit:
+        header: "Thema bearbeiten"
+
+      update:
+        flash:
+          success: "Thema erfolgreich gespeichert"
+
+      destroy:
+        flash:
+          success: "Thema erfolgreich gelöscht"
+          error: "Thema konnte nicht gelöscht werden"

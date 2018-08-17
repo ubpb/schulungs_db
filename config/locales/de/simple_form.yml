@@ -1,0 +1,48 @@
+de:
+  simple_form:
+    labels:
+      defaults:
+        salutation: "Anrede"
+        firstname: "Vorname"
+        lastname: "Nachname"
+        email: "E-Mail Adresse"
+        field_of_interest: "Fachgebiet"
+        notes: "Bemerkungen"
+        internal_notes: "Interne Bemerkungen"
+
+        published: "Öffentlich sichtbar"
+        registration_required: "Anmeldung erforderlich"
+        title: "Titel"
+        location: "Ort / Treffpunkt"
+        date: "Datum"
+        time: "Uhrzeit"
+        description: "Beschreibung"
+        max_no_of_participants: "Max. Anzahl von Teilnehmern"
+        categories: "Themen"
+        target_audiences: "Zielgruppen"
+        learning_targets: "Lernziele"
+        duration: "Dauer"
+
+        interval: "Intervall"
+        start_date: "Erster Termin"
+        end_date: "Letzter Termin"
+
+    hints:
+      training_course:
+        max_no_of_participants: "0 => Keine Beschränkung"
+        duration: "... in Minuten"
+        time: "Format hh:mm"
+      repetition:
+        interval: "... in Tagen"
+
+    options:
+      defaults:
+        salutation:
+          herr: "Herr"
+          frau: "Frau"
+
+      filter:
+        date:
+          week: "... in der nächsten 7 Tagen"
+          month: "... in den nächsten 4 Wochen"
+          quarter: "... in den nächsten 3 Monaten"

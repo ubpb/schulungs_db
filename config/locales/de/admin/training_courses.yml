@@ -1,0 +1,46 @@
+de:
+  admin:
+    training_courses:
+      index:
+        no_training_courses: "Keine Schulungen verfügbar"
+        new_training_course: "Neue Schulung"
+
+      new:
+        header: "Neue Schulung"
+
+      create:
+        flash:
+          success: "Schulung erfolgreich angelegt"
+
+      edit:
+        header: "Schulung bearbeiten"
+        info: "Wenn Sie Änderungen am Datum, der Uhrzeit oder am Ort/Treffpunkt machen, werden alle Schulungsteilnehmer per E-Mail automatisch über diese Änderung informiert."
+
+      update:
+        flash:
+          success: "Schulung erfolgreich gespeichert"
+
+      destroy:
+        flash:
+          success: "Schulung erfolgreich gelöscht"
+          error: "Schulung konnte nicht gelöscht werden"
+
+      batch_update:
+        flash:
+          success: "Änderungen wurden durchgeführt. Bitte überprüfen Sie das Ergebnis."
+
+      listing:
+        table:
+          head:
+            date: "Datum"
+            time: "Uhrzeit"
+            published: "Veröffentlicht?"
+            registration_required: "Anmeldung erforderlich?"
+            no_of_registrations: "Anmeldungen"
+            title: "Titel"
+        repeat: "Wiederholen"
+        link_to_registrations: "Teilnehmer"
+        publish_batch_action: "Veröffentlichen"
+        unpublish_batch_action: "Veröffentlichung zurückziehen"
+        prompt_batch_action: "Bitte wählen"
+        batch_action: "Los!"

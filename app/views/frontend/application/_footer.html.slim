@@ -1,0 +1,12 @@
+footer
+  .footer-claim
+    .container
+      ' Die Universität der Informationsgesellschaft
+  .container
+    .footer-content
+      = "© #{Date.today.year} Universitätsbibliothek Paderborn"
+    .footer-image
+      .d-none.d-sm-block
+        = image_tag "//www.ub.uni-paderborn.de/typo3conf/ext/upb/Resources/Public/Files/gfx/desktop/bild_footer.png", class: "img-fluid"
+      .d-block.d-sm-none
+        = image_tag "//www.ub.uni-paderborn.de/typo3conf/ext/upb/Resources/Public/Files/gfx/iphone/bild_footer.jpg", class: "img-fluid"

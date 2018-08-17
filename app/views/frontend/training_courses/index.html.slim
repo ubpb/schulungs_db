@@ -1,0 +1,28 @@
+.row
+  .col-lg-8
+    .card.card-cutoff-corner.card-primary.mb-4
+      .card-header
+        h5.card-title.mb-0 = t(".header")
+      .card-body
+        - if @training_courses.present?
+          = render "listing", training_courses: @training_courses
+        - else
+          - if @filter.active?
+            .alert.alert-danger.text-center.mb-0 = t(".no_training_courses_due_to_filter")
+          - else
+            .alert.alert-danger.text-center.mb-0 = t(".no_training_courses_available")
+  .col-lg-4
+    = simple_form_for @filter, as: :filter, url: frontend_training_courses_path, method: :get do |f|
+      .card.card-cutoff-corner.mb-4
+        .card-header
+          h5.card-title.mb-0 = t(".filter_header")
+        .card-body
+          = f.input :title
+          = f.input :date, as: :select, collection: @filter.class::DATE_FILTER
+          = f.input :target_audiences, as: :check_boxes, collection: TargetAudience.all
+          = f.input :categories, as: :check_boxes, collection: Category.all
+        .card-footer
+          = f.submit "Suchen & Filtern", class: "btn btn-secondary btn-block"
+          - if @filter.active?
+            .text-center.mt-1
+              = link_to "Filter zurücksetzen", frontend_training_courses_path

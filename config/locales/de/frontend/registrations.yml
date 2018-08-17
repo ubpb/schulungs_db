@@ -1,0 +1,8 @@
+de:
+  frontend:
+    registrations:
+      new:
+        flash:
+          error: "Die Schulung die Sie aufgerufen haben, ist leider nicht verfügbar."
+          no_registration_error: "Für diese Schulung ist keine Anmeldung möglich."
+          full_error: "Diese Schulung ist leider ausgebucht."

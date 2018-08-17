@@ -1,0 +1,9 @@
+de:
+  admin:
+    repetitions:
+      new:
+        header: "Schulungstermin wiederholen"
+
+      create:
+        flash:
+          success: "Wiederholungen wurden angelegt. Bitte überprüfen."

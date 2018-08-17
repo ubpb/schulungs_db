@@ -1,0 +1,13 @@
+de:
+  admin:
+    application:
+      btn_save: "Speichern"
+      btn_cancel: "Abbrechen"
+      btn_delete: "Löschen"
+      btn_edit: "Bearbeiten"
+      confirm_delete: "Wirklich löschen?"
+      main_nav:
+        app_title: "SchulungsDB"
+        training_courses: "Schulungen"
+        categories: "Themen"
+        target_audiences: "Zielgruppen"

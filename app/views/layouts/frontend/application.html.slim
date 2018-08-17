@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no")
+    meta(name="msapplication-config" content="none")
+    = csrf_meta_tags
+    = stylesheet_link_tag("frontend/application", media: "all", "data-turbolinks-track" => true)
+    = javascript_include_tag("frontend/application", "data-turbolinks-track" => true)
+    = render "application/favicons"
+    title = @page_title.present? ? "UBPB Schulungen - #{@page_title}" : "UBPB Schulungen"
+
+  body
+    = render "frontend/application/header"
+    #page
+      .container
+        = render "application/alerts", global: true
+        = render "frontend/application/breadcrumb"
+        = yield
+    = render "frontend/application/footer"

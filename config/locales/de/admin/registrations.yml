@@ -1,0 +1,16 @@
+de:
+  admin:
+    registrations:
+      index:
+        excel_download: "Download als Excel-Datei"
+      edit:
+        header: "Schulungsanmeldung bearbeiten"
+
+      update:
+        flash:
+          success: "Schulungsanmeldung erfolgreich gespeichert"
+
+      destroy:
+        flash:
+          success: "Schulungsanmeldung erfolgreich gelöscht"
+          error: "Schulungsanmeldung konnte nicht gelöscht werden"

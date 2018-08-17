@@ -1,0 +1,7 @@
+.badge {
+  &.badge-light {
+    background-color: transparent;
+    border: 1px solid $gray-500;
+    color: $gray-700;
+  }
+}

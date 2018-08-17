@@ -1,0 +1,25 @@
+.table-responsive
+  table.table
+    thead
+      tr
+        th Vorname
+        th Nachname
+        th E-Mail
+        th Fachgebiet
+        th.table-actions
+    tbody
+      - registrations.each do |r|
+        tr
+          td = r.firstname
+          td = r.lastname
+          td = r.email
+          td = r.field_of_interest
+          td.table-actions
+            .btn-toolbar.justify-content-end.flex-nowrap
+              .btn-group
+                button.btn.btn-outline-primary.dropdown-toggle(type="button" data-toggle="dropdown")
+                  = icon("fas", "cogs")
+                .dropdown-menu.dropdown-menu-right
+                  = link_to edit_admin_training_course_registration_path(@training_course, r), class: "dropdown-item" do
+                    = icon("fas", "edit", class: "fa-fw")
+                    =< t("admin.application.btn_edit")

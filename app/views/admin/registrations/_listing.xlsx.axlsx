@@ -1,0 +1,45 @@
+#
+# Headers
+#
+
+# Static headers
+headers = [
+  "Anrede",
+  "Vorname",
+  "Nachname",
+  "E-Mail",
+  "Fachgebiet",
+  "Bemerkungen",
+  "Interne Bemerkungen"
+]
+
+# Add header row
+sheet.add_row(headers)
+
+#
+# Values
+#
+registrations.each do |r|
+  values = [
+    t("simple_form.options.defaults.salutation.#{r.salutation}"),
+    r.lastname,
+    r.firstname,
+    r.email,
+    r.field_of_interest,
+    r.notes,
+    r.internal_notes
+  ]
+
+  # Add values row
+  style = workbook.styles.add_style(alignment: {wrap_text: true, vertical: :top})
+  sheet.add_row(values, style: style, types: :string)
+end
+
+# Make the first row a header
+sheet.sheet_view.pane do |pane|
+  pane.top_left_cell = "A2"
+  pane.state = :frozen_split
+  pane.y_split = 1
+  pane.x_split = 0
+  pane.active_pane = :bottom_right
+end

@@ -1,0 +1,15 @@
+.container-fluid
+  .row.justify-content-center
+    .col-md-8
+      .card
+        h5.card-header = t(".header")
+        = simple_form_for [:admin, @category] do |f|
+          .card-body
+            = render "form_fields", form: f
+          .card-footer
+            .btn-toolbar.justify-content-between.flex-nowrap
+              div
+                = f.submit t("admin.application.btn_save"), class: "btn btn-primary"
+                =< link_to t("admin.application.btn_cancel"), admin_categories_path, class: "btn btn-secondary"
+              div
+                = link_to t("admin.application.btn_delete"), admin_category_path(@category), method: :delete, data: {confirm: t("admin.application.confirm_delete")}, class: "btn btn-danger"

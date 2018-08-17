@@ -1,0 +1,23 @@
+.container-fluid
+  .btn-toolbar.justify-content-end
+    = link_to new_admin_training_course_path, class: "btn btn-primary" do
+      = icon("fas", "plus")
+      =< t(".new_training_course")
+
+  ul.nav.nav-tabs
+    li.nav-item
+      a#upcoming-tab.nav-link.active(data-toggle="tab" href="#upcoming") Anstehende Schulungen
+    li.nav-item
+      a#past-tab.nav-link(data-toggle="tab" href="#past") Vergangene Schulungen
+  .tab-content.mt-3
+    #upcoming.tab-pane.fade.show.active
+      - if @upcoming_training_courses.present?
+        = render "listing", training_courses: @upcoming_training_courses
+      - else
+        .alert.alert-info = t(".no_training_courses")
+
+    #past.tab-pane.fade
+      - if @past_training_courses.present?
+        = render "listing", training_courses: @past_training_courses
+      - else
+        .alert.alert-info = t(".no_training_courses")

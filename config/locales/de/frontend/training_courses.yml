@@ -1,0 +1,34 @@
+de:
+  frontend:
+    training_courses:
+      defaults:
+        no_registration_required: "Keine Anmeldung erforderlich"
+        registration_required: "Anmeldung erforderlich"
+        full: "Ausgebucht"
+        time: "%{time} Uhr"
+        duration: "%{duration} Minuten"
+
+      index:
+        header: "Unsere nächsten Schulungstermine"
+        no_training_courses_available: "Aktuell sind keine Schulungstermine verfügbar"
+        no_training_courses_due_to_filter: "Keine Schulungstermine gefunden. Ändern Sie Ihre Suchanfrage oder setzen Sie den Suchfilter zurück."
+        filter_header: "Suchen & Filtern"
+
+      listing:
+        details: "Details anzeigen"
+
+      show:
+        register_now: "Jetzt anmelden"
+        no_registration_required_details: "Keine Anmeldung erforderlich. Um teilzunehmen kommen Sie am Termin einfach zum genannten Treffpunkt."
+        full_details: "Die Schulung ist leider ausgebucht. Bitte nutzen Sie einen anderen Schulungstermin."
+        registration: "Anmeldung"
+        questions: "Fragen?"
+        description: "Beschreibung"
+        target_audiences: "Zielgruppen"
+        learning_targets: "Lernziele"
+        categories: "Themen"
+        free_space_count:
+          one: "Noch %{count} freier Platz"
+          other: "Noch %{count} freie Plätze"
+        flash:
+          error: "Die Schulung die Sie aufgerufen haben, ist leider nicht verfügbar."

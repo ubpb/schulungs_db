@@ -1,0 +1,16 @@
+Hallo Schulungsteam!
+
+Es gab eine neue Anmeldung für eine Schulung.
+
+Schulung: <%= @training_course.title %>
+Termin: <%= l(@training_course.date) %>
+Zeit: <%= @training_course.time %> Uhr
+
+Folgende Person hat sich angemeldet:
+
+Anrede: <%=  t("simple_form.options.defaults.salutation.#{@registration.salutation}") %>
+Nachname: <%= @registration.lastname %>
+Vorname: <%= @registration.firstname %>
+E-Mail: <%= @registration.email %>
+Fachgebiet: <%= @registration.field_of_interest.presence || "–" %>
+Bemerkungen: <%= @registration.notes || "–" %>

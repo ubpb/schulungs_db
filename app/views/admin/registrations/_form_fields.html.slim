@@ -1,0 +1,12 @@
+.row
+  .col-md-3 = form.input :salutation, collection: Registration::SALUTATIONS, prompt: :translate
+.row
+  .col-md-6 = form.input :firstname
+  .col-md-6 = form.input :lastname
+.row
+  .col-md-6 = form.input :email
+.row
+  .col-md-6 = form.input :field_of_interest
+= form.input :notes
+hr.mt-4.mb-3
+= form.input :internal_notes

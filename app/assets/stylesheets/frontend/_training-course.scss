@@ -1,0 +1,15 @@
+ul.training-course-listing {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li.training-course-item {
+    margin-bottom: $spacer;
+    padding-bottom: $spacer;
+    border-bottom: 1px solid $gray-200;
+
+    .title {
+      font-size: $font-size-lg
+    }
+  }
+}
