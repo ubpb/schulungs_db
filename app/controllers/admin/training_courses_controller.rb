@@ -7,6 +7,7 @@ class Admin::TrainingCoursesController < Admin::ApplicationController
 
   def new
     @training_course = TrainingCourse.new
+    @training_course.date = Date.today
   end
 
   def create
