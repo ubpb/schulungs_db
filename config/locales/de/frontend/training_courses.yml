@@ -13,7 +13,6 @@ de:
         no_training_courses_available: "Aktuell sind keine Schulungstermine verfügbar"
         no_training_courses_due_to_filter_html: >
           Keine Schulungstermine gefunden. Ändern Sie Ihre Suchanfrage oder <a href="%{link}" class="alert-link">setzen Sie den Suchfilter zurück</a>.
-        filter_header: "Suchen & Filtern"
 
       listing:
         details: "Details anzeigen"
@@ -32,3 +31,8 @@ de:
           other: "Noch %{count} freie Plätze"
         flash:
           error: "Die Schulung die Sie aufgerufen haben, ist leider nicht verfügbar."
+
+      filter_card:
+        header: "Suchen & Filtern"
+        submit: "Suchen & Filtern"
+        reset: "Filter zurücksetzen"
