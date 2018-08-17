@@ -8,11 +8,11 @@
 
         - if @training_course.description.present?
           h5.mt-3 = t(".description")
-          .description = @training_course.description
+          .description == render_markdown(@training_course.description)
 
         - if @training_course.learning_targets.present?
           h5.mt-3 = t(".learning_targets")
-          .learning_targets = @training_course.learning_targets
+          .learning_targets == render_markdown(@training_course.learning_targets)
 
         - if @training_course.target_audiences.present?
           h5.mt-3 = t(".target_audiences")

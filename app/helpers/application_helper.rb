@@ -12,4 +12,8 @@ module ApplicationHelper
     end
   end
 
+  def render_markdown(s)
+    GitHub::Markup.render_s(GitHub::Markups::MARKUP_MARKDOWN, s)
+  end
+
 end
