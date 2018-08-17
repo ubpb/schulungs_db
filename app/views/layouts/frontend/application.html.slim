@@ -12,6 +12,7 @@ html
     title = @page_title.present? ? "UBPB Schulungen - #{@page_title}" : "UBPB Schulungen"
 
   body
+    = render "application/test_server_warning"
     = render "frontend/application/header"
     #page
       .container
