@@ -9,5 +9,5 @@ append :linked_files, "config/database.yml"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
 set :rvm_type, :user
-set :rvm_ruby_version, "default"
+set :rvm_ruby_version, "2.5.1"
 set :rails_env, "production"
