@@ -9,7 +9,7 @@
         li = link_to t("actions.#{_breadcrumb[:name]}"), _breadcrumb[:url]
   .dropdown
     = link_to "#", data: {toggle: "dropdown"} do
-      /span.mr-1 = "Menü"
+      span.mr-1 = "Menü"
       =< icon("fas", "bars", class: "fa-2x", style: "vertical-align: middle")
     .dropdown-menu.dropdown-menu-right.mt-2
       <a class="dropdown-item" href="#">Action</a>
