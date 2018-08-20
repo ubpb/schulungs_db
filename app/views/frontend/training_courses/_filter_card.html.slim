@@ -1,21 +1,20 @@
-- if @filter.present?
-  = simple_form_for @filter, as: :filter, url: frontend_training_courses_path, method: :get do |f|
-    .card.card-cutoff-corner.mb-4
-      .card-header
-        h5.card-title.mb-0 = t(".header")
-      .card-body
-        ruby:
-          target_audiences = TargetAudience.all
-          categories = Category.all
+= simple_form_for @filter, as: :filter, url: frontend_training_courses_path, method: :get do |f|
+  .card.card-cutoff-corner.mb-4
+    .card-header
+      h5.card-title.mb-0 = t(".header")
+    .card-body
+      ruby:
+        target_audiences = TargetAudience.all
+        categories = Category.all
 
-        = f.input :title
-        = f.input :date, as: :select, collection: @filter.class::DATE_FILTER
-        - if target_audiences.present?
-          = f.input :target_audiences, as: :check_boxes, collection: target_audiences
-        - if categories.present?
-          = f.input :categories, as: :check_boxes, collection: categories
-      .card-footer
-        = f.submit t(".submit"), class: "btn btn-secondary btn-block"
-        - if @filter.active?
-          .text-center.mt-1
-            = link_to t(".reset"), frontend_training_courses_path
+      = f.input :title
+      = f.input :date, as: :select, collection: @filter.class::DATE_FILTER
+      - if target_audiences.present?
+        = f.input :target_audiences, as: :check_boxes, collection: target_audiences
+      - if categories.present?
+        = f.input :categories, as: :check_boxes, collection: categories
+    .card-footer
+      = f.submit t(".submit"), class: "btn btn-secondary btn-block"
+      - if @filter.active?
+        .text-center.mt-1
+          = link_to t(".reset"), frontend_training_courses_path

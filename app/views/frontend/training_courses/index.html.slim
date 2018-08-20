@@ -12,5 +12,6 @@
           - else
             .alert.alert-danger.text-center.mb-0 = t(".no_training_courses_available")
   .col-lg-4
-    = render "filter_card"
+    - if @training_courses.present? || @filter.active?
+      = render "filter_card"
     = render "frontend/application/contact_help_card"
