@@ -19,8 +19,6 @@ Rails.application.routes.draw do
   end
 
   namespace :frontend, path: "/" do
-    #root to: redirect("/")
-
     resources :training_courses, path: "/", only: [:index, :show] do
       resources :registrations, only: [:new, :create]
     end
