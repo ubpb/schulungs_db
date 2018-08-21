@@ -11,5 +11,15 @@ ul.training-course-listing {
     .title {
       font-size: $font-size-lg
     }
+
+    .target-audiences,
+    .categories {
+      .badge {
+        display: inline;
+        line-height: 1.75rem;
+        white-space: normal;
+        margin-bottom: $spacer / 4;
+      }
+    }
   }
 }
