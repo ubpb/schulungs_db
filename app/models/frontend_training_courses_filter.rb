@@ -22,7 +22,7 @@ class FrontendTrainingCoursesFilter
   end
 
   def active?
-    self.date.present? || self.title.present? || self.target_audiences.present?
+    self.date.present? || self.title.present? || self.target_audiences.present? || self.categories.present?
   end
 
 private
