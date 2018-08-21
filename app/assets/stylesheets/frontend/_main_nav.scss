@@ -1,0 +1,9 @@
+.main-nav {
+  > a {
+    color: $upb-blue;
+    &:hover,
+    &:focus {
+      color: $primary;
+    }
+  }
+}
