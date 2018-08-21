@@ -32,6 +32,10 @@ de:
         max_no_of_participants: "0 => Keine Beschränkung"
         duration: "... in Minuten"
         time: "Format hh:mm"
+        description: >
+          Formatierungen mit <a href="https://www.markdownguide.org/basic-syntax" target="_blank">Markdown</a> möglich
+        learning_targets: >
+          Formatierungen mit <a href="https://www.markdownguide.org/basic-syntax" target="_blank">Markdown</a> möglich
       repetition:
         interval: "... in Tagen"
 
