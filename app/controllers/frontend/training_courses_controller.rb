@@ -5,10 +5,15 @@ class Frontend::TrainingCoursesController < Frontend::ApplicationController
 
     @training_courses = TrainingCourse.includes(:categories, :target_audiences).upcoming.published.order("date asc")
     @training_courses = @filter.filter(@training_courses)
+
+    add_breadcrumb(t("frontend.breadcrumbs.training_courses.index"), frontend_training_courses_path)
   end
 
   def show
     @training_course = TrainingCourse.published.find(params[:id])
+
+    add_breadcrumb(t("frontend.breadcrumbs.training_courses.index"), frontend_training_courses_path)
+    add_breadcrumb(t("frontend.breadcrumbs.training_courses.show", title: @training_course.title), frontend_training_course_path(@training_course))
   rescue ActiveRecord::RecordNotFound
     flash[:error] = t(".flash.error")
     redirect_to frontend_training_courses_path

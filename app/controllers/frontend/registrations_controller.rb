@@ -4,6 +4,8 @@ class Frontend::RegistrationsController < Frontend::ApplicationController
     @training_course = TrainingCourse.published.upcoming.find(params[:training_course_id])
     @registration = @training_course.registrations.build
 
+    set_breadcrumbs
+
     verify_training_course or return
   rescue ActiveRecord::RecordNotFound
     flash[:error] = t(".flash.error")
@@ -13,6 +15,8 @@ class Frontend::RegistrationsController < Frontend::ApplicationController
   def create
     @training_course = TrainingCourse.published.upcoming.find(params[:training_course_id])
     @registration = @training_course.registrations.build(registration_params)
+
+    set_breadcrumbs
 
     verify_training_course or return
 
@@ -27,6 +31,12 @@ class Frontend::RegistrationsController < Frontend::ApplicationController
   end
 
 private
+
+  def set_breadcrumbs
+    add_breadcrumb(t("frontend.breadcrumbs.training_courses.index"), frontend_training_courses_path)
+    add_breadcrumb(t("frontend.breadcrumbs.training_courses.show", title: @training_course.title), frontend_training_course_path(@training_course))
+    add_breadcrumb(t("frontend.breadcrumbs.registrations.new"), new_frontend_training_course_registration_path(@training_course))
+  end
 
   def verify_training_course
     unless @training_course.registration_required?
