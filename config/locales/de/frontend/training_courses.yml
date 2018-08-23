@@ -31,7 +31,7 @@ de:
         registration: "Anmeldung"
         description: "Beschreibung"
         target_audiences: "Zielgruppen"
-        learning_targets: "Lernziele"
+        learning_targets: "Lernergebnisse"
         categories: "Themen"
         free_space_count:
           one: "Noch %{count} freier Platz"
