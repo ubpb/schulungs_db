@@ -7,7 +7,7 @@
       - breadcrumbs.each do |b|
         li.breadcrumb-item = link_to b[:label], b[:url]
 
-  nav.main-nav.dropdown.align-self-end.mb-3.ml-2.text-nowrap
+  /nav.main-nav.dropdown.align-self-end.mb-3.ml-2.text-nowrap
     = link_to "#", data: {toggle: "dropdown"} do
       span.mr-1 = "Menü"
       =< icon("fas", "bars", class: "fa-2x", style: "vertical-align: middle")
