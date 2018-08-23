@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_23_072844) do
+ActiveRecord::Schema.define(version: 2018_08_23_130248) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2018_08_23_072844) do
     t.string "email"
     t.string "field_of_interest"
     t.text "internal_notes"
+    t.boolean "dsgvo_consent", default: false, null: false
     t.index ["training_course_id"], name: "index_registrations_on_training_course_id"
   end
 

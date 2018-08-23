@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   end
 
   namespace :frontend, path: "/" do
+    get "datenschutz", as: :privacy, to: redirect("https://www.ub.uni-paderborn.de/fileadmin/ub/Dokumente_Formulare/Datenschutzerklaerung-Schulungen.pdf")
+    get "impressum", as: :legal, to: redirect("https://www.ub.uni-paderborn.de/ueber-uns/impressum/")
+
     resources :training_courses, path: "/", only: [:index, :show] do
       resources :registrations, only: [:new, :create]
     end

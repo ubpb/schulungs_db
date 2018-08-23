@@ -1,14 +1,17 @@
 = simple_form_for [:frontend, @training_course, @registration] do |f|
   .row
-    .col-xl-4.col-md-6 = f.input :salutation, collection: Registration::SALUTATIONS, prompt: :translate
+    .col-xl-3.col-md-6 = f.input :salutation, collection: Registration::SALUTATIONS, prompt: :translate
   .row
     .col-xl-6 = f.input :firstname
     .col-xl-6 = f.input :lastname
   .row
-    .col-xl-6 = f.input :email
+    .col-12 = f.input :email
   .row
-    .col-xl-6 = f.input :field_of_interest
-  = f.input :notes
+    .col-12 = f.input :field_of_interest
+  .row
+    .col-12 = f.input :notes, input_html: {rows: 4}
+  .row
+    .col-12 = f.input :dsgvo_consent
 
   = f.submit "Jetzt anmelden", class: "btn btn-primary btn-lg"
   =< link_to "Abbrechen", frontend_training_course_path(@training_course), class: "btn btn-outline-secondary btn-lg"

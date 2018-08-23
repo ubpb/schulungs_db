@@ -10,6 +10,7 @@ class Registration < ApplicationRecord
   validates :firstname, presence: true
   validates :lastname, presence: true
   validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
+  validates :dsgvo_consent, acceptance: { accept: true }
 
   def fullname
     [firstname, lastname].map(&:presence).compact.join(" ")

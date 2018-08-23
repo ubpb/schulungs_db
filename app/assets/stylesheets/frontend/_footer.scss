@@ -4,6 +4,10 @@ footer {
   margin: 0;
   margin-bottom: $spacer;
 
+  a {
+    color: $white;
+  }
+
   .footer-claim {
     font-size: $font-size-sm;
     background-color: $white;

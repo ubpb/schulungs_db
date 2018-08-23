@@ -53,7 +53,9 @@ private
   end
 
   def registration_params
-    params.require(:registration).permit(:salutation, :firstname, :lastname, :email, :field_of_interest, :notes)
+    params.require(:registration).permit(
+      :salutation, :firstname, :lastname, :email, :field_of_interest, :notes, :dsgvo_consent
+    )
   end
 
 end

@@ -5,6 +5,10 @@ footer
   .container
     .footer-content
       = "© #{Date.today.year} Universitätsbibliothek Paderborn"
+      =<> "|"
+      = link_to "Impressum", frontend_legal_path
+      =<> "|"
+      = link_to "Datenschutzerklärung", frontend_privacy_path
     .footer-image
       .d-none.d-sm-block
         = image_tag "//www.ub.uni-paderborn.de/typo3conf/ext/upb/Resources/Public/Files/gfx/desktop/bild_footer.png", class: "img-fluid"
