@@ -38,7 +38,7 @@ private
 
   def filter_title(arel)
     if self.title.present?
-      arel.where("title like ?", "%#{self.title.gsub("%", "")}%")
+      arel.where("training_courses.title like ?", "%#{self.title.gsub("%", "")}%")
     else
       arel
     end
