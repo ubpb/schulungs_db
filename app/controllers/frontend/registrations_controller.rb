@@ -21,7 +21,7 @@ class Frontend::RegistrationsController < Frontend::ApplicationController
     verify_training_course or return
 
     if @registration.save
-      flash[:success] = "Anmeldung erfolgreich gespeichert."
+      flash[:success] = t(".flash.success", email: @registration.email)
       Mailers::RegistrationsMailer.registration_confirmation(@registration).deliver
       Mailers::RegistrationsMailer.registration_notification(@registration).deliver
       redirect_to frontend_training_courses_path
