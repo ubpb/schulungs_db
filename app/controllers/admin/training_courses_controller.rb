@@ -79,7 +79,7 @@ private
     params.require(:training_course).permit(
       :title, :location, :date, :time, :published, :description,
       :registration_required, :max_no_of_participants, :duration,
-      :learning_targets,
+      :learning_targets, :number_of_participants,
       category_ids: [],
       target_audience_ids: []
     )
