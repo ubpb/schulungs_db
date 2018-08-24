@@ -15,7 +15,7 @@ de:
           Keine Schulungstermine gefunden. Ändern Sie Ihre Suchanfrage oder <a href="%{link}" class="alert-link">setzen Sie den Suchfilter zurück</a>.
         additional_info_html: >
           <i class="fas fa-info-circle"></i> Hier finden Sie unsere aktuellen Schulungstermine. Darüberhinaus bieten wir auch
-          individuelle Schulungen (z.B. für Schulklassen, Gruppen ab 5 Personen) auf Anfrage an. Information dazu erhalten Sie auf unserer
+          individuelle Schulungen (z.B. für Schulklassen, Gruppen ab 5 Personen) auf Anfrage an. Informationen dazu erhalten Sie auf unserer
           <a href="https://www.ub.uni-paderborn.de/unterstuetzung/schulungen/" target="_blank">Webseite</a>.
         filter_active_html: >
           <i class="fas fa-filter"></i> Der Suchfilter ist aktiv. Es wird eine Auswahl der Termine angezeigt.
