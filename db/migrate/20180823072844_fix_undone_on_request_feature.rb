@@ -4,5 +4,7 @@ class FixUndoneOnRequestFeature < ActiveRecord::Migration[5.2]
     change_column_null :training_courses, :location, false
     change_column_null :training_courses, :date, false
     remove_column :training_courses, :on_request
+  rescue
+    # Ignore
   end
 end
