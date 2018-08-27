@@ -4,7 +4,8 @@
       .card-header
         h5.card-title.mb-0 = t(".header")
       .card-body
-        p = t(".additional_info_html")
+        - unless @filter.active?
+          p = t(".additional_info_html")
 
         - if @training_courses.present?
           - if @filter.active?
