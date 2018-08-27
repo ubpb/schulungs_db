@@ -7,7 +7,7 @@ html
     meta(name="msapplication-config" content="none")
     = csrf_meta_tags
     = stylesheet_link_tag("frontend/application", media: "all", "data-turbolinks-track" => true)
-    = javascript_include_tag("frontend/application", "data-turbolinks-track" => true)
+    = javascript_include_tag("frontend/application", defer: true, "data-turbolinks-track" => true)
     = render "application/favicons"
     title = page_title.present? ? "UBPB Schulungen - #{@page_title}" : "UBPB Schulungen"
 
