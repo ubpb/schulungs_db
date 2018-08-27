@@ -3,10 +3,8 @@
     .card.card-cutoff-corner.card-primary.mb-4
       .card-header
         h5.card-title.mb-0 = t(".header")
+        .font-italic.mt-2 = t(".additional_info_html")
       .card-body
-        - unless @filter.active?
-          p = t(".additional_info_html")
-
         - if @training_courses.present?
           - if @filter.active?
             .alert.alert-info.text-center = t(".filter_active_html", link: frontend_training_courses_path)

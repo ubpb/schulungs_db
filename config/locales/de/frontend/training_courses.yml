@@ -9,14 +9,13 @@ de:
         duration: "%{duration} Minuten"
 
       index:
-        header: "Unsere nächsten Schulungstermine"
-        no_training_courses_available: "Aktuell sind keine Schulungstermine verfügbar"
+        header: "Unsere aktuellen Schulungstermine"
+        no_training_courses_available: "Im Moment sind keine Schulungstermine verfügbar"
         no_training_courses_due_to_filter_html: >
           Keine Schulungstermine gefunden. Ändern Sie Ihre Suchanfrage oder <a href="%{link}" class="alert-link">setzen Sie den Suchfilter zurück</a>.
         additional_info_html: >
-          <i class="fas fa-info-circle"></i> Hier finden Sie unsere aktuellen Schulungstermine. Darüberhinaus bieten wir auch
-          individuelle Schulungen für Gruppen ab fünf Personen auf Anfrage an. Informationen dazu erhalten Sie auf unserer
-          <a href="https://www.ub.uni-paderborn.de/unterstuetzung/schulungen/" target="_blank">Webseite</a>.
+          Für Gruppen ab fünf Personen bieten wir individuelle Schulungen auf Anfrage an.
+          Informationen dazu erhalten Sie auf unserer <a href="https://www.ub.uni-paderborn.de/unterstuetzung/schulungen/" target="_blank">Webseite</a>.
         filter_active_html: >
           <i class="fas fa-filter"></i> Der Suchfilter ist aktiv. Es wird eine Auswahl der Termine angezeigt.
           <a href="%{link}" class="alert-link">Setzen Sie den Suchfilter zurück</a> um alle Termine zu sehen.
