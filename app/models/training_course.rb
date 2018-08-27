@@ -12,7 +12,7 @@ class TrainingCourse < ApplicationRecord
   validates :location, presence: true
   validates :max_no_of_participants, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :duration, presence: true, numericality: { greater_than_or_equal_to: 1 }
-  validates :number_of_participants, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :number_of_participants, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
 
   # Scopes
   scope :published, -> { where(published: true) }
