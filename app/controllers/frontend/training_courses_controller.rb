@@ -7,6 +7,8 @@ class Frontend::TrainingCoursesController < Frontend::ApplicationController
     @training_courses = @filter.filter(@training_courses)
 
     add_breadcrumb(t("frontend.breadcrumbs.training_courses.index"), frontend_training_courses_path)
+
+    set_page_title(t("frontend.page_titles.training_courses.index"))
   end
 
   def show
@@ -14,6 +16,11 @@ class Frontend::TrainingCoursesController < Frontend::ApplicationController
 
     add_breadcrumb(t("frontend.breadcrumbs.training_courses.index"), frontend_training_courses_path)
     add_breadcrumb(t("frontend.breadcrumbs.training_courses.show", title: @training_course.title), frontend_training_course_path(@training_course))
+
+    set_page_title(t("frontend.page_titles.training_courses.show",
+      title: @training_course.title,
+      date: I18n::l(@training_course.date),
+      time: @training_course.time))
   rescue ActiveRecord::RecordNotFound
     flash[:error] = t(".flash.error")
     redirect_to frontend_training_courses_path

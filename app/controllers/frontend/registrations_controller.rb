@@ -6,6 +6,8 @@ class Frontend::RegistrationsController < Frontend::ApplicationController
 
     set_breadcrumbs
 
+    set_page_title(t("frontend.page_titles.registrations.new"))
+
     verify_training_course or return
   rescue ActiveRecord::RecordNotFound
     flash[:error] = t(".flash.error")

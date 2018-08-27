@@ -9,7 +9,7 @@ html
     = stylesheet_link_tag("frontend/application", media: "all", "data-turbolinks-track" => true)
     = javascript_include_tag("frontend/application", "data-turbolinks-track" => true)
     = render "application/favicons"
-    title = @page_title.present? ? "UBPB Schulungen - #{@page_title}" : "UBPB Schulungen"
+    title = page_title.present? ? "UBPB Schulungen - #{@page_title}" : "UBPB Schulungen"
 
   body
     = render "application/test_server_warning"

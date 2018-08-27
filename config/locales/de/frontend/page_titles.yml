@@ -1,0 +1,8 @@
+de:
+  frontend:
+    page_titles:
+      training_courses:
+        index: "Termine"
+        show: "Termin: %{title}, %{date}, %{time} Uhr"
+      registrations:
+        new: "Anmelden"
