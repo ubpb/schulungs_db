@@ -13,4 +13,4 @@ Nachname: <%= @registration.lastname %>
 Vorname: <%= @registration.firstname %>
 E-Mail: <%= @registration.email %>
 Fachgebiet: <%= @registration.field_of_interest.presence || "–" %>
-Bemerkungen: <%= @registration.notes || "–" %>
+Bemerkungen: <%= @registration.notes.presence || "–" %>

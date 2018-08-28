@@ -1,10 +1,6 @@
-<% if @registration.salutation == "herr" %>
-<%= "Sehr geehrter Herr #{@registration.lastname}," %>
-<% else %>
-<%= "Sehr geehrte Frau #{@registration.lastname}," %>
-<% end %>
+<%= render "mailers/application/salutation" -%>
 
-Sie haben Sich für die Schlungsveranstaltung "<%= @training_course.title %>" angemeldet. Wir möchten Sie hiermit darüber Informieren, dass sich der Termin der Veranstaltung geändert hat.
+Sie haben sich für die Schlungsveranstaltung "<%= @training_course.title %>" angemeldet. Wir möchten Sie hiermit darüber informieren, dass sich Daten der Veranstaltung geändert haben.
 
 Es gab folgende Änderungen:
 
@@ -20,8 +16,6 @@ Treffpunkt => Bisher: <%= v[0] %>, NEU: <%= v[1] %>
 <% end %>
 <% end %>
 
-Sollten Sie Fragen haben, oder auf Grund der Änderung nicht mehr teilnehmen, können Sie uns kontaktieren indem einfach auf diese E-Mail antworten.
+Sollten Sie Fragen haben oder auf Grund der Änderung nicht mehr teilnehmen können, können Sie uns kontaktieren indem, einfach auf diese E-Mail antworten.
 
-Viele Grüße,
-
-Ihr UB Paderborn Schulungsteam
+<%= render "mailers/application/footer" -%>
