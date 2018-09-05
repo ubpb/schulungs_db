@@ -20,10 +20,10 @@ gem "slim",              "~> 3.0"
 gem "turbolinks",        "~> 5"
 gem "uglifier",          ">= 1.3.0"
 
-# For pending axlsx release we use the latest master to fix a ruby-zip vuln.
-gem "rubyzip", ">= 1.2.1"
-gem "axlsx", git: "https://github.com/randym/axlsx.git", ref: "c8ac844"
-gem "axlsx_rails"
+# For pending axlsx release we pin the latest 3.0.0 pre-release to fix a ruby-zip vuln.
+gem "rubyzip",     ">= 1.2.1"
+gem "axlsx",       "3.0.0.pre" #git: "https://github.com/randym/axlsx.git", ref: "c8ac844"
+gem "axlsx_rails", "0.5.2"
 
 gem "bootsnap", ">= 1.1.0", require: false
 
