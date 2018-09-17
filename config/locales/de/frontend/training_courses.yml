@@ -2,7 +2,7 @@ de:
   frontend:
     training_courses:
       defaults:
-        no_registration_required: "Keine Anmeldung erforderlich"
+        no_registration_required: "Anmeldung nicht erforderlich"
         registration_required: "Anmeldung erforderlich"
         full: "Ausgebucht"
         time: "%{time} Uhr"
@@ -25,7 +25,7 @@ de:
 
       show:
         register_now: "Jetzt anmelden"
-        no_registration_required_details: "Keine Anmeldung erforderlich. Um teilzunehmen kommen Sie am Termin einfach zum genannten Treffpunkt."
+        no_registration_required_details: "Anmeldung nicht erforderlich. Um teilzunehmen kommen Sie am Termin einfach zum genannten Treffpunkt."
         full_details: "Die Schulung ist leider ausgebucht. Bitte nutzen Sie einen anderen Schulungstermin."
         registration: "Anmeldung"
         description: "Beschreibung"
