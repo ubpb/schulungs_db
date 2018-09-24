@@ -2,6 +2,7 @@ de:
   admin:
     application:
       btn_save: "Speichern"
+      btn_save_and_edit: "Speichern und weiter bearbeiten"
       btn_cancel: "Abbrechen"
       btn_delete: "Löschen"
       btn_edit: "Bearbeiten"

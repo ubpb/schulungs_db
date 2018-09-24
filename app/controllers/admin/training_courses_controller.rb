@@ -39,7 +39,12 @@ class Admin::TrainingCoursesController < Admin::ApplicationController
       @training_course.save
 
       flash[:success] = t(".flash.success")
-      redirect_to(admin_training_courses_path)
+
+      if params[:submit_and_edit].present?
+        redirect_to edit_admin_training_course_path(@training_course)
+      else
+        redirect_to admin_training_courses_path
+      end
     else
       render(:edit)
     end

@@ -10,6 +10,7 @@
             .btn-toolbar.justify-content-between.flex-nowrap
               div
                 = f.submit t("admin.application.btn_save"), class: "btn btn-primary"
+                =< f.submit t("admin.application.btn_save_and_edit"), class: "btn btn-outline-primary", name: :submit_and_edit
                 =< link_to t("admin.application.btn_cancel"), admin_training_courses_path, class: "btn btn-secondary"
               div
                 = link_to t("admin.application.btn_delete"), admin_training_course_path(@training_course), method: :delete, data: {confirm: t("admin.application.confirm_delete")}, class: "btn btn-danger"
