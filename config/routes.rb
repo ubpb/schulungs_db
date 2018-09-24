@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :admin, path: "/admin" do
     root to: redirect("/admin/schulungen")
 
-    resources :training_courses, path: "schulungen" do
+    resources :training_courses, path: "schulungen", except: [:show] do
       resources :registrations, only: [:index, :edit, :update, :destroy]
       resources :repetitions, only: [:new, :create]
 
