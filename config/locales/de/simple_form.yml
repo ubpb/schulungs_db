@@ -36,6 +36,8 @@ de:
           Formatierungen mit <a href="https://www.markdownguide.org/basic-syntax" target="_blank">Markdown</a> möglich
         learning_targets: >
           Formatierungen mit <a href="https://www.markdownguide.org/basic-syntax" target="_blank">Markdown</a> möglich
+        number_of_participants: >
+          Wieviele Teilnehmer haben an der Veranstaltung teilgenommen?
       registration:
         dsgvo_consent: >
           Ich willige hiermit ein (Art. 6 Abs. 1 lit. a DSGVO), dass meine übermittelten persönlichen Daten verarbeitet und
