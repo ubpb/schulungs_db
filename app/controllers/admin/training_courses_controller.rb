@@ -2,7 +2,7 @@ class Admin::TrainingCoursesController < Admin::ApplicationController
 
   def index
     @upcoming_training_courses = TrainingCourse.upcoming.includes(:registrations).order("date asc")
-    @past_training_courses = TrainingCourse.past.includes(:registrations).order("date asc")
+    @past_training_courses = TrainingCourse.past.includes(:registrations).order("date desc")
   end
 
   def new
