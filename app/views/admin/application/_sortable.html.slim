@@ -1,0 +1,16 @@
+javascript:
+  var el = document.getElementById("#{element}");
+  var sortable = Sortable.create(el, {
+    handle: ".sort-handle",
+    onUpdate: function(e) {
+      var sortResult = $(e.to).find("li").map(function() {
+        return $(this).data("sort-id")
+      }).get();
+
+      $.ajax({
+        url: $(e.to).data("reorder-url"),
+        data: {new_order: sortResult},
+        method: "PATCH"
+      });
+    }
+  });

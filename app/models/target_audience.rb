@@ -6,4 +6,7 @@ class TargetAudience < ApplicationRecord
   # Validations
   validates :title, presence: true
 
+  # List support
+  acts_as_list
+
 end

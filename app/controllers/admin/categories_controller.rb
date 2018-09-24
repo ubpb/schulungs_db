@@ -1,7 +1,7 @@
 class Admin::CategoriesController < Admin::ApplicationController
 
   def index
-    @categories = Category.order("title")
+    @categories = Category.order("position")
   end
 
   def new
@@ -11,7 +11,7 @@ class Admin::CategoriesController < Admin::ApplicationController
   def create
     @category = Category.new(category_params)
 
-    if @category.save
+    if @category.save && @category.move_to_bottom
       flash[:success] = t(".flash.success")
       redirect_to(admin_categories_path)
     else
@@ -44,6 +44,16 @@ class Admin::CategoriesController < Admin::ApplicationController
     end
 
     redirect_to(admin_categories_path)
+  end
+
+  def reorder
+    categories = Category.find(params[:new_order])
+
+    categories.each.with_index(1) do |category, index|
+      category.update_column :position, index
+    end
+
+    head :ok
   end
 
 private

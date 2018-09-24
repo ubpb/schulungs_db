@@ -13,9 +13,13 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :categories, path: "themen"
+    resources :categories, path: "themen" do
+      patch :reorder, on: :collection
+    end
 
-    resources :target_audiences, path: "zielgruppen"
+    resources :target_audiences, path: "zielgruppen" do
+      patch :reorder, on: :collection
+    end
   end
 
   namespace :frontend, path: "/" do

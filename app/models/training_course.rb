@@ -2,8 +2,8 @@ class TrainingCourse < ApplicationRecord
 
   # Realations
   has_many :registrations, dependent: :destroy
-  has_and_belongs_to_many :categories, -> { order("title") }
-  has_and_belongs_to_many :target_audiences, -> { order("title") }
+  has_and_belongs_to_many :categories, -> { order("position") }
+  has_and_belongs_to_many :target_audiences, -> { order("position") }
 
   # Validations
   validates :title, presence: true

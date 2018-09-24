@@ -4,8 +4,8 @@
       h5.card-title.mb-0 = t(".header")
     .card-body
       ruby:
-        target_audiences = TargetAudience.all
-        categories = Category.all
+        target_audiences = TargetAudience.all.order("position")
+        categories = Category.all.order("position")
 
       = f.input :title
       = f.input :date, as: :select, collection: @filter.class::DATE_FILTER

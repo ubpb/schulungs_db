@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem "acts_as_list",      "~> 0.9.16"
 gem "bcrypt",            "~> 3.1.7"
 gem "bootstrap",         "~> 4.1"
 gem "commonmarker",      "~> 0.17"
