@@ -21,6 +21,7 @@ de:
         number_of_participants: "Anzahl Teilnehmer"
         published: "Öffentlich sichtbar"
         registration_required: "Anmeldung erforderlich"
+        reminder_message: "E-Mail Erinnerung"
         salutation: "Anrede"
         start_date: "Erster Termin"
         target_audiences: "Zielgruppen"
@@ -38,6 +39,9 @@ de:
           Formatierungen mit <a href="https://www.markdownguide.org/basic-syntax" target="_blank">Markdown</a> möglich
         number_of_participants: >
           Wieviele Teilnehmer haben an der Veranstaltung teilgenommen?
+        reminder_message: >
+          Mailvorlage für den Versand einer Erinnerungsmail an die angemeldeten Teilnehmer der Veranstaltung. Der Text
+          kann vor dem Versenden noch angepasst werden.
       registration:
         dsgvo_consent: >
           Ich willige hiermit ein (Art. 6 Abs. 1 lit. a DSGVO), dass meine übermittelten persönlichen Daten verarbeitet und
@@ -46,6 +50,8 @@ de:
           habe ich gelesen. Das Recht des Widerrufs ist mir bekannt.
       repetition:
         interval: "... in Tagen"
+
+
 
     options:
       defaults:

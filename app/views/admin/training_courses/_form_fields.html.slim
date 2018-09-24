@@ -36,6 +36,11 @@ hr.mt-0.mb-4
 
 h6.mt-4 Adminstrative Angaben
 hr.mt-0.mb-4
+
+.row
+  .col-12
+    = form.input :reminder_message, input_html: {rows: 8}
+
 .row
   .col-4
     = form.input :number_of_participants, as: :integer
