@@ -6,6 +6,7 @@
         th Nachname
         th E-Mail
         th Fachgebiet
+        th Erinnerungsmail gesendet?
         th.table-actions
     tbody
       - registrations.each do |r|
@@ -14,6 +15,7 @@
           td = r.lastname
           td = r.email
           td = r.field_of_interest
+          td = r.sent_reminder_message_at.present? ? icon("fas", "check") : icon("fas", "minus")
           td.table-actions
             .btn-toolbar.justify-content-end.flex-nowrap
               .btn-group
