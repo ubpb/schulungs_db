@@ -23,8 +23,8 @@ ul.training-course-listing
               =< t("frontend.training_courses.defaults.registration_required")
 
           - if tc.target_audiences.present?
-            .target-audiences.mt-1
-              = icon("fas", "bullseye", class: "fa-fw")
+            .target-audiences.mt-1(style="margin-left: 1.6em")
+              = icon("fas", "bullseye", class: "fa-fw", style: "margin-left: -1.6em")
               - tc.target_audiences.each do |ta|
                 .badge.badge-light =< ta.title
 
