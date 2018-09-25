@@ -4,7 +4,8 @@
       .card-header
         h5.card-title.mb-0 = @training_course.title
       .card-body
-        = render "frontend/training_courses/details", training_course: @training_course
+        .alert.alert-info
+          = render "frontend/training_courses/details", training_course: @training_course
 
         - if @training_course.description.present?
           h5.mt-3 = t(".description")
