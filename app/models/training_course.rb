@@ -16,16 +16,16 @@ class TrainingCourse < ApplicationRecord
 
   # Scopes
   scope :published, -> { where(published: true) }
-  scope :upcoming,  -> { where("date >= ?", Time.zone.now) }
-  scope :past,      -> { where("date < ?", Time.zone.now) }
+  scope :upcoming,  -> { where("date >= ?", Date.today) }
+  scope :past,      -> { where("date < ?", Date.today) }
 
 
   def upcoming?
-    date >= Time.zone.now
+    date >= Date.today
   end
 
   def past?
-    date < Time.zone.now
+    date < Date.today
   end
 
   def limited?
