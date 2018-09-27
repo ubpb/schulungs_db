@@ -12,34 +12,3 @@ de:
         training_courses: "Schulungen"
         categories: "Themen"
         target_audiences: "Zielgruppen"
-
-    datetime:
-      distance_in_words:
-        date_only:
-          about_x_hours: "Heute"
-          about_x_months:
-            one: etwa ein Monat
-            other: etwa %{count} Monate
-          about_x_years:
-            one: etwa ein Jahr
-            other: etwa %{count} Jahre
-          almost_x_years:
-            one: fast ein Jahr
-            other: fast %{count} Jahre
-          half_a_minute: "Heute"
-          less_than_x_minutes: "Heute"
-          less_than_x_seconds: "Heute"
-          over_x_years:
-            one: mehr als ein Jahr
-            other: mehr als %{count} Jahre
-          x_days:
-            one: ein Tag
-            other: "%{count} Tage"
-          x_minutes: "Heute"
-          x_months:
-            one: ein Monat
-            other: "%{count} Monate"
-          x_years:
-            one: ein Jahr
-            other: "%{count} Jahr"
-          x_seconds: "Heute"
