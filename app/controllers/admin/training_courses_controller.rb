@@ -78,6 +78,20 @@ class Admin::TrainingCoursesController < Admin::ApplicationController
     redirect_to(admin_training_courses_path)
   end
 
+  def preview_reminder_message
+    training_course = TrainingCourse.find(params[:id])
+    dummy_registration = Registration.new(
+      salutation: "frau",
+      firstname: "Claudia",
+      lastname: "Kroner",
+      email: "schulungen@ub.uni-paderborn.de"
+    )
+
+    mail = Mailers::TrainingCoursesMailer.reminder_message(training_course, dummy_registration)
+
+    render plain: mail.body.to_s, layout: false
+  end
+
 private
 
   def training_course_params

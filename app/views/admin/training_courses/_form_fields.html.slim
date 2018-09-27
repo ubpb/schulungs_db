@@ -38,9 +38,20 @@ h6.mt-4 Adminstrative Angaben
 hr.mt-0.mb-4
 
 .row
-  .col-12
-    = form.input :reminder_message, input_html: {rows: 8}
-
-.row
   .col-4
     = form.input :number_of_participants, as: :integer
+
+.row
+  .col-12
+    = form.input :reminder_message, input_html: {rows: 8}
+    - unless @training_course.new_record?
+      pre
+        #training_course_reminder_message_preview(data-url=preview_reminder_message_admin_training_course_path(@training_course))
+
+      javascript:
+        $(function() {
+          var url = $("#training_course_reminder_message_preview").data("url");
+          $.get(url, function(result) {
+            $("#training_course_reminder_message_preview").html(result);
+          });
+        });

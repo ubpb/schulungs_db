@@ -11,6 +11,10 @@ Rails.application.routes.draw do
       collection do
         patch :batch_update, path: "batch-update"
       end
+
+      member do
+        get :preview_reminder_message, path: "preview-reminder-message"
+      end
     end
 
     resources :categories, path: "themen" do
