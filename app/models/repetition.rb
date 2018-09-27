@@ -35,6 +35,7 @@ private
     new_training_course.categories = training_course.categories
     new_training_course.target_audiences = training_course.target_audiences
     new_training_course.date = new_date if new_date.present?
+    new_training_course.number_of_participants = nil
     new_training_course.save!
   end
 
