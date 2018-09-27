@@ -6,7 +6,8 @@
 
     .row
       .col-lg-4.col-xl-3
-        .mb-3 = render "frontend/training_courses/details", training_course: @training_course
+        .alert.alert-info
+          = render "frontend/training_courses/details", training_course: @training_course
       .col-lg-8.col-xl-9
         = render "form"
 
