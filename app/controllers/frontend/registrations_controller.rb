@@ -28,8 +28,10 @@ class Frontend::RegistrationsController < Frontend::ApplicationController
       Mailers::RegistrationsMailer.registration_notification(@registration).deliver
 
       if @training_course.date == Date.today
-        Mailers::TrainingCoursesMailer.reminder_message(@training_course, @registration).deliver
-        @registration.update_column(:sent_reminder_message_at, Time.zone.now)
+        if @registration.sent_reminder_message_at.blank?
+          Mailers::TrainingCoursesMailer.reminder_message(@training_course, @registration).deliver
+          @registration.update_column(:sent_reminder_message_at, Time.zone.now)
+        end
       end
 
       redirect_to frontend_training_courses_path
