@@ -40,8 +40,10 @@ de:
         number_of_participants: >
           Wieviele Teilnehmer haben an der Veranstaltung teilgenommen?
         reminder_message: >
-          Mailvorlage für den Versand einer Erinnerungsmail an die angemeldeten Teilnehmer der Veranstaltung. Der Text
-          kann vor dem Versenden noch angepasst werden.
+          Mailvorlage für den Versand einer Erinnerungsmail an die angemeldeten Teilnehmer der Veranstaltung. Sie können
+          <code>###ANREDE###</code>, <code>###DATUM###</code>, <code>###UHRZEIT###</code>, <code>###DAUER###</code>
+          und <code>###TREFFPUNKT###</code> in der Nachricht als Platzhalter verwenden. Die Nachricht wird automatisch
+          an die Teilnehmer versendet.
       registration:
         dsgvo_consent: >
           Ich willige hiermit ein (Art. 6 Abs. 1 lit. a DSGVO), dass meine übermittelten persönlichen Daten verarbeitet und
