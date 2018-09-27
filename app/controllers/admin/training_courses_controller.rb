@@ -29,10 +29,12 @@ class Admin::TrainingCoursesController < Admin::ApplicationController
     @training_course = TrainingCourse.includes(:registrations).find(params[:id])
     @training_course.assign_attributes(training_course_params)
 
-    if @training_course.valid? && @training_course.upcoming?
-      if @training_course.date_changed? || @training_course.time_changed? || @training_course.location_changed?
-        @training_course.registrations.each do |registration|
-          Mailers::TrainingCoursesMailer.data_changed_notification(@training_course, registration).deliver
+    if @training_course.valid?
+      if @training_course.upcoming?
+        if @training_course.date_changed? || @training_course.time_changed? || @training_course.location_changed?
+          @training_course.registrations.each do |registration|
+            Mailers::TrainingCoursesMailer.data_changed_notification(@training_course, registration).deliver
+          end
         end
       end
 
