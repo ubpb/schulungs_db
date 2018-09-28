@@ -1,4 +1,6 @@
 .badge {
+  vertical-align: middle;
+
   &.badge-light {
     background-color: transparent;
     border: 1px solid $gray-500;
