@@ -19,7 +19,7 @@
             td
               = l(tc.date, format: "%d.%m.%Y")
               - if tc.upcoming?
-                div.small = distance_of_time_in_words_to_now(tc.date, scope: "datetime.distance_in_words.date_only")
+                div.small = date_in_words(tc.date)
             td = tc.time
             td.text-center = tc.published? ? icon("fas", "check") : ""
             td.text-center = tc.registration_required? ? icon("fas", "check") : ""

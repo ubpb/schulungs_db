@@ -5,6 +5,9 @@ de:
         !!! TESTSYSTEM !!!
 
   datetime:
+    today: "Heute"
+    tomorrow: "Morgen"
+    day_after_tomorrow: "Übermorgen"
     distance_in_words:
       date_only:
         about_x_hours: "Heute"

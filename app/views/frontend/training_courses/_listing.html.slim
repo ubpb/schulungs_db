@@ -11,7 +11,7 @@ ul.training-course-listing
           .date
             = icon("fas", "calendar-alt", class: "fa-fw")
             =< l(tc.date)
-            span.badge.badge-info =< distance_of_time_in_words_to_now(tc.date, scope: "datetime.distance_in_words.date_only")
+            span.badge.badge-info =< date_in_words(tc.date)
 
           .time
             = icon("far", "clock", class: "fa-fw")

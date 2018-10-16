@@ -1,7 +1,7 @@
 .date
   = icon("fas", "calendar-alt", class: "fa-fw")
   =< l(training_course.date)
-  span.badge.badge-info =< distance_of_time_in_words_to_now(training_course.date, scope: "datetime.distance_in_words.date_only")
+  span.badge.badge-info =< date_in_words(training_course.date)
 
 .time
   = icon("far", "clock", class: "fa-fw")
