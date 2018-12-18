@@ -1,7 +1,7 @@
-class TargetAudience < ApplicationRecord
+class Institution < ApplicationRecord
 
   # Relations
-  has_and_belongs_to_many :training_courses
+  has_and_belongs_to_many :registrations
 
   # Validations
   validates :title, presence: true, uniqueness: true

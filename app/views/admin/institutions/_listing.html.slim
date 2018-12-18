@@ -1,0 +1,13 @@
+ul#sortable.list-group.list-group-flush(data-reorder-url=reorder_admin_institutions_path)
+  - institutions.each do |i|
+    li.list-group-item(data-sort-id=i.id)
+      .d-flex.w-100.justify-content-between.align-items-center
+        div
+          = icon("fas", "bars", class: "fa-lg sort-handle")
+          strong =< i.title
+        .btn-toolbar.justify-content-end.flex-nowrap
+          div
+            = link_to edit_admin_institution_path(i), class: "btn btn-outline-primary" do
+              = icon("fas", "pencil-alt")
+
+= render "admin/application/sortable", element: "sortable"

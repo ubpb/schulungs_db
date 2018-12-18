@@ -6,7 +6,9 @@
 .row
   .col-md-6 = form.input :email
 .row
-  .col-md-6 = form.input :field_of_interest
+  .col-12 = form.input :field_of_interest
+.row
+  .col-12 = form.association :institutions, as: :check_boxes, required: true
 = form.input :notes
 hr.mt-4.mb-3
 = form.input :internal_notes

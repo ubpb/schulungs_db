@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_25_114121) do
+ActiveRecord::Schema.define(version: 2018_12_18_144459) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -24,6 +24,21 @@ ActiveRecord::Schema.define(version: 2018_09_25_114121) do
     t.bigint "training_course_id"
     t.index ["category_id"], name: "index_categories_training_courses_on_category_id"
     t.index ["training_course_id"], name: "index_categories_training_courses_on_training_course_id"
+  end
+
+  create_table "institutions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.integer "position", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["position"], name: "index_institutions_on_position"
+  end
+
+  create_table "institutions_registrations", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "institution_id"
+    t.bigint "registration_id"
+    t.index ["institution_id"], name: "index_institutions_registrations_on_institution_id"
+    t.index ["registration_id"], name: "index_institutions_registrations_on_registration_id"
   end
 
   create_table "registrations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -67,12 +82,16 @@ ActiveRecord::Schema.define(version: 2018_09_25_114121) do
     t.string "time"
     t.integer "number_of_participants"
     t.text "reminder_message"
+    t.boolean "enable_institutions_for_registrations", default: false, null: false
+    t.boolean "enable_field_of_interest_for_registrations", default: true, null: false
     t.index ["date"], name: "index_training_courses_on_date"
     t.index ["published"], name: "index_training_courses_on_published"
   end
 
   add_foreign_key "categories_training_courses", "categories"
   add_foreign_key "categories_training_courses", "training_courses"
+  add_foreign_key "institutions_registrations", "institutions"
+  add_foreign_key "institutions_registrations", "registrations"
   add_foreign_key "registrations", "training_courses"
   add_foreign_key "target_audiences_training_courses", "target_audiences"
   add_foreign_key "target_audiences_training_courses", "training_courses"

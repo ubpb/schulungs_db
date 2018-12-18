@@ -55,7 +55,7 @@ private
   def registration_params
     params.require(:registration).permit(
       :salutation, :firstname, :lastname, :email, :field_of_interest,
-      :notes, :internal_notes
+      :notes, :internal_notes, institution_ids: []
     )
   end
 

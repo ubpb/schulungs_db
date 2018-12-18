@@ -6,8 +6,14 @@
     .col-xl-6 = f.input :lastname
   .row
     .col-12 = f.input :email
-  .row
-    .col-12 = f.input :field_of_interest
+
+  - if @training_course.enable_field_of_interest_for_registrations
+    .row
+      .col-12 = f.input :field_of_interest
+  - if @training_course.enable_institutions_for_registrations && Institution.exists?
+    .row
+      .col-12
+        = f.association :institutions, as: :check_boxes, required: true
   .row
     .col-12 = f.input :notes, input_html: {rows: 4}
   .row

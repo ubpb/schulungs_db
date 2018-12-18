@@ -1,0 +1,26 @@
+de:
+  admin:
+    institutions:
+      index:
+        header: "Einrichtungen"
+        no_institutions: "Keine Einrichtung verfügbar"
+        new_institution: "Neue Einrichtung"
+
+      new:
+        header: "Neue Einrichtung"
+
+      create:
+        flash:
+          success: "Einrichtung erfolgreich angelegt"
+
+      edit:
+        header: "Einrichtung bearbeiten"
+
+      update:
+        flash:
+          success: "Einrichtung erfolgreich gespeichert"
+
+      destroy:
+        flash:
+          success: "Einrichtung erfolgreich gelöscht"
+          error: "Einrichtung konnte nicht gelöscht werden"

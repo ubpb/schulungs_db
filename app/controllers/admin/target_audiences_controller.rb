@@ -11,7 +11,8 @@ class Admin::TargetAudiencesController < Admin::ApplicationController
   def create
     @target_audience = TargetAudience.new(target_audience_params)
 
-    if @target_audience.save && @target_audience.move_to_bottom
+    if @target_audience.save
+      @target_audience.move_to_bottom
       flash[:success] = t(".flash.success")
       redirect_to(admin_target_audiences_path)
     else

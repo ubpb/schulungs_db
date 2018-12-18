@@ -24,6 +24,10 @@ Rails.application.routes.draw do
     resources :target_audiences, path: "zielgruppen" do
       patch :reorder, on: :collection
     end
+
+    resources :institutions, path: "einrichtungen" do
+      patch :reorder, on: :collection
+    end
   end
 
   namespace :frontend, path: "/" do

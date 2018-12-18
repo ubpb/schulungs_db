@@ -1,0 +1,6 @@
+de:
+  activerecord:
+    errors:
+      models:
+        registration:
+          has_no_institution: "Wählen Sie bitte min. eine Einrichtung aus"

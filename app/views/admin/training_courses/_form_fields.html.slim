@@ -19,7 +19,9 @@ hr.mt-0.mb-4
     = form.input :location
 .row
   .col-md-6
-    = form.input :registration_required, as: :boolean
+    = form.input :registration_required
+    = form.input :enable_field_of_interest_for_registrations
+    = form.input :enable_institutions_for_registrations
   .col-md-6
     = form.input :max_no_of_participants
 .row

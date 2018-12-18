@@ -11,6 +11,7 @@ de:
         end_date: "Letzter Termin"
         field_of_interest: "Fachgebiet"
         firstname: "Vorname"
+        institutions: "Einrichtungen"
         internal_notes: "Interne Bemerkungen"
         interval: "Intervall"
         lastname: "Nachname"
@@ -27,6 +28,8 @@ de:
         target_audiences: "Zielgruppen"
         time: "Uhrzeit"
         title: "Titel"
+        enable_field_of_interest_for_registrations: "... nach 'Fachgebiet' bei der Anmeldung fragen?"
+        enable_institutions_for_registrations: "... nach 'Einrichtungen' bei der Anmeldung fragen?"
 
     hints:
       training_course:

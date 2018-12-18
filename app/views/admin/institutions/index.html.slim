@@ -1,0 +1,15 @@
+.container-fluid
+  .row.justify-content-center
+    .col-md-8
+      .card
+        h5.card-header = t(".header")
+        - if @institutions.present?
+          = render "listing", institutions: @institutions
+        - else
+          .card-body
+            .alert.alert-info.mb-0 = t(".no_institutions")
+        .card-footer
+          .btn-toolbar.justify-content-start
+            = link_to new_admin_institution_path, class: "btn btn-primary" do
+              = icon("fas", "plus")
+              =< t(".new_institution")

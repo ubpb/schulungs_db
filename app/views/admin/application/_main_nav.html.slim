@@ -14,3 +14,5 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
         = link_to t(".categories"), admin_categories_path, class: "nav-link"
       li.nav-item(class=active_when(/zielgruppen/))
         = link_to t(".target_audiences"), admin_target_audiences_path, class: "nav-link"
+      li.nav-item(class=active_when(/einrichtungen/))
+        = link_to t(".institutions"), admin_institutions_path, class: "nav-link"

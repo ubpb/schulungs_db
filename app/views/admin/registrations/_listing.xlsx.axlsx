@@ -9,6 +9,7 @@ headers = [
   "Nachname",
   "E-Mail",
   "Fachgebiet",
+  "Einrichtungen",
   "Bemerkungen",
   "Interne Bemerkungen"
 ]
@@ -26,6 +27,7 @@ registrations.each do |r|
     r.firstname,
     r.email,
     r.field_of_interest,
+    r.institutions.map{|i| i.title}.join("\n"),
     r.notes,
     r.internal_notes
   ]

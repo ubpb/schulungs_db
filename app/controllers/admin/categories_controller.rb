@@ -11,7 +11,8 @@ class Admin::CategoriesController < Admin::ApplicationController
   def create
     @category = Category.new(category_params)
 
-    if @category.save && @category.move_to_bottom
+    if @category.save
+      @category.move_to_bottom
       flash[:success] = t(".flash.success")
       redirect_to(admin_categories_path)
     else

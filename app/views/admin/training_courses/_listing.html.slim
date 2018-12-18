@@ -23,7 +23,7 @@
             td = tc.time
             td.text-center = tc.published? ? icon("fas", "check") : ""
             td.text-center = tc.registration_required? ? icon("fas", "check") : ""
-            td = tc.registrations.size
+            td.text-center = tc.registration_required? ? tc.registrations.size : ""
             td = tc.title
             td.table-actions
               .btn-toolbar.justify-content-end.flex-nowrap

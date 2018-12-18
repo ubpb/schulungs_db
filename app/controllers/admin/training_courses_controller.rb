@@ -101,6 +101,8 @@ private
       :title, :location, :date, :time, :published, :description,
       :registration_required, :max_no_of_participants, :duration,
       :learning_targets, :number_of_participants, :reminder_message,
+      :enable_institutions_for_registrations,
+      :enable_field_of_interest_for_registrations,
       category_ids: [],
       target_audience_ids: []
     )
