@@ -16,3 +16,10 @@ de:
               </div>
               Vielen Dank für Ihre Anmeldung. Wir haben Ihnen eine Anmeldebestätigung per E-Mail an die Adresse <strong>%{email}</strong> gesendet.
             </div>
+
+      form:
+        hints:
+          institutions: >
+            Bitte ordnen Sie sich min. einer Einrichtung zu in der Sie arbeiten oder studieren. Sind Sie kein angehöriger der Universität Paderborn
+            wählen Sie bitte "Extern". Studierende mit fakultätsübergreifenden Studienschwerpunkten (z.B. Lehramtsstudierende, Doppel-Master/-Bachelor,
+            etc.) treffen bitte eine entsprechende Mehrfachauswahl.

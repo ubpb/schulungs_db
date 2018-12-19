@@ -11,7 +11,7 @@ de:
         end_date: "Letzter Termin"
         field_of_interest: "Fachgebiet"
         firstname: "Vorname"
-        institutions: "Einrichtungen"
+        institutions: "Einrichtung(en)"
         internal_notes: "Interne Bemerkungen"
         interval: "Intervall"
         lastname: "Nachname"

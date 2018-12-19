@@ -6,7 +6,7 @@ class AddDefaultInstitutions < ActiveRecord::Migration[5.2]
     Institution.create(title: "Fakultät für Maschinenbau", position: 4)
     Institution.create(title: "Fakultät für Elektrotechnik, Informatik und Mathematik", position: 5)
     Institution.create(title: "Sonstige Einrichtung der Universität Paderborn", position: 6)
-    Institution.create(title: "Externe", position: 7)
+    Institution.create(title: "Extern", position: 7)
   end
 
   def down
