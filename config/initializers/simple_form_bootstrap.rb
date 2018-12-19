@@ -81,10 +81,12 @@ SimpleForm.setup do |config|
     b.optional :readonly
     b.wrapper :legend_tag, tag: 'legend', class: 'col-form-label pt-0' do |ba|
       ba.use :label_text
+      ba.use :error, wrap_with: { tag: 'div', class: 'invalid-feedback d-block' }
+      ba.wrapper :hint_wrapper, tag: 'div', class: 'text-muted' do |bb|
+        bb.use :hint, wrap_with: { tag: 'small' }
+      end
     end
     b.use :input, class: 'form-check-input', error_class: 'is-invalid', valid_class: 'is-valid'
-    b.use :error, wrap_with: { tag: 'div', class: 'invalid-feedback d-block' }
-    b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
   end
 
   # vertical input for inline radio buttons and check boxes
