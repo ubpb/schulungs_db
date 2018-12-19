@@ -44,8 +44,8 @@ de:
           Wieviele Teilnehmer haben an der Veranstaltung teilgenommen?
         reminder_message: >
           Mailvorlage für den Versand einer Erinnerungsmail an die angemeldeten Teilnehmer der Veranstaltung. Sie können
-          <code>###ANREDE###</code>, <code>###DATUM###</code>, <code>###UHRZEIT###</code>, <code>###DAUER###</code>
-          und <code>###TREFFPUNKT###</code> in der Nachricht als Platzhalter verwenden. Die Nachricht wird automatisch
+          <code>###ANREDE###</code>, <code>###DATUM###</code>, <code>###UHRZEIT###</code>, <code>###DAUER###</code>,
+          <code>###TREFFPUNKT###</code> und <code>###TITEL###</code> in der Nachricht als Platzhalter verwenden. Die Nachricht wird automatisch
           an die Teilnehmer versendet.
       registration:
         dsgvo_consent: >

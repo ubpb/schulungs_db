@@ -7,6 +7,7 @@ module MailerHelper
       message = message.gsub(/###UHRZEIT###/, render_time(training_course))
       message = message.gsub(/###DAUER###/, render_duration(training_course))
       message = message.gsub(/###TREFFPUNKT###/, render_location(training_course))
+      message = message.gsub(/###TITEL###/, render_title(training_course))
     end
 
     message.presence || ""
@@ -36,6 +37,10 @@ private
 
   def render_location(training_course)
     training_course.location
+  end
+
+  def render_title(training_course)
+    training_course.title
   end
 
 end
