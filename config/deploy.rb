@@ -54,6 +54,8 @@ namespace :app do
 
         password_param = password ? "-p#{password}" : ""
 
+        execute("mysql -h #{host} -u #{username} #{password_param} -e \"DROP DATABASE IF EXISTS #{database}\"")
+        execute("mysql -h #{host} -u #{username} #{password_param} -e \"CREATE DATABASE #{database}\"")
         execute("mysql -h #{host} -u #{username} #{password_param} #{database} < #{local_dump_file}")
       end
 
