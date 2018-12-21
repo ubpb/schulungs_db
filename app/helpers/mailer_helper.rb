@@ -24,11 +24,11 @@ private
   end
 
   def render_date(training_course)
-    l(training_course.date)
+    l(training_course.date_and_time.to_date)
   end
 
   def render_time(training_course)
-    training_course.time
+    l(training_course.date_and_time.to_time, format: "%H:%M")
   end
 
   def render_duration(training_course)

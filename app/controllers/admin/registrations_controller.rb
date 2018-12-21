@@ -9,8 +9,8 @@ class Admin::RegistrationsController < Admin::ApplicationController
       format.html
       format.xlsx {
         filename = [
-          I18n.l(@training_course.date, format: "%Y-%m-%d"),
-          @training_course.time.parameterize,
+          I18n.l(@training_course.date_and_time.to_date, format: "%Y-%m-%d").parameterize,
+          I18n.l(@training_course.date_and_time.to_time, format: "%H-%M").parameterize,
           @training_course.title.parameterize
         ].join("_")
 

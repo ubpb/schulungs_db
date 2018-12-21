@@ -14,7 +14,7 @@ class Repetition
       interval = self.interval.to_i
 
       next_date = start_date
-      while next_date < end_date do
+      while next_date <= end_date do
         clone_training_course!(training_course, new_date: next_date)
         next_date += interval.days
       end
@@ -29,12 +29,12 @@ class Repetition
 
 private
 
-  def clone_training_course!(training_course, new_date: nil)
+  def clone_training_course!(training_course, new_date:)
     new_training_course = training_course.dup
     new_training_course.published = false
     new_training_course.categories = training_course.categories
     new_training_course.target_audiences = training_course.target_audiences
-    new_training_course.date = new_date if new_date.present?
+    new_training_course.date_and_time = new_training_course.date_and_time.change({day: new_date.day, month: new_date.month, year: new_date.year})
     new_training_course.number_of_participants = nil
     new_training_course.save!
   end

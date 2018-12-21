@@ -29,9 +29,9 @@ private
 
   def filter_date(arel)
     case self.date
-    when "week"    then arel.where("date <= ?", 1.week.from_now)
-    when "month"   then arel.where("date <= ?", 1.month.from_now)
-    when "quarter" then arel.where("date <= ?", 3.month.from_now)
+    when "week"    then arel.where("date_and_time <= ?", 1.week.from_now)
+    when "month"   then arel.where("date_and_time <= ?", 1.month.from_now)
+    when "quarter" then arel.where("date_and_time <= ?", 3.month.from_now)
     else arel
     end
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_18_144459) do
+ActiveRecord::Schema.define(version: 2018_12_21_084819) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -72,19 +72,17 @@ ActiveRecord::Schema.define(version: 2018_12_18_144459) do
   create_table "training_courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.string "location", null: false
-    t.date "date", null: false
     t.boolean "published", default: false, null: false
     t.text "description"
     t.boolean "registration_required", default: false, null: false
     t.integer "max_no_of_participants", default: 0, null: false
     t.text "learning_targets"
     t.integer "duration"
-    t.string "time"
     t.integer "number_of_participants"
     t.text "reminder_message"
     t.boolean "enable_institutions_for_registrations", default: false, null: false
     t.boolean "enable_field_of_interest_for_registrations", default: true, null: false
-    t.index ["date"], name: "index_training_courses_on_date"
+    t.datetime "date_and_time", null: false
     t.index ["published"], name: "index_training_courses_on_published"
   end
 

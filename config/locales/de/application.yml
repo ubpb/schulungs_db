@@ -4,6 +4,10 @@ de:
       warning_text: >
         !!! TESTSYSTEM !!!
 
+  time:
+    formats:
+      short: "%H:%M Uhr"
+
   datetime:
     today: "Heute"
     tomorrow: "Morgen"

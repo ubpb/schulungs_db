@@ -3,7 +3,7 @@ class Frontend::TrainingCoursesController < Frontend::ApplicationController
   def index
     @filter = FrontendTrainingCoursesFilter.new(params[:filter].present? ? filter_params : {})
 
-    @training_courses = TrainingCourse.includes(:categories, :target_audiences).upcoming.published.order("date asc")
+    @training_courses = TrainingCourse.includes(:categories, :target_audiences).upcoming.published.order("date_and_time asc")
     @training_courses = @filter.filter(@training_courses)
 
     add_breadcrumb(t("frontend.breadcrumbs.training_courses.index"), frontend_training_courses_path)
@@ -19,8 +19,9 @@ class Frontend::TrainingCoursesController < Frontend::ApplicationController
 
     set_page_title(t("frontend.page_titles.training_courses.show",
       title: @training_course.title,
-      date: I18n::l(@training_course.date),
-      time: @training_course.time))
+      date: I18n::l(@training_course.date_and_time.to_date),
+      time: I18n::l(@training_course.date_and_time.to_time, format: :short))
+    )
   rescue ActiveRecord::RecordNotFound
     flash[:error] = t(".flash.error")
     redirect_to frontend_training_courses_path

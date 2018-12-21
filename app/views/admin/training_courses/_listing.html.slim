@@ -17,10 +17,10 @@
             td
               = check_box_tag "training_course_ids[]", tc.id
             td
-              = l(tc.date, format: "%d.%m.%Y")
+              = l(tc.date_and_time.to_date)
               - if tc.upcoming?
-                div.small = date_in_words(tc.date)
-            td = tc.time
+                div.small = date_in_words(tc.date_and_time.to_date)
+            td = l(tc.date_and_time.to_time, format: :short)
             td.text-center = tc.published? ? icon("fas", "check") : ""
             td.text-center = tc.registration_required? ? icon("fas", "check") : ""
             td.text-center = tc.registration_required? ? tc.registrations.size : ""

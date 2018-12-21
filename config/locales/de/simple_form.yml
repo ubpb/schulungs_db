@@ -4,6 +4,7 @@ de:
       defaults:
         categories: "Themen"
         date: "Datum"
+        date_and_time: "Datum / Uhrzeit"
         description: "Beschreibung"
         dsgvo_consent: "Einwilligungserklärung"
         duration: "Dauer"

@@ -1,13 +1,13 @@
 class Admin::TrainingCoursesController < Admin::ApplicationController
 
   def index
-    @upcoming_training_courses = TrainingCourse.upcoming.includes(:registrations).order("date asc")
-    @past_training_courses = TrainingCourse.past.includes(:registrations).order("date desc")
+    @upcoming_training_courses = TrainingCourse.upcoming.includes(:registrations).order("date_and_time asc")
+    @past_training_courses = TrainingCourse.past.includes(:registrations).order("date_and_time desc")
   end
 
   def new
     @training_course = TrainingCourse.new
-    @training_course.date = Date.today
+    @training_course.date_and_time = 3.days.from_now.change({ hour: 10, min: 0, sec: 0 })
   end
 
   def create
@@ -31,7 +31,7 @@ class Admin::TrainingCoursesController < Admin::ApplicationController
 
     if @training_course.valid?
       if @training_course.upcoming?
-        if @training_course.date_changed? || @training_course.time_changed? || @training_course.location_changed?
+        if @training_course.date_and_time_changed? || @training_course.location_changed?
           @training_course.registrations.each do |registration|
             Mailers::TrainingCoursesMailer.data_changed_notification(@training_course, registration).deliver
           end
@@ -98,7 +98,7 @@ private
 
   def training_course_params
     params.require(:training_course).permit(
-      :title, :location, :date, :time, :published, :description,
+      :title, :location, :date_and_time, :published, :description,
       :registration_required, :max_no_of_participants, :duration,
       :learning_targets, :number_of_participants, :reminder_message,
       :enable_institutions_for_registrations,
