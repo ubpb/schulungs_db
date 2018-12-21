@@ -5,11 +5,8 @@ Sie haben sich für die Schlungsveranstaltung "<%= @training_course.title %>" an
 Es gab folgende Änderungen:
 
 <% @training_course.changes.each do |k, v| %>
-<% if k == "date" %>
-Datum => Bisher: <%= l(v[0]) %>, NEU: <%= l(v[1]) %>
-<% end %>
-<% if k == "time" %>
-Uhrzeit => Bisher: <%= v[0] %> Uhr, NEU: <%= v[1] %> Uhr
+<% if k == "date_and_time" %>
+Datum/Uhrzeit => Bisher: <%= l(v[0]) %>, NEU: <%= l(v[1]) %>
 <% end %>
 <% if k == "location" %>
 Treffpunkt => Bisher: <%= v[0] %>, NEU: <%= v[1] %>

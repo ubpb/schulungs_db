@@ -1,11 +1,11 @@
 .date
   = icon("fas", "calendar-alt", class: "fa-fw")
-  =< l(training_course.date)
-  span.badge.badge-info =< date_in_words(training_course.date)
+  =< l(training_course.date_and_time.to_date)
+  span.badge.badge-info =< date_in_words(training_course.date_and_time.to_date)
 
 .time
   = icon("far", "clock", class: "fa-fw")
-  =< "#{training_course.time} Uhr"
+  =< l(training_course.date_and_time.to_time, format: :short)
 
 .duration
   = icon("fas", "hourglass-half", class: "fa-fw")

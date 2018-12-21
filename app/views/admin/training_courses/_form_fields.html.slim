@@ -8,10 +8,8 @@ hr.mt-0.mb-4
   .col-12
     = form.input :title
 .row
-  .col-md-6
-    = form.input :date, prompt: true, start_year: Date.today.year, end_year: Date.today.year + 3
-  .col-md-6
-    = form.input :time
+  .col-12
+    = form.input :date_and_time, prompt: true, start_year: Date.today.year, end_year: Date.today.year + 3, minute_step: 5
 .row
   .col-6
     = form.input :duration

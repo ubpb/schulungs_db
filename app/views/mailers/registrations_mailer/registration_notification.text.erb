@@ -3,8 +3,8 @@ Hallo Schulungsteam!
 Es gab eine neue Anmeldung für eine Schulung.
 
 Schulung: <%= @training_course.title %>
-Termin: <%= l(@training_course.date) %>
-Zeit: <%= @training_course.time %> Uhr
+Termin: <%= l(@training_course.date_and_time.to_date) %>
+Zeit: <%= l(@training_course.date_and_time.to_time, format: :short) %> Uhr
 
 Folgende Person hat sich angemeldet:
 

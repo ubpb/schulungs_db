@@ -7,8 +7,7 @@ class TrainingCourse < ApplicationRecord
 
   # Validations
   validates :title, presence: true
-  validates :date, presence: true
-  validates :time, presence: true, format: { with: /\A\d\d:\d\d\z/ }
+  validates :date_and_time, presence: true
   validates :location, presence: true
   validates :max_no_of_participants, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :duration, presence: true, numericality: { greater_than_or_equal_to: 1 }
@@ -16,16 +15,16 @@ class TrainingCourse < ApplicationRecord
 
   # Scopes
   scope :published, -> { where(published: true) }
-  scope :upcoming,  -> { where("date >= ?", Date.today) }
-  scope :past,      -> { where("date < ?", Date.today) }
+  scope :upcoming,  -> { where("date_and_time >= ?", Date.today) }
+  scope :past,      -> { where("date_and_time < ?", Date.today) }
 
 
   def upcoming?
-    date >= Date.today
+    date_and_time >= Date.today
   end
 
   def past?
-    date < Date.today
+    date_and_time < Date.today
   end
 
   def limited?
@@ -46,7 +45,7 @@ class TrainingCourse < ApplicationRecord
   end
 
   def to_param
-    "#{id},#{title.parameterize},#{I18n.l(date).parameterize},#{time.parameterize}"
+    "#{id},#{title.parameterize},#{I18n.l(date_and_time.to_date).parameterize},#{I18n.l(date_and_time.to_time, format: "%H:%M").parameterize}"
   end
 
 end

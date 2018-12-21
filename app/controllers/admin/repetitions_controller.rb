@@ -3,8 +3,8 @@ class Admin::RepetitionsController < Admin::ApplicationController
   before_action :load_training_course
 
   def new
-    start_date = @training_course.date
-    end_date   = @training_course.date
+    start_date = @training_course.date_and_time.to_date
+    end_date   = @training_course.date_and_time.to_date
     @repetition = Repetition.new(start_date: start_date, end_date: end_date)
   end
 
