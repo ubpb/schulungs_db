@@ -1,39 +1,8 @@
 ul.training-course-listing
   - training_courses.each do |tc|
     li.training-course-item
-      h5
-        = tc.title
+      h4
+        = link_to tc.title, frontend_training_course_path(tc)
         - if tc.full?
           .badge.badge-danger =< t("frontend.training_courses.defaults.full")
-
-      .d-flex.flex-column.align-items-stretch.flex-md-row.justify-content-md-between.align-items-md-center
-        .meta
-          .date
-            = icon("fas", "calendar-alt", class: "fa-fw")
-            =< l(tc.date_and_time.to_date)
-            span.badge.badge-info =< date_in_words(tc.date_and_time.to_date)
-
-          .time
-            = icon("far", "clock", class: "fa-fw")
-            =< l(tc.date_and_time.to_time, format: :short)
-
-          - if tc.registration_required?
-            .info
-              = icon("fas", "info", class: "fa-fw")
-              =< t("frontend.training_courses.defaults.registration_required")
-
-          - if tc.target_audiences.present?
-            .target-audiences.mt-1(style="margin-left: 1.45em")
-              = icon("fas", "bullseye", class: "fa-fw", style: "margin-left: -1.45em")
-              - tc.target_audiences.each do |ta|
-                .badge.badge-light =< ta.title
-
-          - if tc.categories.present?
-            .categories.mt-1.mt-1(style="margin-left: 1.45em")
-              = icon("fas", "tags", class: "fa-fw", style: "margin-left: -1.45em")
-              - tc.categories.each do |c|
-                .badge.badge-light =< c.title
-
-        .actions.mt-2.mt-md-0
-          = link_to frontend_training_course_path(tc), class: "btn btn-primary btn-block" do
-            = t(".details")
+      = render "frontend/training_courses/details", training_course: tc, show_target_audiences: true, show_categories: true, show_location: false

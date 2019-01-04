@@ -1,23 +1,46 @@
-.date
-  = icon("fas", "calendar-alt", class: "fa-fw")
-  =< l(training_course.date_and_time.to_date)
-  span.badge.badge-info =< date_in_words(training_course.date_and_time.to_date)
+ruby:
+  show_date                  = local_assigns.fetch(:show_date) { true }
+  show_time                  = local_assigns.fetch(:show_time) { true }
+  show_duration              = local_assigns.fetch(:show_duration) { true }
+  show_location              = local_assigns.fetch(:show_location) { true }
+  show_registration_required = local_assigns.fetch(:show_registration_required) { true }
+  show_target_audiences      = local_assigns.fetch(:show_target_audiences) { false }
+  show_categories            = local_assigns.fetch(:show_categories) { false }
 
-.time
-  = icon("far", "clock", class: "fa-fw")
-  =< l(training_course.date_and_time.to_time, format: :short)
+- if show_date
+  .date.fw-icon-item
+    = icon("fas", "calendar-alt", class: "fa-fw", data: {toggle: "tooltip", placement: "top"}, title: t("frontend.training_courses.tooltips.date"))
+    = l(training_course.date_and_time.to_date)
+    span.badge.badge-info =< date_in_words(training_course.date_and_time.to_date)
 
-.duration
-  = icon("fas", "hourglass-half", class: "fa-fw")
-  =< t("frontend.training_courses.defaults.duration", duration: training_course.duration)
+- if show_time
+  .time.fw-icon-item
+    = icon("far", "clock", class: "fa-fw", data: {toggle: "tooltip", placement: "top"}, title: t("frontend.training_courses.tooltips.time"))
+    = l(training_course.date_and_time.to_time, format: :short)
 
-.location
-  = icon("fas", "map-marker-alt", class: "fa-fw")
-  =< training_course.location
+- if show_duration
+  .duration.fw-icon-item
+    = icon("fas", "hourglass-half", class: "fa-fw", data: {toggle: "tooltip", placement: "top"}, title: t("frontend.training_courses.tooltips.duration"))
+    = t("frontend.training_courses.defaults.duration", duration: training_course.duration)
 
-.info
-  = icon("fas", "info", class: "fa-fw")
-  - if training_course.registration_required?
-    =< t("frontend.training_courses.defaults.registration_required")
-  - else
-    =< t("frontend.training_courses.defaults.no_registration_required")
+- if show_location
+  .location.fw-icon-item
+    = icon("fas", "map-marker-alt", class: "fa-fw", data: {toggle: "tooltip", placement: "top"}, title: t("frontend.training_courses.tooltips.location"))
+    = training_course.location
+
+- if show_registration_required && training_course.registration_required?
+  .registration_required.fw-icon-item
+    = icon("fas", "info-circle", class: "fa-fw")
+    = t("frontend.training_courses.defaults.registration_required")
+
+- if show_target_audiences && training_course.target_audiences.present?
+  .target-audiences.mt-1.fw-icon-item
+    = icon("fas", "bullseye", class: "fa-fw", data: {toggle: "tooltip", placement: "top"}, title: t("frontend.training_courses.tooltips.target_audiences"))
+    - training_course.target_audiences.each do |ta|
+      .badge.badge-light = ta.title
+
+- if show_categories && training_course.categories.present?
+  .categories.mt-1.fw-icon-item
+    = icon("fas", "tags", class: "fa-fw", data: {toggle: "tooltip", placement: "top"}, title: t("frontend.training_courses.tooltips.categories"))
+    - training_course.categories.each do |c|
+      .badge.badge-light = c.title
