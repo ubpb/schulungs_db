@@ -45,7 +45,11 @@ class TrainingCourse < ApplicationRecord
   end
 
   def to_param
-    "#{id},#{title.parameterize},#{I18n.l(date_and_time.to_date).parameterize},#{I18n.l(date_and_time.to_time, format: "%H:%M").parameterize}"
+    if title.present? && date_and_time.present?
+      "#{id},#{title.parameterize},#{I18n.l(date_and_time.to_date).parameterize},#{I18n.l(date_and_time.to_time, format: "%H:%M").parameterize}"
+    else
+      "#{id}"
+    end
   end
 
 end
