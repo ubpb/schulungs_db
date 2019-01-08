@@ -1,0 +1,7 @@
+.fw-icon-item {
+  margin-left: 1.25em;
+  > i.fa-fw {
+    margin-left: -1.25em - 0.25em;
+    margin-right: 0.25em;
+  }
+}

@@ -1,14 +1,10 @@
+h4 = @training_course.title
+
 .row
   .col-md-7.col-lg-8
     .card.card-cutoff-corner.card-primary.mb-4
-      .card-header
-        h5.card-title.mb-0 = @training_course.title
       .card-body
-        .alert.alert-info
-          = render "frontend/training_courses/details", training_course: @training_course
-
         - if @training_course.description.present?
-          h5.mt-3 = t(".description")
           .description == render_markdown(@training_course.description)
 
         - if @training_course.learning_targets.present?
@@ -28,6 +24,12 @@
   .col-md-5.col-lg-4
     .card.card-cutoff-corner.mb-4
       .card-header
+        h5.card-title.mb-0 = t(".details")
+      .card-body
+        = render "frontend/training_courses/details", training_course: @training_course
+
+    .card.card-cutoff-corner.mb-4
+      .card-header
         h5.card-title.mb-0 = t(".registration")
       .card-body
         - if @training_course.registration_required?
@@ -44,5 +46,3 @@
           .alert.alert-info.text-center.mb-0
             = icon("fas", "info-circle")
             =< t(".no_registration_required_details")
-
-    = render "frontend/application/contact_help_card"
