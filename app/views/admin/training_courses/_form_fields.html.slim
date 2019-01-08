@@ -9,7 +9,10 @@ hr.mt-0.mb-4
     = form.input :title
 .row
   .col-12
-    = form.input :date_and_time, prompt: true, start_year: Date.today.year, end_year: Date.today.year + 3, minute_step: 5
+    - if @training_course.new_record?
+      = form.input :date_and_time, prompt: true, start_year: Date.today.year, end_year: Date.today.year + 3, minute_step: 5
+    - else
+      = form.input :date_and_time, prompt: true, end_year: Date.today.year + 3, minute_step: 5
 .row
   .col-6
     = form.input :duration
