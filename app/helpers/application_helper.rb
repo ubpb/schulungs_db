@@ -13,7 +13,7 @@ module ApplicationHelper
   end
 
   def render_markdown(s)
-    GitHub::Markup.render_s(GitHub::Markups::MARKUP_MARKDOWN, s)
+    CommonMarker.render_html(s, [:DEFAULT, :UNSAFE])
   end
 
   def date_in_words(date)
