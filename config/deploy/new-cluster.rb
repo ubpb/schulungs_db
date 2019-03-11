@@ -1,4 +1,4 @@
 server "ubpegasus18", user: "ubpb", roles: %w{app web db}
-#server "ubperseus", user: "ubpb", roles: %w{app web}
+server "ubperseus18", user: "ubpb", roles: %w{app web}
 set :deploy_to, "/ubpb/schulungsdb"
 set :branch, "new-cluster"
