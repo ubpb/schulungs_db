@@ -12,7 +12,7 @@ class Frontend::TrainingCoursesController < Frontend::ApplicationController
   end
 
   def show
-    @training_course = TrainingCourse.published.find(params[:id])
+    @training_course = TrainingCourse.upcoming.published.find(params[:id])
 
     add_breadcrumb(t("frontend.breadcrumbs.training_courses.index"), frontend_training_courses_path)
     add_breadcrumb(t("frontend.breadcrumbs.training_courses.show", title: @training_course.title), frontend_training_course_path(@training_course))

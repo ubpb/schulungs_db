@@ -15,16 +15,16 @@ class TrainingCourse < ApplicationRecord
 
   # Scopes
   scope :published, -> { where(published: true) }
-  scope :upcoming,  -> { where("date_and_time >= ?", Date.today.end_of_day) }
-  scope :past,      -> { where("date_and_time < ?", Date.today.end_of_day) }
+  scope :upcoming,  -> { where("date_and_time >= ?", Date.today.beginning_of_day) }
+  scope :past,      -> { where("date_and_time < ?", Date.today.beginning_of_day) }
 
-
+  # Upcoming includes "today".
   def upcoming?
-    date_and_time >= Date.today.end_of_day
+    date_and_time >= Date.today.beginning_of_day
   end
 
   def past?
-    date_and_time < Date.today.end_of_day
+    date_and_time < Date.today.beginning_of_day
   end
 
   def limited?

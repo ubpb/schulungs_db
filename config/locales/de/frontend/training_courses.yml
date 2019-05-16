@@ -33,6 +33,7 @@ de:
         register_now: "Jetzt anmelden"
         no_registration_required_details: "Keine Anmeldung erforderlich. Um teilzunehmen, kommen Sie am Termin einfach zum genannten Treffpunkt."
         full_details: "Die Schulung ist leider ausgebucht. Bitte nutzen Sie einen anderen Schulungstermin."
+        closed_details: "Anmeldung ist nicht mehr möglich"
         registration: "Anmeldung"
         details: "Termindetails"
         target_audiences: "Zielgruppen"

@@ -37,6 +37,10 @@ h4 = @training_course.title
             .alert.alert-danger.text-center.mb-0
               = icon("fas", "exclamation-triangle")
               =< t(".full_details")
+          - elsif @training_course.date_and_time.today?
+            .alert.alert-danger.text-center.mb-0
+              = icon("fas", "exclamation-triangle")
+              =< t(".closed_details")
           - else
             = link_to t(".register_now"), new_frontend_training_course_registration_path(@training_course), class: "btn btn-primary btn-lg btn-block"
             - if @training_course.limited?

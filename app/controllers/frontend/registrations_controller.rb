@@ -54,6 +54,11 @@ private
       redirect_to frontend_training_course_path(@training_course) and return
     end
 
+    if @training_course.date_and_time.today?
+      flash[:error] = t("frontend.registrations.flash.registration_closed_error")
+      redirect_to frontend_training_course_path(@training_course) and return
+    end
+
     if @training_course.full?
       flash[:error] = t("frontend.registrations.flash.full_error")
       redirect_to frontend_training_course_path(@training_course) and return
