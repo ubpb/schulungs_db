@@ -18,8 +18,8 @@ de:
         header: "Unsere aktuellen Schulungstermine"
         no_training_courses_available: "Im Moment sind keine Schulungstermine verfügbar"
         no_training_courses_due_to_filter_html: >
-          Mit den verwendeten Suchoptionen konnten keine passenden Schulungstermine gefunden werden.
-          Ändern Sie die Suche oder <a href="%{link}" class="alert-link">setzen Sie den Filter zurück</a> um alle Termine zu sehen.
+          Mit den verwendeten Suchoptionen konnten zurzeit keine passenden Schulungstermine gefunden werden.
+          Ändern Sie die Suche oder <a href="%{link}" class="alert-link">setzen Sie den Filter zurück</a>, um alle Termine zu sehen.
         additional_info_html: >
           Für Gruppen ab fünf Personen bieten wir individuelle Schulungen auf Anfrage an.
           Informationen dazu erhalten Sie auf unserer <a href="https://www.ub.uni-paderborn.de/unterstuetzung/schulungen/" target="_blank">Webseite</a>.
