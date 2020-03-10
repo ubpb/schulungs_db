@@ -1,3 +1,7 @@
 //= link_tree ../images
-//= link_directory ../javascripts .js
-//= link_directory ../stylesheets .css
+
+//= link frontend/application.css
+//= link frontend/application.js
+
+//= link admin/application.css
+//= link admin/application.js
