@@ -37,10 +37,10 @@ ruby:
   .target-audiences.mt-1.fw-icon-item
     = icon("fas", "bullseye", class: "fa-fw", data: {toggle: "tooltip", placement: "top"}, title: t("frontend.training_courses.tooltips.target_audiences"))
     - training_course.target_audiences.each do |ta|
-      .badge.badge-light = ta.title
+      .badge.badge-light.mr-1 = ta.title
 
 - if show_categories && training_course.categories.present?
   .categories.mt-1.fw-icon-item
     = icon("fas", "tags", class: "fa-fw", data: {toggle: "tooltip", placement: "top"}, title: t("frontend.training_courses.tooltips.categories"))
     - training_course.categories.each do |c|
-      .badge.badge-light = c.title
+      .badge.badge-light.mr-1 = c.title
