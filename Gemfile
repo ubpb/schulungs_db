@@ -6,6 +6,7 @@ ruby IO.read(".ruby-version").strip
 gem "acts_as_list",      "~> 0.9.16"
 gem "bcrypt",            "~> 3.1.7"
 gem "bootstrap",         "~> 4.1"
+gem "caxlsx_rails",      "~> 0.6.2"
 gem "commonmarker",      "~> 0.17"
 gem "font-awesome-sass", "~> 5.0", ">= 5.0.13"
 gem "github-markup",     "~> 2.0.1", require: "github/markup"
@@ -20,11 +21,6 @@ gem "simple_form",       "~> 4.1.0"
 gem "slim",              "~> 4.0"
 gem "turbolinks",        "~> 5"
 gem "uglifier",          ">= 1.3.0"
-
-# For pending axlsx release we pin the latest 3.0.0 pre-release to fix a ruby-zip vuln.
-gem "rubyzip",     ">= 1.2.1"
-gem "axlsx",       "3.0.0.pre"
-gem "axlsx_rails", "0.5.2"
 
 gem "bootsnap", ">= 1.4.2", require: false
 
