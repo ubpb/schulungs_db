@@ -11,6 +11,8 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 set :rvm_type, :user
 set :rvm_ruby_version, IO.read(".ruby-version").strip
 
+set :passenger_roles, :web
+
 set :rails_env, "production"
 
 namespace :app do
