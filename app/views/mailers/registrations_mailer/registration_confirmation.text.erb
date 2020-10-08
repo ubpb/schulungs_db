@@ -2,6 +2,8 @@
 
 vielen Dank für Ihre Anmeldung zu unserer Schulungsveranstaltung "<%= @training_course.title %>" am <%= l(@training_course.date_and_time.to_date) %>, die wir hiermit bestätigen. Die Veranstaltung beginnt um <%= l(@training_course.date_and_time.to_time, format: :short) %>. Als Ort der Veranstaltung bzw. als Treffpunkt wurde angegeben: "<%= @training_course.location %>".
 
+Eine E-Mail mit weiteren Informationen zur Veranstaltung wird Ihnen 3 Tage vor dem Termin zugesandt.
+
 Sollten Sie Fragen haben, können Sie uns kontaktieren, indem Sie einfach auf diese E-Mail antworten.
 
 <%= render "mailers/application/footer" -%>
