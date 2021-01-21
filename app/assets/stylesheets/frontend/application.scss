@@ -13,6 +13,7 @@
 // Pick selected variables from Bootstrap and make
 // them available in the global space so we can
 // reference the original value while overwrite them.
+$font-family-sans-serif: null;
 %local {
   @import "bootstrap/functions";
   @import "bootstrap/variables";
