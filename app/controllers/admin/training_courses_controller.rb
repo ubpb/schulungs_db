@@ -131,7 +131,6 @@ private
       :duration,
       :learning_targets,
       :number_of_participants,
-      :email,
       :reminder_message,
       :enable_institutions_for_registrations,
       :enable_field_of_interest_for_registrations,
