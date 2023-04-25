@@ -1,0 +1,22 @@
+.container-fluid
+  .row.justify-content-center
+    .col-md-8
+      .card
+        h5.card-header = t(".header")
+        = simple_form_for :data, url: admin_training_courses_path( format: :xlsx ), method: :get do |form|
+          .card-body
+
+              .row
+                .col-12
+                  = form.input :from, as: :date, prompt: false, end_year: Date.today.year + 3, html5: true
+
+              .row
+                .col-12
+                  = form.input :to, as: :date, prompt: false, end_year: Date.today.year + 3, html5: true
+
+          .card-footer
+            .btn-toolbar.justify-content-between.flex-nowrap
+              div
+                = form.submit t(".btn_export"), data: { disable_with: false }, class: "btn btn-primary"
+                =< link_to t("admin.application.btn_cancel"), admin_training_courses_path, class: "btn btn-secondary"
+            .mt-3

@@ -31,6 +31,15 @@ de:
         title: "Titel"
         enable_field_of_interest_for_registrations: "... nach 'Fachgebiet' bei der Anmeldung fragen?"
         enable_institutions_for_registrations: "... nach 'Einrichtungen' bei der Anmeldung fragen?"
+        from: "Von"
+        to: "Bis"
+        statistics_lecturer: "Dozent"
+        statistics_organization_types: "Organisatorische Form"
+        statistics_forms: "Didaktische Form"
+        statistics_levels: "Niveau"
+        statistics_categories: "Fachliche Ausrichtung"
+        statistics_audiences: "Zielgruppen"
+        statistics_focus: "Inhaltliche Schwerpunkte"
 
     hints:
       training_course:

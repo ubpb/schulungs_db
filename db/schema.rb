@@ -85,6 +85,13 @@ ActiveRecord::Schema.define(version: 2023_04_26_091340) do
     t.boolean "enable_institutions_for_registrations", default: false, null: false
     t.boolean "enable_field_of_interest_for_registrations", default: true, null: false
     t.datetime "date_and_time", null: false
+    t.string "statistics_lecturer"
+    t.integer "statistics_organization_types", default: 0, null: false
+    t.integer "statistics_forms", default: 0, null: false
+    t.integer "statistics_levels", default: 0, null: false
+    t.integer "statistics_categories", default: 0, null: false
+    t.integer "statistics_audiences", default: 0, null: false
+    t.integer "statistics_focus", default: 0, null: false
     t.index ["published"], name: "index_training_courses_on_published"
   end
 

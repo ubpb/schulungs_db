@@ -1,0 +1,109 @@
+##
+## Values
+##
+
+training_courses.each do |tc|
+  values = [
+    tc.id,
+    "Paderborn",
+    "Dozent",
+    tc.duration,
+
+     # Organisatorische Form
+    tc.statistics_organization_types.library? ? 1 : 0,
+    tc.statistics_organization_types.integrated? ? 1 : 0,
+    tc.statistics_organization_types.independent? ? 1 : 0,
+    tc.statistics_organization_types.consultation? ? 1 : 0,
+    tc.statistics_organization_types.media? ? 1 : 0,
+    tc.statistics_organization_types.webinar? ? 1 : 0,
+    tc.statistics_organization_types.elearning? ? 1 : 0,
+    tc.statistics_organization_types.blended? ? 1 : 0,
+
+    # Didaktische Form
+    tc.statistics_forms.presentation? ? 1 : 0,
+    tc.statistics_forms.workshop? ? 1 : 0,
+
+    # Niveau
+    "", # 14 fehlt
+    tc.statistics_levels.beginner? ? 1 : 0,
+    tc.statistics_levels.advanced? ? 1 : 0,
+
+    # Integration
+    tc.statistics_organization_types.integrated? ? 3 : 1,
+
+    # Fachliche Ausrichtung
+    "",
+
+    # Dozent
+    "",
+    "",
+    "",
+    "",
+    "",
+
+    # Zielgruppe
+    tc.statistics_audiences.bachelor_students? ? 1 : 0,
+    tc.statistics_audiences.master_students? ? 1 : 0,
+    tc.statistics_audiences.tutors? ? 1 : 0,
+    tc.statistics_audiences.phd_students? ? 1 : 0,
+    tc.statistics_audiences.scientists? ? 1 : 0,
+    tc.statistics_audiences.university_others? ? 1 : 0,
+    tc.statistics_audiences.pupils? ? 1 : 0,
+    tc.statistics_audiences.trainees? ? 1 : 0,
+    tc.statistics_audiences.teachers? ? 1 : 0,
+    tc.statistics_audiences.seniors? ? 1 : 0,
+    tc.statistics_audiences.forign_students? ? 1 : 0,
+    tc.statistics_audiences.others? ? 1 : 0,
+    "", # 36 unspezifische Gruppe
+
+    # Schwerpunkte
+    tc.statistics_focus.information_competence? ? 1 : 0,
+    tc.statistics_focus.library_usage? ? 1 : 0,
+    tc.statistics_focus.search_methods? ? 1 : 0,
+    tc.statistics_focus.catalogs? ? 1 : 0,
+    tc.statistics_focus.internet_research? ? 1 : 0,
+    tc.statistics_focus.information_managment? ? 1 : 0,
+    tc.statistics_focus.legal_issues? ? 1 : 0,
+    tc.statistics_focus.electronic_publishing? ? 1 : 0,
+    tc.statistics_focus.interlending? ? 1 : 0,
+    tc.statistics_focus.others? ? 1 : 0,
+    tc.statistics_focus.scientific_work? ? 1 : 0,
+    tc.statistics_focus.special_collections? ? 1 : 0,
+
+    # Teilnehmerzahl
+    tc.number_of_participants,
+
+    "", # Sitzungsanzahl
+    "", # Semester
+
+    # Datum
+    tc.date_and_time,
+
+    # Text 1
+    tc.title,
+    # Text 2
+    "",
+    # Text 3
+    "",
+    # Text 4
+    "",
+    # Text 5
+    tc.location,
+
+    "//"
+  ]
+
+  # Add values row
+  style = workbook.styles.add_style(alignment: {wrap_text: true, vertical: :top})
+  row = sheet.add_row(values, style: style)
+  row.cells[52].style = date_format
+end
+
+# Make the first row a header
+sheet.sheet_view.pane do |pane|
+  pane.top_left_cell = "A4"
+  pane.state = :frozen_split
+  pane.y_split = 3
+  pane.x_split = 0
+  pane.active_pane = :bottom_right
+end
