@@ -2,31 +2,31 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# This file is the source Rails uses to define your schema when running `rails
-# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_13_151444) do
+ActiveRecord::Schema.define(version: 2023_04_26_091340) do
 
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "categories", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "position"
   end
 
-  create_table "categories_training_courses", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "categories_training_courses", id: false, charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
     t.bigint "category_id"
     t.bigint "training_course_id"
     t.index ["category_id"], name: "index_categories_training_courses_on_category_id"
     t.index ["training_course_id"], name: "index_categories_training_courses_on_training_course_id"
   end
 
-  create_table "institutions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "institutions", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
     t.string "title"
     t.integer "position", default: 0
     t.datetime "created_at", null: false
@@ -34,14 +34,14 @@ ActiveRecord::Schema.define(version: 2019_06_13_151444) do
     t.index ["position"], name: "index_institutions_on_position"
   end
 
-  create_table "institutions_registrations", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "institutions_registrations", id: false, charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
     t.bigint "institution_id"
     t.bigint "registration_id"
     t.index ["institution_id"], name: "index_institutions_registrations_on_institution_id"
     t.index ["registration_id"], name: "index_institutions_registrations_on_registration_id"
   end
 
-  create_table "registrations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "registrations", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
     t.bigint "training_course_id", null: false
     t.string "firstname", null: false
     t.string "lastname", null: false
@@ -57,21 +57,21 @@ ActiveRecord::Schema.define(version: 2019_06_13_151444) do
     t.index ["training_course_id"], name: "index_registrations_on_training_course_id"
   end
 
-  create_table "target_audiences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "target_audiences", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "position"
   end
 
-  create_table "target_audiences_training_courses", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "target_audiences_training_courses", id: false, charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
     t.bigint "target_audience_id"
     t.bigint "training_course_id"
     t.index ["target_audience_id"], name: "index_target_audiences_training_courses_on_target_audience_id"
     t.index ["training_course_id"], name: "index_target_audiences_training_courses_on_training_course_id"
   end
 
-  create_table "training_courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "training_courses", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
     t.string "title", null: false
     t.string "location", null: false
     t.boolean "published", default: false, null: false
