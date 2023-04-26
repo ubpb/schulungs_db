@@ -37,5 +37,7 @@ group :development do
   gem "capistrano-rails",     "~> 1.4.0"
   gem "capistrano-rvm",       "~> 0.1.2"
   gem "listen",               ">= 3.0.5", "< 3.2"
+  gem "rubocop",              ">= 1.45", require: false
+  gem "solargraph",           ">= 0.48", require: false
   gem "web-console",          ">= 3.3.0"
 end
