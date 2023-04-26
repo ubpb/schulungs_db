@@ -47,7 +47,7 @@ namespace :app do
 
       # Restore dump locally
       run_locally do
-        db_config = YAML.load(capture(:cat, "config/database.yml"))["development"]
+        db_config = YAML.safe_load(capture(:cat, "config/database.yml"), aliases: true)["development"]
 
         host     = db_config["host"] || "localhost"
         database = db_config["database"]
