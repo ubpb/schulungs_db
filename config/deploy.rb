@@ -37,7 +37,7 @@ namespace :app do
         username = db_config["username"]
         password = db_config["password"]
 
-        execute("mysqldump -h #{host} -u #{username} -p#{password} -r #{remote_dump_file} #{database}")
+        execute("mysqldump -h #{host} -u #{username} -p#{password} -r #{remote_dump_file} --column-statistics=0 #{database}")
       end
 
       # Download file
@@ -54,11 +54,12 @@ namespace :app do
         username = db_config["username"]
         password = db_config["password"]
 
+        username_param = username ? "-u #{username}" : ""
         password_param = password ? "-p#{password}" : ""
 
-        execute("mysql -h #{host} -u #{username} #{password_param} -e \"DROP DATABASE IF EXISTS #{database}\"")
-        execute("mysql -h #{host} -u #{username} #{password_param} -e \"CREATE DATABASE #{database}\"")
-        execute("mysql -h #{host} -u #{username} #{password_param} #{database} < #{local_dump_file}")
+        execute("mysql -h #{host} #{username_param} #{password_param} -e \"DROP DATABASE IF EXISTS #{database}\"")
+        execute("mysql -h #{host} #{username_param} #{password_param} -e \"CREATE DATABASE #{database}\"")
+        execute("mysql -h #{host} #{username_param} #{password_param} #{database} < #{local_dump_file}")
       end
 
       # Delete dump on remote server
