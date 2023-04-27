@@ -25,11 +25,9 @@ class Frontend::RegistrationsController < Frontend::ApplicationController
       Mailers::RegistrationsMailer.registration_confirmation(@registration).deliver
       Mailers::RegistrationsMailer.registration_notification(@registration).deliver
 
-      if @training_course.date_and_time.to_date == Date.today
-        if @registration.sent_reminder_message_at.blank?
-          Mailers::TrainingCoursesMailer.reminder_message(@training_course, @registration).deliver
-          @registration.update_column(:sent_reminder_message_at, Time.zone.now)
-        end
+      if @training_course.date_and_time.to_date == Date.today && @registration.sent_reminder_message_at.blank?
+        Mailers::TrainingCoursesMailer.reminder_message(@training_course, @registration).deliver
+        @registration.update_column(:sent_reminder_message_at, Time.zone.now)
       end
 
       redirect_to frontend_training_courses_path
