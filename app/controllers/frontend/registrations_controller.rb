@@ -62,7 +62,7 @@ private
       redirect_to frontend_training_course_path(@training_course) and return
     end
 
-    return true
+    true
   end
 
   def registration_params
