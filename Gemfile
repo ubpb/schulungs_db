@@ -35,6 +35,6 @@ group :development do
   gem "capistrano-rails",     "~> 1.6"
   gem "capistrano-rvm",       "~> 0.1"
   gem "listen",               ">= 3.8"
-  gem "rubocop",              ">= 1.45", require: false
+  gem "ubpb-rubocop-config",  github: "ubpb/rubocop-config", branch: "main", require: "ubpb/rubocop-config"
   gem "web-console",          ">= 3.3.0"
 end
