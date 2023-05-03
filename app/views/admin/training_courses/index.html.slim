@@ -1,5 +1,9 @@
 .container-fluid
   .btn-toolbar.justify-content-end
+    = link_to export_admin_training_courses_path, class: "btn btn-secondary mr-1" do
+      = icon("fas", "download")
+      =< t(".statistics_export")
+
     = link_to new_admin_training_course_path, class: "btn btn-primary" do
       = icon("fas", "plus")
       =< t(".new_training_course")

@@ -31,6 +31,20 @@ de:
         title: "Titel"
         enable_field_of_interest_for_registrations: "... nach 'Fachgebiet' bei der Anmeldung fragen?"
         enable_institutions_for_registrations: "... nach 'Einrichtungen' bei der Anmeldung fragen?"
+        from: "Von"
+        to: "Bis"
+        statistics_lecturer: "Dozent(en)"
+        statistics_organization_types: "Organisatorische Form"
+        statistics_forms: "Didaktische Form"
+        statistics_levels: "Niveau"
+        statistics_categories: "Fachliche Ausrichtung"
+        statistics_audiences: "Zielgruppen"
+        statistics_focus: "Inhaltliche Schwerpunkte"
+        statistics_duration: "Tatsächliche Dauer"
+        statistics_lecturer_md: "mittlerer Dienst"
+        statistics_lecturer_gd: "gehobener Dienst"
+        statistics_lecturer_hd: "höherer Dienst"
+        statistics_presence_types: "Anwesenheit"
 
     hints:
       training_course:
@@ -42,7 +56,7 @@ de:
         learning_targets: >
           Formatierungen mit <a href="https://www.markdownguide.org/basic-syntax" target="_blank">Markdown</a> möglich
         number_of_participants: >
-          Wieviele Teilnehmer haben an der Veranstaltung teilgenommen?
+          Maximale Teilnehmeranzahl
         reminder_message: >
           Mailvorlage für den Versand einer Erinnerungsmail an die angemeldeten Teilnehmer der Veranstaltung. Sie können
           <code>###ANREDE###</code>, <code>###DATUM###</code>, <code>###UHRZEIT###</code>, <code>###DAUER###</code>,

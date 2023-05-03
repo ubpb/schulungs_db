@@ -1,8 +1,30 @@
 class Admin::TrainingCoursesController < Admin::ApplicationController
 
   def index
-    @upcoming_training_courses = TrainingCourse.upcoming.includes(:registrations).order("date_and_time asc")
-    @past_training_courses = TrainingCourse.past.includes(:registrations).order("date_and_time desc")
+    respond_to do |format|
+
+      format.html {
+        @upcoming_training_courses = TrainingCourse.upcoming.includes(:registrations).order("date_and_time asc")
+        @past_training_courses = TrainingCourse.past.includes(:registrations).order("date_and_time desc")
+      }
+
+      format.xlsx {
+        if params[:data].present?
+          @from = params[:data][:from]&.to_date
+          @to = params[:data][:to]&.to_date
+          # Query course between these dates
+          @training_courses = TrainingCourse.where(:date_and_time => @from..@to).each
+
+          filename = [
+            @from&.strftime("%F"),
+            @to&.strftime("%F"),
+            "statistics"
+          ].compact.join("_")
+
+          response.headers['Content-Disposition'] = "attachment; filename=\"#{filename}.xlsx\""
+        end
+      }
+    end
   end
 
   def new
@@ -22,7 +44,24 @@ class Admin::TrainingCoursesController < Admin::ApplicationController
   end
 
   def edit
-    @training_course = TrainingCourse.find(params[:id])
+    respond_to do |format|
+
+      format.html {
+        @training_course = TrainingCourse.find(params[:id])
+      }
+
+      format.xlsx {
+          @training_courses = [ TrainingCourse.find(params[:id]) ]
+
+          filename = [
+            @from&.strftime("%F"),
+            @to&.strftime("%F"),
+            "statistics"
+          ].compact.join("_")
+
+          response.headers['Content-Disposition'] = "attachment; filename=\"#{filename}.xlsx\""
+      }
+    end
   end
 
   def update
@@ -98,11 +137,31 @@ private
 
   def training_course_params
     params.require(:training_course).permit(
-      :title, :location, :date_and_time, :published, :description,
-      :registration_required, :max_no_of_participants, :duration,
-      :learning_targets, :number_of_participants, :reminder_message,
+      :title,
+      :location,
+      :date_and_time,
+      :published,
+      :description,
+      :registration_required,
+      :max_no_of_participants,
+      :duration,
+      :learning_targets,
+      :number_of_participants,
+      :reminder_message,
       :enable_institutions_for_registrations,
       :enable_field_of_interest_for_registrations,
+      :statistics_lecturer,
+      :statistics_organization_types,
+      :statistics_levels,
+      :statistics_categories,
+      :statistics_duration,
+      :statistics_lecturer_md,
+      :statistics_lecturer_gd,
+      :statistics_lecturer_hd,
+      :statistics_presence_types,
+      statistics_forms: [],
+      statistics_audiences: [],
+      statistics_focus: [],
       category_ids: [],
       target_audience_ids: []
     )

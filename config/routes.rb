@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :training_courses, path: "schulungen", except: [:show] do
       resources :registrations, only: [:index, :edit, :update, :destroy]
       resources :repetitions, only: [:new, :create]
+      get 'export', on: :collection
 
       collection do
         patch :batch_update, path: "batch-update"

@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby IO.read(".ruby-version").strip
 
+gem "active_flag",       "~> 1.0"
 gem "acts_as_list",      "~> 1.1"
 gem "bcrypt",            "~> 3.1.7"
 gem "bootstrap",         "~> 4.1"

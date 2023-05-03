@@ -1,0 +1,12 @@
+wb = xlsx_package.workbook
+
+date_format = wb.styles.add_style :format_code => 'yyyy-mm-dd'
+
+
+wb.add_worksheet(name: "Schulungen") do |sheet|
+  render 'header', workbook: wb, sheet: sheet, date_format: date_format, from: @from, to: @to
+  render 'listing', workbook: wb, sheet: sheet, date_format: date_format, training_courses: @training_courses
+end
+
+# To make it work in Numbers
+xlsx_package.use_shared_strings = true
