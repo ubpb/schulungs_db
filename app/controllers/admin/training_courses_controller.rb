@@ -43,25 +43,24 @@ class Admin::TrainingCoursesController < Admin::ApplicationController
     end
   end
 
-  def edit
+  def show
     respond_to do |format|
-
-      format.html {
-        @training_course = TrainingCourse.find(params[:id])
-      }
-
       format.xlsx {
-          @training_courses = [ TrainingCourse.find(params[:id]) ]
+        @training_courses = [ TrainingCourse.find(params[:id]) ]
 
-          filename = [
-            @from&.strftime("%F"),
-            @to&.strftime("%F"),
-            "statistics"
-          ].compact.join("_")
+        filename = [
+          @from&.strftime("%F"),
+          @to&.strftime("%F"),
+          "statistics"
+        ].compact.join("_")
 
-          response.headers['Content-Disposition'] = "attachment; filename=\"#{filename}.xlsx\""
+        response.headers["Content-Disposition"] = "attachment; filename=\"#{filename}.xlsx\""
       }
     end
+  end
+
+  def edit
+    @training_course = TrainingCourse.find(params[:id])
   end
 
   def update

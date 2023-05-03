@@ -92,7 +92,6 @@ ActiveRecord::Schema.define(version: 2023_05_03_080106) do
     t.integer "statistics_categories", default: 0, null: false
     t.integer "statistics_audiences", default: 0, null: false
     t.integer "statistics_focus", default: 0, null: false
-    t.string "email"
     t.integer "statistics_duration", default: 0, null: false
     t.integer "statistics_lecturer_md", default: 0, null: false
     t.integer "statistics_lecturer_gd", default: 0, null: false
