@@ -41,6 +41,10 @@
                     = link_to new_admin_training_course_repetition_path(tc), class: "dropdown-item" do
                       = icon("fas", "redo", class: "fa-fw")
                       =< t(".repeat")
+                    .dropdown-divider
+                    = link_to edit_admin_training_course_path(tc, format: :xlsx), class: "dropdown-item" do
+                      = icon("fas", "download", class: "fa-fw")
+                      =< t(".export")
       tfoot
         tr
           td

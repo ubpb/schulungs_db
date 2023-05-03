@@ -1,6 +1,9 @@
 de:
   active_flag:
     training_course:
+      statistics_presence_types:
+        presence: "vorort"
+        online: "online"
       statistics_organization_types:
         library: "Eigenständige Bibliotheksveranstaltung (nicht semesterlang)"
         integrated: "Integrierte Einheit in universitärer Lehrveranstaltung"

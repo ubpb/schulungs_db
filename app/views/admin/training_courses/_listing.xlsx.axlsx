@@ -6,8 +6,8 @@ training_courses.each do |tc|
   values = [
     tc.id,
     "Paderborn",
-    "Dozent",
-    tc.duration,
+    tc.statistics_lecturer,
+    tc.statistics_duration,
 
      # Organisatorische Form
     tc.statistics_organization_types.library? ? 1 : 0,
@@ -35,9 +35,9 @@ training_courses.each do |tc|
     "",
 
     # Dozent
-    "",
-    "",
-    "",
+    tc.statistics_lecturer_gd,
+    tc.statistics_lecturer_hd,
+    tc.statistics_lecturer_md,
     "",
     "",
 
@@ -73,7 +73,7 @@ training_courses.each do |tc|
     # Teilnehmerzahl
     tc.number_of_participants,
 
-    "", # Sitzungsanzahl
+    1, # Sitzungsanzahl
     "", # Semester
 
     # Datum
@@ -88,7 +88,7 @@ training_courses.each do |tc|
     # Text 4
     "",
     # Text 5
-    tc.location,
+    tc.statistics_presence_types.presence? ? "vorort" : "",
 
     "//"
   ]

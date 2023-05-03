@@ -10,8 +10,12 @@ class TrainingCourse < ApplicationRecord
   validates :date_and_time, presence: true
   validates :location, presence: true
   validates :max_no_of_participants, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :duration, presence: true, numericality: { greater_than_or_equal_to: 1 }
+  validates :duration, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
   validates :number_of_participants, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
+  validates :statistics_duration, numericality: { greater_than_or_equal_to: 0 }
+  validates :statistics_lecturer_md, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
+  validates :statistics_lecturer_gd, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
+  validates :statistics_lecturer_hd, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
 
   # Scopes
   scope :published, -> { where(published: true) }
@@ -19,6 +23,8 @@ class TrainingCourse < ApplicationRecord
   scope :past,      -> { where("date_and_time < ?", Date.today.beginning_of_day) }
 
   # Flags
+  flag :statistics_presence_types,      [ :presence,
+                                          :online ]
   flag :statistics_organization_types,  [ :library,
                                           :integrated,
                                           :independent,

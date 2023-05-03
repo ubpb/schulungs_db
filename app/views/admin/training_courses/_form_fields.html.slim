@@ -41,10 +41,6 @@ h6.mt-4 Adminstrative Angaben
 hr.mt-0.mb-4
 
 .row
-  .col-4
-    = form.input :number_of_participants, as: :integer
-
-.row
   .col-12
     = form.input :reminder_message, input_html: {rows: 8}
     - unless @training_course.new_record?
@@ -66,13 +62,39 @@ hr.mt-0.mb-4
   .col-md-12
     / Titel
     = form.input :title, disabled: true
+
+.row
+  .col-6
+    / Datum
+    = form.input :date_and_time, as: :date, prompt: false, disabled: true, html5: true
+  .col-md-6
+    / Tatsaechliche Dauer
+    = form.input :statistics_duration, as: :integer
+
+.row
+  .col-6
+    / Teilnehmer
+    = form.input :number_of_participants, as: :integer
+
 .row
   .col-md-6
     / Dozent
     = form.input :statistics_lecturer
-  .col-md-6
-    / Dauer
-    = form.input :duration, disabled: true
+  .col-md-2
+    / md
+    = form.input :statistics_lecturer_md, as: :integer
+  .col-md-2
+    / gd
+    = form.input :statistics_lecturer_gd, as: :integer
+  .col-md-2
+    / hd
+    = form.input :statistics_lecturer_hd, as: :integer
+
+.row
+  .col-12
+    = form.input :statistics_presence_types,
+                  collection: TrainingCourse.statistics_presence_types.pairs
+
 .row
   .col-12
     / Organisatorische Form
@@ -96,11 +118,3 @@ hr.mt-0.mb-4
   .col-12
     / Inhaltliche Schwerpunkte
     = form.input :statistics_focus, as: :check_boxes, collection: TrainingCourse.statistics_focus.pairs
-
-.row
-  .col-6
-    / Teilnehmer
-    = form.input :number_of_participants, as: :integer, disabled: true
-  .col-6
-    / Datum
-    = form.input :date_and_time, as: :date, prompt: false, disabled: true, html5: true
