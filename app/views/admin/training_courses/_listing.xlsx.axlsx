@@ -3,72 +3,99 @@
 ##
 
 training_courses.each do |tc|
+
+  # Zuordnung der fachlichen Ausrichtung
+  statistics_category = 0
+  statistics_category = 6  if tc.statistics_categories.chemistry?
+  statistics_category = 8  if tc.statistics_categories.geography?
+  statistics_category = 10 if tc.statistics_categories.history?
+  statistics_category = 11 if tc.statistics_categories.engineering?
+  statistics_category = 12 if tc.statistics_categories.computer_science?
+  statistics_category = 13 if tc.statistics_categories.art_history?
+  statistics_category = 15 if tc.statistics_categories.media_studies?
+  statistics_category = 17 if tc.statistics_categories.musicology?
+  statistics_category = 18 if tc.statistics_categories.pedagogy?
+  statistics_category = 20 if tc.statistics_categories.philosophy?
+  statistics_category = 21 if tc.statistics_categories.physics?
+  statistics_category = 23 if tc.statistics_categories.psychology?
+  statistics_category = 25 if tc.statistics_categories.sociology?
+  statistics_category = 26 if tc.statistics_categories.sports?
+  statistics_category = 27 if tc.statistics_categories.theology?
+  statistics_category = 28 if tc.statistics_categories.economics?
+  statistics_category = 29 if tc.statistics_categories.interdisciplinary?
+  statistics_category = 30 if tc.statistics_categories.other?
+  statistics_category = 31 if tc.statistics_categories.english_studies?
+  statistics_category = 32 if tc.statistics_categories.german_studies?
+  statistics_category = 33 if tc.statistics_categories.romance_studies?
+  statistics_category = 36 if tc.statistics_categories.nutritional_science?
+  statistics_category = 38 if tc.statistics_categories.natural_science?
+
   values = [
-    tc.id,
+    "",
     "Paderborn",
     tc.statistics_lecturer,
     tc.statistics_duration,
 
      # Organisatorische Form
-    tc.statistics_organization_types.library? ? 1 : 0,
-    tc.statistics_organization_types.integrated? ? 1 : 0,
-    tc.statistics_organization_types.independent? ? 1 : 0,
-    tc.statistics_organization_types.consultation? ? 1 : 0,
-    tc.statistics_organization_types.media? ? 1 : 0,
-    tc.statistics_organization_types.webinar? ? 1 : 0,
-    tc.statistics_organization_types.elearning? ? 1 : 0,
-    tc.statistics_organization_types.blended? ? 1 : 0,
+    tc.statistics_organization_types.library? ? 1 : "",
+    tc.statistics_organization_types.integrated? ? 1 : "",
+    tc.statistics_organization_types.independent? ? 1 : "",
+    tc.statistics_organization_types.consultation? ? 1 : "",
+    tc.statistics_organization_types.media? ? 1 : "",
+    tc.statistics_organization_types.webinar? ? 1 : "",
+    tc.statistics_organization_types.elearning? ? 1 : "",
+    tc.statistics_organization_types.blended? ? 1 : "",
 
     # Didaktische Form
-    tc.statistics_forms.presentation? ? 1 : 0,
-    tc.statistics_forms.workshop? ? 1 : 0,
+    tc.statistics_forms.presentation? ? 1 : "",
+    tc.statistics_forms.workshop? ? 1 : "",
 
     # Niveau
     "", # 14 fehlt
-    tc.statistics_levels.beginner? ? 1 : 0,
-    tc.statistics_levels.advanced? ? 1 : 0,
+    tc.statistics_levels.beginner? ? 1 : "",
+    tc.statistics_levels.advanced? ? 1 : "",
 
     # Integration
     tc.statistics_organization_types.integrated? ? 3 : 1,
 
     # Fachliche Ausrichtung
-    "",
+    statistics_category,
 
     # Dozent
     tc.statistics_lecturer_gd,
     tc.statistics_lecturer_hd,
     tc.statistics_lecturer_md,
-    "",
-    "",
+    0,
+    0,
 
     # Zielgruppe
-    tc.statistics_audiences.bachelor_students? ? 1 : 0,
-    tc.statistics_audiences.master_students? ? 1 : 0,
-    tc.statistics_audiences.tutors? ? 1 : 0,
-    tc.statistics_audiences.phd_students? ? 1 : 0,
-    tc.statistics_audiences.scientists? ? 1 : 0,
-    tc.statistics_audiences.university_others? ? 1 : 0,
-    tc.statistics_audiences.pupils? ? 1 : 0,
-    tc.statistics_audiences.trainees? ? 1 : 0,
-    tc.statistics_audiences.teachers? ? 1 : 0,
-    tc.statistics_audiences.seniors? ? 1 : 0,
-    tc.statistics_audiences.forign_students? ? 1 : 0,
-    tc.statistics_audiences.others? ? 1 : 0,
+    tc.statistics_audiences.bachelor_students? ? 1 : "",
+    tc.statistics_audiences.master_students? ? 1 : "",
+    tc.statistics_audiences.tutors? ? 1 : "",
+    tc.statistics_audiences.phd_students? ? 1 : "",
+    tc.statistics_audiences.scientists? ? 1 : "",
+    tc.statistics_audiences.university_others? ? 1 : "",
+    tc.statistics_audiences.pupils? ? 1 : "",
+    tc.statistics_audiences.trainees? ? 1 : "",
+    tc.statistics_audiences.teachers? ? 1 : "",
+    tc.statistics_audiences.seniors? ? 1 : "",
+    tc.statistics_audiences.forign_students? ? 1 : "",
+    tc.statistics_audiences.others? ? 1 : "",
     "", # 36 unspezifische Gruppe
 
     # Schwerpunkte
-    tc.statistics_focus.information_competence? ? 1 : 0,
-    tc.statistics_focus.library_usage? ? 1 : 0,
-    tc.statistics_focus.search_methods? ? 1 : 0,
-    tc.statistics_focus.catalogs? ? 1 : 0,
-    tc.statistics_focus.internet_research? ? 1 : 0,
-    tc.statistics_focus.information_managment? ? 1 : 0,
-    tc.statistics_focus.legal_issues? ? 1 : 0,
-    tc.statistics_focus.electronic_publishing? ? 1 : 0,
-    tc.statistics_focus.interlending? ? 1 : 0,
-    tc.statistics_focus.others? ? 1 : 0,
-    tc.statistics_focus.scientific_work? ? 1 : 0,
-    tc.statistics_focus.special_collections? ? 1 : 0,
+    tc.statistics_focus.information_competence? ? 1 : "",
+    tc.statistics_focus.library_usage? ? 1 : "",
+    tc.statistics_focus.search_methods? ? 1 : "",
+    tc.statistics_focus.catalogs? ? 1 : "",
+    tc.statistics_focus.internet_research? ? 1 : "",
+    tc.statistics_focus.information_managment? ? 1 : "",
+    tc.statistics_focus.legal_issues? ? 1 : "",
+    tc.statistics_focus.electronic_publishing? ? 1 : "",
+    tc.statistics_focus.interlending? ? 1 : "",
+    tc.statistics_focus.others? ? 1 : "",
+    tc.statistics_focus.scientific_work? ? 1 : "",
+    tc.statistics_focus.special_collections? ? 1 : "",
 
     # Teilnehmerzahl
     tc.number_of_participants,
@@ -88,7 +115,7 @@ training_courses.each do |tc|
     # Text 4
     "",
     # Text 5
-    tc.statistics_presence_types.presence? ? "vorort" : "",
+    tc.statistics_presence_types.presence? ? "vor Ort" : "",
 
     "//"
   ]

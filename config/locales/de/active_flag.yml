@@ -2,7 +2,7 @@ de:
   active_flag:
     training_course:
       statistics_presence_types:
-        presence: "vorort"
+        presence: "vor Ort"
         online: "online"
       statistics_organization_types:
         library: "Eigenständige Bibliotheksveranstaltung (nicht semesterlang)"
