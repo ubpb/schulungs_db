@@ -44,19 +44,18 @@ de:
         statistics_lecturer_md: "mittlerer Dienst"
         statistics_lecturer_gd: "gehobener Dienst"
         statistics_lecturer_hd: "höherer Dienst"
-        statistics_presence_types: "Anwesenheit"
+        statistics_presence_types: "Format"
 
     hints:
       training_course:
         max_no_of_participants: "0 => Keine Beschränkung"
         duration: "... in Minuten"
+        statistics_duration: "... in Minuten"
         time: "Format hh:mm"
         description: >
           Formatierungen mit <a href="https://www.markdownguide.org/basic-syntax" target="_blank">Markdown</a> möglich
         learning_targets: >
           Formatierungen mit <a href="https://www.markdownguide.org/basic-syntax" target="_blank">Markdown</a> möglich
-        number_of_participants: >
-          Maximale Teilnehmeranzahl
         reminder_message: >
           Mailvorlage für den Versand einer Erinnerungsmail an die angemeldeten Teilnehmer der Veranstaltung. Sie können
           <code>###ANREDE###</code>, <code>###DATUM###</code>, <code>###UHRZEIT###</code>, <code>###DAUER###</code>,
