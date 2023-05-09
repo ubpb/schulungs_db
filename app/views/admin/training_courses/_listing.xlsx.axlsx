@@ -3,6 +3,33 @@
 ##
 
 training_courses.each do |tc|
+
+  # Zuordnung der fachlichen Ausrichtung
+  statistics_category = 0
+  statistics_category = 6  if tc.statistics_categories.chemistry?
+  statistics_category = 8  if tc.statistics_categories.geography?
+  statistics_category = 10 if tc.statistics_categories.history?
+  statistics_category = 11 if tc.statistics_categories.engineering?
+  statistics_category = 12 if tc.statistics_categories.computer_science?
+  statistics_category = 13 if tc.statistics_categories.art_history?
+  statistics_category = 15 if tc.statistics_categories.media_studies?
+  statistics_category = 17 if tc.statistics_categories.musicology?
+  statistics_category = 18 if tc.statistics_categories.pedagogy?
+  statistics_category = 20 if tc.statistics_categories.philosophy?
+  statistics_category = 21 if tc.statistics_categories.physics?
+  statistics_category = 23 if tc.statistics_categories.psychology?
+  statistics_category = 25 if tc.statistics_categories.sociology?
+  statistics_category = 26 if tc.statistics_categories.sports?
+  statistics_category = 27 if tc.statistics_categories.theology?
+  statistics_category = 28 if tc.statistics_categories.economics?
+  statistics_category = 29 if tc.statistics_categories.interdisciplinary?
+  statistics_category = 30 if tc.statistics_categories.other?
+  statistics_category = 31 if tc.statistics_categories.english_studies?
+  statistics_category = 32 if tc.statistics_categories.german_studies?
+  statistics_category = 33 if tc.statistics_categories.romance_studies?
+  statistics_category = 36 if tc.statistics_categories.nutritional_science?
+  statistics_category = 38 if tc.statistics_categories.natural_science?
+
   values = [
     "",
     "Paderborn",
@@ -32,7 +59,7 @@ training_courses.each do |tc|
     tc.statistics_organization_types.integrated? ? 3 : 1,
 
     # Fachliche Ausrichtung
-    "",
+    statistics_category,
 
     # Dozent
     tc.statistics_lecturer_gd,
