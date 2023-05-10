@@ -141,7 +141,7 @@ class Admin::TrainingCoursesController < Admin::ApplicationController
       salutation: "frau",
       firstname: "Claudia",
       lastname: "Kroner",
-      email: "schulungen@ub.uni-paderborn.de"
+      email: "schulung@ub.uni-paderborn.de"
     )
 
     mail = Mailers::TrainingCoursesMailer.reminder_message(training_course, dummy_registration)
@@ -163,6 +163,7 @@ private
       :duration,
       :learning_targets,
       :number_of_participants,
+      :email_from,
       :reminder_message,
       :enable_institutions_for_registrations,
       :enable_field_of_interest_for_registrations,

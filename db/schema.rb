@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_03_080106) do
+ActiveRecord::Schema.define(version: 2023_05_10_060329) do
 
   create_table "categories", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
     t.string "title"
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 2023_05_03_080106) do
     t.integer "statistics_lecturer_gd", default: 0, null: false
     t.integer "statistics_lecturer_hd", default: 0, null: false
     t.integer "statistics_presence_types", default: 0, null: false
+    t.string "email_from"
     t.index ["published"], name: "index_training_courses_on_published"
   end
 

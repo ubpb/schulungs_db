@@ -42,6 +42,10 @@ hr.mt-0.mb-4
 
 .row
   .col-12
+    = form.input :email_from, placeholder: "schulung@ub.uni-paderborn.de"
+
+.row
+  .col-12
     = form.input :reminder_message, input_html: {rows: 8}
     - unless @training_course.new_record?
       pre
