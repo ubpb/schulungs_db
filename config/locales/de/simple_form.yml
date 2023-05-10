@@ -9,6 +9,7 @@ de:
         dsgvo_consent: "Einwilligungserklärung"
         duration: "Dauer"
         email: "E-Mail Adresse"
+        email_from: "E-Mail Absenderadresse"
         end_date: "Letzter Termin"
         field_of_interest: "Fachgebiet"
         firstname: "Vorname"
@@ -56,6 +57,8 @@ de:
           Formatierungen mit <a href="https://www.markdownguide.org/basic-syntax" target="_blank">Markdown</a> möglich
         learning_targets: >
           Formatierungen mit <a href="https://www.markdownguide.org/basic-syntax" target="_blank">Markdown</a> möglich
+        email_from: >
+          Die Adresse wird dem Empfänger als Absender angezeigt. Diese muss auf '@ub.uni-paderborn.de' enden.
         reminder_message: >
           Mailvorlage für den Versand einer Erinnerungsmail an die angemeldeten Teilnehmer der Veranstaltung. Sie können
           <code>###ANREDE###</code>, <code>###DATUM###</code>, <code>###UHRZEIT###</code>, <code>###DAUER###</code>,

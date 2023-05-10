@@ -16,6 +16,7 @@ class TrainingCourse < ApplicationRecord
   validates :statistics_lecturer_md, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
   validates :statistics_lecturer_gd, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
   validates :statistics_lecturer_hd, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
+  validates :email_from, format: { with: /\A^$|([^@\s]+)@ub.uni-paderborn.de\z/i }
 
   # Scopes
   scope :published, -> { where(published: true) }
