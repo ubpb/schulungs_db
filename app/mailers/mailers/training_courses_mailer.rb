@@ -4,10 +4,7 @@ class Mailers::TrainingCoursesMailer < ApplicationMailer
     @training_course = training_course
     @registration = registration
 
-    from_address = "schulung@ub.uni-paderborn.de"
-    if @training_course.email_from.present? and not @training_course.email_from.empty?
-      from_address = @training_course.email_from
-    end
+    from_address = @training_course.email_from.presence || "schulung@ub.uni-paderborn.de"
 
     mail(
       from: from_address,
@@ -23,10 +20,7 @@ class Mailers::TrainingCoursesMailer < ApplicationMailer
 
     if @training_course.reminder_message.present?
 
-      from_address = "schulung@ub.uni-paderborn.de"
-      if @training_course.email_from.present? and not @training_course.email_from.empty?
-        from_address = @training_course.email_from
-      end
+      from_address = @training_course.email_from.presence || "schulung@ub.uni-paderborn.de"
 
       mail(
         from: from_address,
