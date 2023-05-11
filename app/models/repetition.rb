@@ -36,6 +36,11 @@ private
     new_training_course.target_audiences = training_course.target_audiences
     new_training_course.date_and_time = new_training_course.date_and_time.change({day: new_date.day, month: new_date.month, year: new_date.year})
     new_training_course.number_of_participants = nil
+    new_training_course.statistics_duration = 0
+    new_training_course.statistics_lecturer = ""
+    new_training_course.statistics_lecturer_md = 0
+    new_training_course.statistics_lecturer_gd = 0
+    new_training_course.statistics_lecturer_hd = 0
     new_training_course.save!
   end
 

@@ -23,7 +23,7 @@ ruby:
     = icon("fas", "hourglass-half", class: "fa-fw", data: {toggle: "tooltip", placement: "top"}, title: t("frontend.training_courses.tooltips.duration"))
     = t("frontend.training_courses.defaults.duration", duration: training_course.duration)
 
-- if show_location
+- if show_location && training_course.location.present?
   .location.fw-icon-item
     = icon("fas", "map-marker-alt", class: "fa-fw", data: {toggle: "tooltip", placement: "top"}, title: t("frontend.training_courses.tooltips.location"))
     = training_course.location

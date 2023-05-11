@@ -13,7 +13,7 @@ class Admin::TrainingCoursesController < Admin::ApplicationController
           @from = params[:data][:from]&.to_date
           @to = params[:data][:to]&.to_date
           # Query course between these dates
-          @training_courses = TrainingCourse.where(:date_and_time => @from..@to).each
+          @training_courses = TrainingCourse.where(:date_and_time => @from&.beginning_of_day..@to&.end_of_day).each
 
           filename = [
             @from&.strftime("%F"),
@@ -47,37 +47,13 @@ class Admin::TrainingCoursesController < Admin::ApplicationController
     respond_to do |format|
       format.xlsx {
         @training_courses = [ TrainingCourse.find(params[:id]) ]
-
-        filename = [
-          @from&.strftime("%F"),
-          @to&.strftime("%F"),
-          "statistics"
-        ].compact.join("_")
-
-        response.headers["Content-Disposition"] = "attachment; filename=\"#{filename}.xlsx\""
+        response.headers["Content-Disposition"] = "attachment; filename=\"statistics.xlsx\""
       }
     end
   end
 
   def edit
-    respond_to do |format|
-
-      format.html {
-        @training_course = TrainingCourse.find(params[:id])
-      }
-
-      format.xlsx {
-          @training_courses = [ TrainingCourse.find(params[:id]) ]
-
-          filename = [
-            @from&.strftime("%F"),
-            @to&.strftime("%F"),
-            "statistics"
-          ].compact.join("_")
-
-          response.headers['Content-Disposition'] = "attachment; filename=\"#{filename}.xlsx\""
-      }
-    end
+    @training_course = TrainingCourse.find(params[:id])
   end
 
   def update
