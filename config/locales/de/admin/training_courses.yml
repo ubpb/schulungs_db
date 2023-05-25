@@ -4,7 +4,6 @@ de:
       index:
         no_training_courses: "Keine Schulungen verfügbar"
         new_training_course: "Neue Schulung"
-        statistics_export: "Statistikexport"
 
       new:
         header: "Neue Schulung"
@@ -46,6 +45,11 @@ de:
         statistics_export_batch_action: "Statistik exportieren"
         prompt_batch_action: "Bitte wählen"
         batch_action: "Los!"
+        statistics_export: "Statistikexport"
+
+      filter:
+        btn_search: "Suchen"
+        btn_reset: "Filter Zurücksetzen"
 
       export:
         header: "Statistikexport"
