@@ -3,7 +3,7 @@ class Admin::TrainingCoursesController < Admin::ApplicationController
   def index
     respond_to do |format|
 
-      if params[:reset].present?
+      if params[:reset_filter].present?
         session.delete(:training_course_filter)
         return redirect_to admin_training_courses_path
       end
@@ -16,6 +16,7 @@ class Admin::TrainingCoursesController < Admin::ApplicationController
 
       @filter = AdminTrainingCoursesFilter.new(params[:filter].present? ? filter_params : {})
 
+      @training_courses_total_count = TrainingCourse.count
       @training_courses = TrainingCourse.includes(:registrations).order("date_and_time asc")
       @training_courses = @filter.filter(@training_courses)
 

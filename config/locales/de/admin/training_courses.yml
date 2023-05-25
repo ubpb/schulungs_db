@@ -48,8 +48,8 @@ de:
         statistics_export: "Statistikexport"
 
       filter:
-        btn_search: "Suchen"
-        btn_reset: "Filter Zurücksetzen"
+        btn_filter: "Filtern"
+        btn_reset: "Zurücksetzen"
 
       export:
         header: "Statistikexport"
