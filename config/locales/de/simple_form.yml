@@ -46,6 +46,8 @@ de:
         statistics_lecturer_gd: "gehobener Dienst"
         statistics_lecturer_hd: "höherer Dienst"
         statistics_presence_types: "Format"
+        only_upcoming: "Nur anstehende Schulungen"
+        incomplete_statistics: "Unvollständige Statistikangaben"
 
     hints:
       training_course:

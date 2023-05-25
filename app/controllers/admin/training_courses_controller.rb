@@ -3,26 +3,35 @@ class Admin::TrainingCoursesController < Admin::ApplicationController
   def index
     respond_to do |format|
 
+      if params[:reset_filter].present?
+        session.delete(:training_course_filter)
+        return redirect_to admin_training_courses_path
+      end
+
+      if params[:filter].present?
+        session[:training_course_filter] = params[:filter]
+      elsif session[:training_course_filter].present?
+        return redirect_to admin_training_courses_path(filter: session[:training_course_filter])
+      end
+
+      @filter = AdminTrainingCoursesFilter.new(params[:filter].present? ? filter_params : {})
+
+      @training_courses_total_count = TrainingCourse.count
+      @training_courses = TrainingCourse.includes(:registrations).order("date_and_time asc")
+      @training_courses = @filter.filter(@training_courses)
+
       format.html {
-        @upcoming_training_courses = TrainingCourse.upcoming.includes(:registrations).order("date_and_time asc")
-        @past_training_courses = TrainingCourse.past.includes(:registrations).order("date_and_time desc")
+        @training_courses
       }
 
       format.xlsx {
-        if params[:data].present?
-          @from = params[:data][:from]&.to_date
-          @to = params[:data][:to]&.to_date
-          # Query course between these dates
-          @training_courses = TrainingCourse.where(:date_and_time => @from&.beginning_of_day..@to&.end_of_day).each
+        filename = [
+          @filter.from&.strftime("%F"),
+          @filter.to&.strftime("%F"),
+          "statistics"
+        ].compact.join("_")
 
-          filename = [
-            @from&.strftime("%F"),
-            @to&.strftime("%F"),
-            "statistics"
-          ].compact.join("_")
-
-          response.headers['Content-Disposition'] = "attachment; filename=\"#{filename}.xlsx\""
-        end
+        response.headers['Content-Disposition'] = "attachment; filename=\"#{filename}.xlsx\""
       }
     end
   end
@@ -162,6 +171,10 @@ private
 
   def batch_update_toggle_publish(training_courses, published:)
     training_courses.update_all(published: published)
+  end
+
+  def filter_params
+    params.require(:filter).permit!
   end
 
 end

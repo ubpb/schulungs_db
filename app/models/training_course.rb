@@ -13,9 +13,9 @@ class TrainingCourse < ApplicationRecord
   validates :duration, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
   validates :number_of_participants, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
   validates :statistics_duration, numericality: { greater_than_or_equal_to: 0 }
-  validates :statistics_lecturer_md, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
-  validates :statistics_lecturer_gd, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
-  validates :statistics_lecturer_hd, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
+  validates :statistics_lecturer_md, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :statistics_lecturer_gd, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :statistics_lecturer_hd, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :email_from, format: { with: /\A^$|([^@\s]+)@ub.uni-paderborn.de\z/i }
 
   # Scopes

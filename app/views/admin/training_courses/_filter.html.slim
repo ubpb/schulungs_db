@@ -1,0 +1,36 @@
+.card
+  .card-body
+
+    h5.card-title Filter
+
+    = simple_form_for :filter, url: admin_training_courses_path, method: :get do |form|
+
+      .row
+        .col-12
+          = form.input :title, required: false
+
+      .row
+        .col-6
+          = form.input :from, as: :date, value: '%H:%M', prompt: false, end_year: Date.today.year + 3, html5: true, required: false
+        .col-6
+          = form.input :to, as: :date, prompt: false, end_year: Date.today.year + 3, html5: true, required: false
+
+      .row
+        .col-12
+          = form.input :only_upcoming, as: :boolean
+
+      .row
+        .col-12
+          = form.input :published, as: :boolean, label: "Nur öffentlich sichtbare"
+
+      .row
+        .col-12
+          = form.input :incomplete_statistics, as: :boolean
+
+      .row
+        .col-12
+          .btn-toolbar.justify-content-between.flex-nowrap
+            div
+          = form.submit t(".btn_filter"), class: "btn btn-primary"
+          - if @filter.active?
+            = form.submit t(".btn_reset"), name: "reset_filter", class: "btn btn-secondary ml-2"

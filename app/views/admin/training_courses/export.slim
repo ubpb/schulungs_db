@@ -3,7 +3,7 @@
     .col-md-8
       .card
         h5.card-header = t(".header")
-        = simple_form_for :data, url: admin_training_courses_path( format: :xlsx ), method: :get do |form|
+        = simple_form_for :filter, url: admin_training_courses_path( format: :xlsx ), method: :get do |form|
           .card-body
 
               .row

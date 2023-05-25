@@ -49,8 +49,15 @@
         tr
           td
             = icon("fas", "arrow-alt-circle-right", class: "fa-fw")
-          td(colspan="7")
+          td(colspan="5")
             .btn-toolbar.justify-content-start.flex-nowrap
               .ml-0 = select_tag(:multi_edit_action, options_for_select([[t(".publish_batch_action"), "publish"], [t(".unpublish_batch_action"), "unpublish"]]), class: "form-control", prompt: t(".prompt_batch_action"))
               .ml-2 = submit_tag(t(".batch_action"), class: "btn btn-primary")
+          td(colspan="2")
+            .btn-toolbar.justify-content-end
+              .btn.disabled
+                = "#{@training_courses.count} von #{@training_courses_total_count}"
+              = link_to admin_training_courses_path(filter: @filter.filter_attributes, format: :xlsx), class: "btn btn-secondary mr-1" do
+                = icon("fas", "download")
+                =< t(".statistics_export")
 
