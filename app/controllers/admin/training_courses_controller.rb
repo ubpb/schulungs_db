@@ -8,15 +8,13 @@ class Admin::TrainingCoursesController < Admin::ApplicationController
         return redirect_to admin_training_courses_path
       end
 
-      @filter = AdminTrainingCoursesFilter.new(params[:filter].present? ? filter_params : {})
-
-      if !params[:filter].present? && session[:training_course_filter].present?
+      if params[:filter].present?
+        session[:training_course_filter] = params[:filter]
+      elsif session[:training_course_filter].present?
         return redirect_to admin_training_courses_path(filter: session[:training_course_filter])
       end
 
-      if params[:filter].present?
-        session[:training_course_filter] = @filter.filter_attributes
-      end
+      @filter = AdminTrainingCoursesFilter.new(params[:filter].present? ? filter_params : {})
 
       @training_courses = TrainingCourse.includes(:registrations).order("date_and_time asc")
       @training_courses = @filter.filter(@training_courses)
