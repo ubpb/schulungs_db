@@ -33,7 +33,7 @@ training_courses.each do |tc|
   values = [
     "",
     "Paderborn",
-    I18n.transliterate(tc.statistics_lecturer),
+    I18n.transliterate(tc.statistics_lecturer.presence || ""),
     tc.statistics_duration,
 
      # Organisatorische Form
