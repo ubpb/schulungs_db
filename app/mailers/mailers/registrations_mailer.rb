@@ -4,9 +4,11 @@ class Mailers::RegistrationsMailer < ApplicationMailer
     @registration = registration
     @training_course = registration.training_course
 
-    #from_address = @training_course.email_from.presence || "schulung@ub.uni-paderborn.de"
+    from_address = @training_course.email_from.presence || "schulung@ub.uni-paderborn.de"
 
     mail(
+      from: from_address,
+      reply_to: from_address,
       to: @registration.email,
       subject: "[UB Paderborn] Ihre Schulungsanmeldung"
     )
