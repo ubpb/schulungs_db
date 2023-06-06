@@ -7,7 +7,6 @@ class Mailers::TrainingCoursesMailer < ApplicationMailer
     from_address = @training_course.email_from.presence || "schulung@ub.uni-paderborn.de"
 
     mail(
-      from: from_address,
       reply_to: from_address,
       to: @registration.email,
       subject: "[UB Paderborn] Änderung eines Schulungstermins"
@@ -23,7 +22,6 @@ class Mailers::TrainingCoursesMailer < ApplicationMailer
       from_address = @training_course.email_from.presence || "schulung@ub.uni-paderborn.de"
 
       mail(
-        from: from_address,
         reply_to: from_address,
         to: @registration.email,
         subject: "[UB Paderborn] Informationen zu Ihrer Schulungsveranstaltung"
