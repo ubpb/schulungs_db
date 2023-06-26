@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_10_060329) do
+ActiveRecord::Schema.define(version: 2023_06_26_074112) do
 
   create_table "categories", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
     t.string "title"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2023_05_10_060329) do
     t.integer "max_no_of_participants", default: 0, null: false
     t.text "learning_targets"
     t.integer "duration"
-    t.integer "number_of_participants"
+    t.integer "number_of_participants", default: 0
     t.text "reminder_message"
     t.boolean "enable_institutions_for_registrations", default: false, null: false
     t.boolean "enable_field_of_interest_for_registrations", default: true, null: false
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 2023_05_10_060329) do
     t.integer "statistics_categories", default: 0, null: false
     t.integer "statistics_audiences", default: 0, null: false
     t.integer "statistics_focus", default: 0, null: false
+    t.string "email"
     t.integer "statistics_duration", default: 0, null: false
     t.integer "statistics_lecturer_md", default: 0, null: false
     t.integer "statistics_lecturer_gd", default: 0, null: false
