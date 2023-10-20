@@ -7,6 +7,7 @@ class AdminTrainingCoursesFilter
     :to,
     :title,
     :published,
+    :unpublished,
     :incomplete_statistics
   ].freeze
 
@@ -28,7 +29,13 @@ class AdminTrainingCoursesFilter
     @to  = filters[:to].presence&.to_date
     @title = filters[:title].presence
     @published = to_bool(filters[:published].presence)
+    @unpublished = to_bool(filters[:unpublished].presence)
     @incomplete_statistics = to_bool(filters[:incomplete_statistics].presence)
+
+    if (@published && @unpublished)
+      @published = nil
+      @unpublished = nil
+    end
   end
 
   def filter_attributes
@@ -43,6 +50,7 @@ class AdminTrainingCoursesFilter
     arel = filter_from_to(arel)
     arel = filter_title(arel)
     arel = filter_published(arel)
+    arel = filter_unpublished(arel)
     arel = filter_statistics(arel)
   end
 
@@ -52,6 +60,7 @@ class AdminTrainingCoursesFilter
       @to.present? ||
       @title.present? ||
       @published.present? ||
+      @unpublished.present? ||
       @incomplete_statistics.present?
   end
 
@@ -84,6 +93,14 @@ private
   def filter_published(arel)
     if @published
       arel.where( "published")
+    else
+      arel
+    end
+  end
+
+  def filter_unpublished(arel)
+    if @unpublished
+      arel.where.not( "published")
     else
       arel
     end

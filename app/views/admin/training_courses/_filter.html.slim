@@ -20,9 +20,10 @@
           = form.input :only_upcoming, as: :boolean
 
       .row
-        .col-12
-          = form.input :published, as: :boolean, label: "Nur öffentlich sichtbare"
-
+        .col-6
+          = form.input :published, as: :boolean, label: "Veröffentlicht"
+        .col-6
+          = form.input :unpublished, as: :boolean, label: "Nicht veröffentlicht"
       .row
         .col-12
           = form.input :incomplete_statistics, as: :boolean
