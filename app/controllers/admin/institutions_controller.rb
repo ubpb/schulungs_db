@@ -27,7 +27,7 @@ class Admin::InstitutionsController < Admin::ApplicationController
   def update
     @institution = Institution.find(params[:id])
 
-    if @institution.update_attributes(institution_params)
+    if @institution.update(institution_params)
       flash[:success] = t(".flash.success")
       redirect_to(admin_institutions_path)
     else

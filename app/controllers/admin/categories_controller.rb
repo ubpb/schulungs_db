@@ -27,7 +27,7 @@ class Admin::CategoriesController < Admin::ApplicationController
   def update
     @category = Category.find(params[:id])
 
-    if @category.update_attributes(category_params)
+    if @category.update(category_params)
       flash[:success] = t(".flash.success")
       redirect_to(admin_categories_path)
     else

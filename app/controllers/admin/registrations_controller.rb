@@ -26,7 +26,7 @@ class Admin::RegistrationsController < Admin::ApplicationController
   def update
     @registration = @training_course.registrations.find(params[:id])
 
-    if @registration.update_attributes(registration_params)
+    if @registration.update(registration_params)
       flash[:success] = t(".flash.success")
       redirect_to admin_training_course_registrations_path(@training_course)
     else

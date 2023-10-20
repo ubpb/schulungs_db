@@ -27,7 +27,7 @@ class Admin::TargetAudiencesController < Admin::ApplicationController
   def update
     @target_audience = TargetAudience.find(params[:id])
 
-    if @target_audience.update_attributes(target_audience_params)
+    if @target_audience.update(target_audience_params)
       flash[:success] = t(".flash.success")
       redirect_to(admin_target_audiences_path)
     else
