@@ -27,6 +27,9 @@
       .row
         .col-12
           = form.input :incomplete_statistics, as: :boolean
+      .row
+        .col-12
+          = form.input :organization_types, collection: TrainingCourse.statistics_organization_types.pairs
 
       .row
         .col-12

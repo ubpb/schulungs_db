@@ -34,6 +34,7 @@ de:
         enable_institutions_for_registrations: "... nach 'Einrichtungen' bei der Anmeldung fragen?"
         from: "Von"
         to: "Bis"
+        organization_types: "Organisatorische Form"
         statistics_lecturer: "Dozent(en)"
         statistics_organization_types: "Organisatorische Form"
         statistics_forms: "Didaktische Form"

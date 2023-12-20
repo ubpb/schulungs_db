@@ -8,7 +8,8 @@ class AdminTrainingCoursesFilter
     :title,
     :published,
     :unpublished,
-    :incomplete_statistics
+    :incomplete_statistics,
+    :organization_types
   ].freeze
 
   attr_accessor *FILTERS
@@ -31,6 +32,7 @@ class AdminTrainingCoursesFilter
     @published = to_bool(filters[:published].presence)
     @unpublished = to_bool(filters[:unpublished].presence)
     @incomplete_statistics = to_bool(filters[:incomplete_statistics].presence)
+    @organization_types = filters[:organization_types].presence
 
     if (@published && @unpublished)
       @published = nil
@@ -52,6 +54,7 @@ class AdminTrainingCoursesFilter
     arel = filter_published(arel)
     arel = filter_unpublished(arel)
     arel = filter_statistics(arel)
+    arel = filter_organization_types(arel)
   end
 
   def active?
@@ -61,7 +64,8 @@ class AdminTrainingCoursesFilter
       @title.present? ||
       @published.present? ||
       @unpublished.present? ||
-      @incomplete_statistics.present?
+      @incomplete_statistics.present? ||
+      @organization_types.present?
   end
 
 private
@@ -119,6 +123,14 @@ private
                       "statistics_categories > 0 and " +
                       "statistics_audiences > 0 and " +
                       "statistics_focus > 0")
+    else
+      arel
+    end
+  end
+
+  def filter_organization_types(arel)
+    if @organization_types
+      arel.where_statistics_organization_types(@organization_types)
     else
       arel
     end
