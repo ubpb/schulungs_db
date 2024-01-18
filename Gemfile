@@ -22,6 +22,8 @@ gem "simple_form",       "~> 5.2"
 gem "slim",              ">= 5.1"
 gem "turbolinks",        "~> 5"
 gem "uglifier",          ">= 1.3.0"
+gem 'wicked_pdf',        ">= 2.7"
+gem 'wkhtmltopdf-binary',">= 0.12.6.6"
 
 gem "bootsnap", ">= 1.4.2", require: false
 
