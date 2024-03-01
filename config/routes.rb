@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     root to: redirect("/admin/schulungen")
 
     resources :training_courses, path: "schulungen" do
-      resources :registrations, only: [:index, :edit, :update, :destroy]
+      resources :registrations, only: [:index, :edit, :update, :destroy] do
+        resources :certificates, path: "zertifikat", only: [:index]
+      end
       resources :repetitions, only: [:new, :create]
       get 'export', on: :collection
 
@@ -29,6 +31,8 @@ Rails.application.routes.draw do
     resources :institutions, path: "einrichtungen" do
       patch :reorder, on: :collection
     end
+
+
   end
 
   namespace :frontend, path: "/" do

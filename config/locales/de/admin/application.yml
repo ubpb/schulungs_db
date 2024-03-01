@@ -6,6 +6,7 @@ de:
       btn_cancel: "Abbrechen"
       btn_delete: "Löschen"
       btn_edit: "Bearbeiten"
+      btn_cert: "Teilnahmebescheinigung"
       confirm_delete: "Wirklich löschen?"
       main_nav:
         app_title: "SchulungsDB"

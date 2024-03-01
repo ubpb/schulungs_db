@@ -23,3 +23,6 @@
                   = link_to edit_admin_training_course_registration_path(@training_course, r), class: "dropdown-item" do
                     = icon("fas", "edit", class: "fa-fw")
                     =< t("admin.application.btn_edit")
+                  = link_to admin_training_course_registration_certificates_path(@training_course, r, format: :pdf), class: "dropdown-item" do
+                    = icon("fas", "certificate", class: "fa-fw")
+                    =< t("admin.application.btn_cert")
