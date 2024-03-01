@@ -14,12 +14,16 @@ div
         b = "Herr #{@registration.firstname} #{@registration.lastname}"
       - else
         b = "Frau #{@registration.firstname} #{@registration.lastname}"
+
     p = "hat im Rahmen der Angebote zur Informationskompetenz der Universitätsbibliothek am #{l(@training_course.date_and_time.to_date)} an der Veranstaltung"
     p
       b = @training_course.title
     p = "teilgenommen."
-    p = "Inhalte der Veranstaltung waren:"
-    p = simple_format(@training_course.certificate_learning_results)
+
+    - if @training_course.certificate_learning_results.presence
+      p = "Inhalte der Veranstaltung waren:"
+      p = simple_format(@training_course.certificate_learning_results)
+
     p = "Paderborn, #{l(Date.today)}"
     p = "Im Auftrag"
     p = @training_course.certificate_signature
