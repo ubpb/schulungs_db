@@ -32,7 +32,7 @@ private
   end
 
   def render_duration(training_course)
-    training_course.duration&.to_s
+    training_course.duration&.to_s.presence || ""
   end
 
   def render_location(training_course)
