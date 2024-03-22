@@ -49,6 +49,8 @@ de:
         statistics_presence_types: "Format"
         only_upcoming: "Nur anstehende Schulungen"
         incomplete_statistics: "Unvollständige Statistikangaben"
+        certificate_learning_results: "Erreichte Lernergebisse"
+        certificate_signature: "Unterschrift"
 
     hints:
       training_course:

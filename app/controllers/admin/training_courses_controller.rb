@@ -161,6 +161,8 @@ private
       :statistics_lecturer_gd,
       :statistics_lecturer_hd,
       :statistics_presence_types,
+      :certificate_learning_results,
+      :certificate_signature,
       statistics_forms: [],
       statistics_audiences: [],
       statistics_focus: [],

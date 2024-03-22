@@ -1,25 +1,60 @@
-.table-responsive
+= form_tag batch_update_admin_training_course_registrations_path, method: :patch
   table.table
     thead
       tr
+        th(width="20") = ""
         th Nachname
         th Vorname
         th E-Mail
-        th Erinnerungsmail gesendet?
+        th Erinnerungsmail?
+        th Teilnahmebescheinigung?
         th.table-actions
+      tr
+        th(colspan="6")
+          .btn-toolbar.justify-content-start.flex-nowrap
+            .ml-0 = check_box_tag :multi_edit_all, nil, false, class: "form-control"
+            .ml-2 = select_tag(:multi_edit_action, options_for_select([["Teilnahmebescheinigung per E-Mail senden", "send_cert_email"]]), class: "form-control", prompt: "Bitte wählen")
+            .ml-2 = submit_tag("Absenden", class: "btn btn-primary")
     tbody
       - registrations.each do |r|
         tr
+          td = check_box_tag "registration_ids[]", r.id
           td = r.lastname
           td = r.firstname
           td = r.email
-          td = r.sent_reminder_message_at.present? ? icon("fas", "check") : icon("fas", "minus")
+          td
+            - if r.sent_reminder_message_at.present?
+              = icon("fas", "check")
+              =< "#{l r.sent_reminder_message_at, format: "%d.%m.%Y, %H:%M Uhr"}"
+            - else
+              = icon("fas", "minus")
+          td
+            - if r.certificate_sent_at.present?
+              = icon("fas", "check")
+              =< "#{l r.certificate_sent_at, format: "%d.%m.%Y, %H:%M Uhr"}"
+            - else
+              = icon("fas", "minus")
           td.table-actions
             .btn-toolbar.justify-content-end.flex-nowrap
               .btn-group
                 button.btn.btn-outline-primary.dropdown-toggle(type="button" data-toggle="dropdown")
                   = icon("fas", "cogs")
-                .dropdown-menu.dropdown-menu-right
-                  = link_to edit_admin_training_course_registration_path(@training_course, r), class: "dropdown-item" do
+                ul.dropdown-menu.dropdown-menu-right
+                  li = link_to edit_admin_training_course_registration_path(@training_course, r), class: "dropdown-item" do
                     = icon("fas", "edit", class: "fa-fw")
                     =< t("admin.application.btn_edit")
+                  li: hr.dropdown-divider
+                  li: h6.dropdown-header = "Teilnahmebescheinigung"
+                  li = link_to download_certificate_admin_training_course_registration_path(@training_course, r), class: "dropdown-item" do
+                    = icon("fas", "download", class: "fa-fw")
+                    =< "Download"
+                  li = link_to email_certificate_admin_training_course_registration_path(@training_course, r), class: "dropdown-item" do
+                    = icon("fas", "envelope", class: "fa-fw")
+                    =< "E-Mail"
+
+javascript:
+  $(document).ready(function() {
+    $('input[name="multi_edit_all"]').change(function() {
+      $('input[name="registration_ids[]"]').prop('checked', $(this).prop('checked'));
+    });
+  });

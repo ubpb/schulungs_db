@@ -5,6 +5,7 @@ class Registration < ApplicationRecord
   # Relations
   belongs_to :training_course
   has_and_belongs_to_many :institutions, -> { order("position") }
+  has_many :certificate_digests, dependent: :destroy
 
   # Validations
   validates :salutation, presence: true, inclusion: { in: SALUTATIONS.map(&:to_s) }
