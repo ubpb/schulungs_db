@@ -11,23 +11,23 @@ gem "caxlsx_rails",      "~> 0.6.2"
 gem "commonmarker",      "~> 0.17"
 gem "font-awesome-sass", "~> 6.4"
 gem "github-markup",     "~> 4.0", require: "github/markup"
+gem "hexapdf",           "~> 0.39"
 gem "jbuilder",          "~> 2.5"
 gem "jquery-rails",      "~> 4.3"
 gem "mysql2",            ">= 0.4.4", "< 0.6.0"
 gem "puma",              ">= 3.11"
-gem "rails",             "~> 6.1.0"
 gem "rails-i18n",        "~> 7.0"
+gem "rails",             "~> 6.1.0"
 gem "sass-rails",        ">= 6"
 gem "simple_form",       "~> 5.2"
 gem "slim",              ">= 5.1"
 gem "turbolinks",        "~> 5"
 gem "uglifier",          ">= 1.3.0"
-gem 'wicked_pdf',        ">= 2.7"
-gem 'wkhtmltopdf-binary',">= 0.12.6.6"
 
 gem "bootsnap", ">= 1.4.2", require: false
 
 group :development, :test do
+  gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "letter_opener_web", ">= 2.0"
 end
 

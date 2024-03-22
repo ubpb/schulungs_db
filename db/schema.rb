@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_23_082832) do
+ActiveRecord::Schema.define(version: 2024_03_20_144058) do
 
   create_table "categories", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
     t.string "title"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 2024_02_23_082832) do
     t.bigint "training_course_id"
     t.index ["category_id"], name: "index_categories_training_courses_on_category_id"
     t.index ["training_course_id"], name: "index_categories_training_courses_on_training_course_id"
+  end
+
+  create_table "certificate_digests", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.bigint "registration_id", null: false
+    t.string "digest", null: false
+    t.string "initials", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["digest"], name: "index_certificate_digests_on_digest", unique: true
+    t.index ["registration_id"], name: "index_certificate_digests_on_registration_id"
   end
 
   create_table "institutions", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
@@ -54,6 +64,7 @@ ActiveRecord::Schema.define(version: 2024_02_23_082832) do
     t.timestamp "sent_reminder_message_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.timestamp "certificate_sent_at"
     t.index ["training_course_id"], name: "index_registrations_on_training_course_id"
   end
 
@@ -92,7 +103,6 @@ ActiveRecord::Schema.define(version: 2024_02_23_082832) do
     t.integer "statistics_categories", default: 0, null: false
     t.integer "statistics_audiences", default: 0, null: false
     t.integer "statistics_focus", default: 0, null: false
-    t.string "email"
     t.integer "statistics_duration", default: 0, null: false
     t.integer "statistics_lecturer_md", default: 0, null: false
     t.integer "statistics_lecturer_gd", default: 0, null: false
@@ -106,6 +116,7 @@ ActiveRecord::Schema.define(version: 2024_02_23_082832) do
 
   add_foreign_key "categories_training_courses", "categories"
   add_foreign_key "categories_training_courses", "training_courses"
+  add_foreign_key "certificate_digests", "registrations"
   add_foreign_key "institutions_registrations", "institutions"
   add_foreign_key "institutions_registrations", "registrations"
   add_foreign_key "registrations", "training_courses"

@@ -5,19 +5,16 @@ Rails.application.routes.draw do
     root to: redirect("/admin/schulungen")
 
     resources :training_courses, path: "schulungen" do
+      get :preview_reminder_message, path: "preview-reminder-message", on: :member
+      get :export, on: :collection
+      patch :batch_update, path: "batch-update", on: :collection
+
       resources :registrations, only: [:index, :edit, :update, :destroy] do
-        resources :certificates, path: "zertifikat", only: [:index]
+        get :download_certificate, on: :member, path: "zertifikat/download"
+        get :email_certificate, on: :member, path: "zertifikat/email"
+        patch :batch_update, path: "batch-update", on: :collection
       end
       resources :repetitions, only: [:new, :create]
-      get 'export', on: :collection
-
-      collection do
-        patch :batch_update, path: "batch-update"
-      end
-
-      member do
-        get :preview_reminder_message, path: "preview-reminder-message"
-      end
     end
 
     resources :categories, path: "themen" do
@@ -31,13 +28,13 @@ Rails.application.routes.draw do
     resources :institutions, path: "einrichtungen" do
       patch :reorder, on: :collection
     end
-
-
   end
 
   namespace :frontend, path: "/" do
     get "datenschutz", as: :privacy, to: redirect("https://www.ub.uni-paderborn.de/fileadmin/ub/Dokumente_Formulare/DSE_UB_001_Schulungsdatenbank.pdf")
     get "impressum", as: :legal, to: redirect("https://www.ub.uni-paderborn.de/ueber-uns/impressum/")
+
+    resources :cert_checks, path: "validate", only: [:index, :new, :create, :show]
 
     resources :training_courses, path: "/", only: [:index, :show] do
       resources :registrations, only: [:new, :create]

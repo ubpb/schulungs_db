@@ -29,6 +29,11 @@ de:
         flash:
           success: "Änderungen wurden durchgeführt. Bitte überprüfen Sie das Ergebnis."
 
+      form:
+        error:
+          one: Ein Fehler verhindert die Speicherung. Bitte prüfen Sie das Formular auf rot markierte Felder.
+          other: "%{count} Fehler verhindern die Speicherung. Bitte prüfen Sie das Formular auf rot markierte Felder."
+
       listing:
         table:
           head:

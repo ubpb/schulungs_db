@@ -1,3 +1,7 @@
+- if @training_course.errors.any?
+  .alert.alert-danger.mb-3
+    = t("admin.training_courses.form.error", count: @training_course.errors.count)
+
 h4.mt-0 Öffentliche Angaben
 hr.mt-0.mb-4
 
