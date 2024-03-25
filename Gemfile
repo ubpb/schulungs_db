@@ -6,7 +6,7 @@ ruby IO.read(".ruby-version").strip
 gem "active_flag",       "~> 1.0"
 gem "acts_as_list",      "~> 1.1"
 gem "bcrypt",            "~> 3.1.7"
-gem "bootstrap",         "~> 4.1"
+gem "bootstrap",         "~> 5.3"
 gem "caxlsx_rails",      "~> 0.6.2"
 gem "commonmarker",      "~> 1.0"
 gem "font-awesome-sass", "~> 6.4"

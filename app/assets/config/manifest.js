@@ -1,4 +1,5 @@
 //= link_tree ../images
+//= link_tree ../fonts
 
 //= link frontend/application.css
 //= link frontend/application.js

@@ -1,7 +1,7 @@
 = form_tag batch_update_admin_training_courses_path, method: :patch
   .table-responsive
     table.table
-      thead
+      thead.border-top
         tr
           th(width="20")  = ""
           th(width="100") = t(".table.head.date")
@@ -28,10 +28,10 @@
             td.table-actions
               .btn-toolbar.justify-content-end.flex-nowrap
                 - if tc.registrations.count > 0
-                  .ml-0
+                  .ms-0
                     = link_to t(".link_to_registrations"), admin_training_course_registrations_path(tc), class: "btn btn-primary"
-                .ml-2.btn-group
-                  button.btn.btn-outline-primary.dropdown-toggle(type="button" data-toggle="dropdown")
+                .ms-2.btn-group
+                  button.btn.btn-outline-primary.dropdown-toggle(type="button" data-bs-toggle="dropdown")
                     = icon("fas", "cogs")
                   .dropdown-menu.dropdown-menu-right
                     = link_to edit_admin_training_course_path(tc), class: "dropdown-item" do
@@ -51,13 +51,12 @@
             = icon("fas", "arrow-alt-circle-right", class: "fa-fw")
           td(colspan="5")
             .btn-toolbar.justify-content-start.flex-nowrap
-              .ml-0 = select_tag(:multi_edit_action, options_for_select([[t(".publish_batch_action"), "publish"], [t(".unpublish_batch_action"), "unpublish"]]), class: "form-control", prompt: t(".prompt_batch_action"))
-              .ml-2 = submit_tag(t(".batch_action"), class: "btn btn-primary")
+              .ms-0 = select_tag(:multi_edit_action, options_for_select([[t(".publish_batch_action"), "publish"], [t(".unpublish_batch_action"), "unpublish"]]), class: "form-control", prompt: t(".prompt_batch_action"))
+              .ms-2 = submit_tag(t(".batch_action"), class: "btn btn-primary")
           td(colspan="2")
-            .btn-toolbar.justify-content-end
-              .btn.disabled
-                = "#{@training_courses.count} von #{@training_courses_total_count}"
-              = link_to admin_training_courses_path(filter: @filter.filter_attributes, format: :xlsx), class: "btn btn-secondary mr-1" do
+            .btn-toolbar.justify-content-end.align-items-center
+              span = "#{@training_courses.count} von #{@training_courses_total_count}"
+              = link_to admin_training_courses_path(filter: @filter.filter_attributes, format: :xlsx), class: "btn btn-secondary ms-2" do
                 = icon("fas", "download")
                 =< t(".statistics_export")
 

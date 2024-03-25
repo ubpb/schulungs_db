@@ -3,7 +3,7 @@
     .card.card-cutoff-corner.card-primary.mb-4
       .card-header
         h5.card-title.mb-0 = t(".header")
-        .font-italic.mt-2 = t(".additional_info_html")
+        .mt-2: em = t(".additional_info_html")
       .card-body
         - if @training_courses.present?
           - if @filter.active?

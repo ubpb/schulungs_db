@@ -13,7 +13,10 @@ module ApplicationHelper
   end
 
   def render_markdown(s)
-    CommonMarker.render_html(s, [:DEFAULT, :UNSAFE])
+    Commonmarker.to_html(s, options: {
+      parse: { smart: true },
+      render: { hardbreaks: false }
+    })
   end
 
   def date_in_words(date)

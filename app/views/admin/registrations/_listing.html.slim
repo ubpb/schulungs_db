@@ -1,6 +1,6 @@
 = form_tag batch_update_admin_training_course_registrations_path, method: :patch
   table.table
-    thead
+    thead.border-top
       tr
         th(width="20") = ""
         th Nachname
@@ -11,10 +11,10 @@
         th.table-actions
       tr
         th(colspan="6")
-          .btn-toolbar.justify-content-start.flex-nowrap
-            .ml-0 = check_box_tag :multi_edit_all, nil, false, class: "form-control"
-            .ml-2 = select_tag(:multi_edit_action, options_for_select([["Teilnahmebescheinigung per E-Mail senden", "send_cert_email"]]), class: "form-control", prompt: "Bitte wählen")
-            .ml-2 = submit_tag("Absenden", class: "btn btn-primary")
+          .btn-toolbar.justify-content-start.flex-nowrap.align-items-center
+            .ms-0 = check_box_tag :multi_edit_all, nil, false
+            .ms-2 = select_tag(:multi_edit_action, options_for_select([["Teilnahmebescheinigung per E-Mail senden", "send_cert_email"]]), class: "form-control", prompt: "Bitte wählen")
+            .ms-2 = submit_tag("Absenden", class: "btn btn-primary")
     tbody
       - registrations.each do |r|
         tr
@@ -37,7 +37,7 @@
           td.table-actions
             .btn-toolbar.justify-content-end.flex-nowrap
               .btn-group
-                button.btn.btn-outline-primary.dropdown-toggle(type="button" data-toggle="dropdown")
+                button.btn.btn-outline-primary.dropdown-toggle(type="button" data-bs-toggle="dropdown")
                   = icon("fas", "cogs")
                 ul.dropdown-menu.dropdown-menu-right
                   li = link_to edit_admin_training_course_registration_path(@training_course, r), class: "dropdown-item" do

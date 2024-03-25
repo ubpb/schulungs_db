@@ -1,18 +1,19 @@
 nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-  a.navbar-brand(href="/admin")
-    = icon("fas", "database")
-    =< t(".app_title")
+  .container-fluid
+    a.navbar-brand(href="/admin")
+      = icon("fas", "database")
+      =< t(".app_title")
 
-  button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarContent")
-    span.navbar-toggler-icon
+    button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarContent")
+      span.navbar-toggler-icon
 
-  #navbarContent.collapse.navbar-collapse
-    ul.navbar-nav.mr-auto
-      li.nav-item(class=active_when(/schulungen/))
-        = link_to t(".training_courses"), admin_training_courses_path, class: "nav-link"
-      li.nav-item(class=active_when(/themen/))
-        = link_to t(".categories"), admin_categories_path, class: "nav-link"
-      li.nav-item(class=active_when(/zielgruppen/))
-        = link_to t(".target_audiences"), admin_target_audiences_path, class: "nav-link"
-      li.nav-item(class=active_when(/einrichtungen/))
-        = link_to t(".institutions"), admin_institutions_path, class: "nav-link"
+    #navbarContent.collapse.navbar-collapse
+      ul.navbar-nav.me-auto
+        li.nav-item(class=active_when(/schulungen/))
+          = link_to t(".training_courses"), admin_training_courses_path, class: "nav-link"
+        li.nav-item(class=active_when(/themen/))
+          = link_to t(".categories"), admin_categories_path, class: "nav-link"
+        li.nav-item(class=active_when(/zielgruppen/))
+          = link_to t(".target_audiences"), admin_target_audiences_path, class: "nav-link"
+        li.nav-item(class=active_when(/einrichtungen/))
+          = link_to t(".institutions"), admin_institutions_path, class: "nav-link"

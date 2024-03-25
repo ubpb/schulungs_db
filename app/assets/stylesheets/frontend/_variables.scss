@@ -1,0 +1,26 @@
+// -------------------------------------------------------------------------------------------
+// Bootstrap options
+// -------------------------------------------------------------------------------------------
+$enable-negative-margins: true;
+$min-contrast-ratio: 1.8;
+
+$upb-blue: #003671;
+$upb-cyan: #18b0e2;
+
+$page-background-color: var(--bs-secondary-bg);
+
+$primary: $upb-cyan;
+$body-color: $upb-blue;
+
+$font-family-sans-serif: Karla, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+                         Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
+                         "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+//$font-size-base: 0.95rem;
+
+$link-color: $upb-cyan;
+$link-hover-color: $upb-blue;
+$link-hover-decoration: none;
+$link-decoration: none;
+
+$card-border-width: 0;
+$card-border-radius: 0;

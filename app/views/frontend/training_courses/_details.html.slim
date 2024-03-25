@@ -9,23 +9,23 @@ ruby:
 
 - if show_date
   .date.fw-icon-item
-    = icon("fas", "calendar-alt", class: "fa-fw", data: {toggle: "tooltip", placement: "top"}, title: t("frontend.training_courses.tooltips.date"))
+    = icon("fas", "calendar-alt", class: "fa-fw", "data-bs-toggle": "tooltip", title: t("frontend.training_courses.tooltips.date"))
     = l(training_course.date_and_time.to_date)
     span.badge.badge-info =< date_in_words(training_course.date_and_time.to_date)
 
 - if show_time
   .time.fw-icon-item
-    = icon("far", "clock", class: "fa-fw", data: {toggle: "tooltip", placement: "top"}, title: t("frontend.training_courses.tooltips.time"))
+    = icon("far", "clock", class: "fa-fw", "data-bs-toggle": "tooltip", title: t("frontend.training_courses.tooltips.time"))
     = l(training_course.date_and_time.to_time, format: :short)
 
 - if show_duration && training_course.duration.present?
   .duration.fw-icon-item
-    = icon("fas", "hourglass-half", class: "fa-fw", data: {toggle: "tooltip", placement: "top"}, title: t("frontend.training_courses.tooltips.duration"))
+    = icon("fas", "hourglass-half", class: "fa-fw", "data-bs-toggle": "tooltip", title: t("frontend.training_courses.tooltips.duration"))
     = t("frontend.training_courses.defaults.duration", duration: training_course.duration)
 
 - if show_location && training_course.location.present?
   .location.fw-icon-item
-    = icon("fas", "map-marker-alt", class: "fa-fw", data: {toggle: "tooltip", placement: "top"}, title: t("frontend.training_courses.tooltips.location"))
+    = icon("fas", "map-marker-alt", class: "fa-fw", "data-bs-toggle": "tooltip", title: t("frontend.training_courses.tooltips.location"))
     = training_course.location
 
 - if show_registration_required && training_course.registration_required?
@@ -35,12 +35,12 @@ ruby:
 
 - if show_target_audiences && training_course.target_audiences.present?
   .target-audiences.mt-1.fw-icon-item
-    = icon("fas", "bullseye", class: "fa-fw", data: {toggle: "tooltip", placement: "top"}, title: t("frontend.training_courses.tooltips.target_audiences"))
+    = icon("fas", "bullseye", class: "fa-fw", "data-bs-toggle": "tooltip", title: t("frontend.training_courses.tooltips.target_audiences"))
     - training_course.target_audiences.each do |ta|
-      .badge.badge-light.mr-1 = ta.title
+      .badge.badge-light.me-1 = ta.title
 
 - if show_categories && training_course.categories.present?
   .categories.mt-1.fw-icon-item
-    = icon("fas", "tags", class: "fa-fw", data: {toggle: "tooltip", placement: "top"}, title: t("frontend.training_courses.tooltips.categories"))
+    = icon("fas", "tags", class: "fa-fw", "data-bs-toggle": "tooltip", title: t("frontend.training_courses.tooltips.categories"))
     - training_course.categories.each do |c|
-      .badge.badge-light.mr-1 = c.title
+      .badge.badge-light.me-1 = c.title
