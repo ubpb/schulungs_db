@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_03_20_144058) do
-
+ActiveRecord::Schema[7.1].define(version: 2024_03_22_142721) do
   create_table "categories", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
     t.string "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.integer "position"
   end
 
@@ -30,8 +29,8 @@ ActiveRecord::Schema.define(version: 2024_03_20_144058) do
     t.bigint "registration_id", null: false
     t.string "digest", null: false
     t.string "initials", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["digest"], name: "index_certificate_digests_on_digest", unique: true
     t.index ["registration_id"], name: "index_certificate_digests_on_registration_id"
   end
@@ -39,8 +38,8 @@ ActiveRecord::Schema.define(version: 2024_03_20_144058) do
   create_table "institutions", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
     t.string "title"
     t.integer "position", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["position"], name: "index_institutions_on_position"
   end
 
@@ -62,16 +61,16 @@ ActiveRecord::Schema.define(version: 2024_03_20_144058) do
     t.text "internal_notes"
     t.boolean "dsgvo_consent", default: false, null: false
     t.timestamp "sent_reminder_message_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.timestamp "certificate_sent_at"
     t.index ["training_course_id"], name: "index_registrations_on_training_course_id"
   end
 
   create_table "target_audiences", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
     t.string "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.integer "position"
   end
 
@@ -95,7 +94,7 @@ ActiveRecord::Schema.define(version: 2024_03_20_144058) do
     t.text "reminder_message"
     t.boolean "enable_institutions_for_registrations", default: false, null: false
     t.boolean "enable_field_of_interest_for_registrations", default: true, null: false
-    t.datetime "date_and_time", null: false
+    t.datetime "date_and_time", precision: nil, null: false
     t.string "statistics_lecturer"
     t.integer "statistics_organization_types", default: 0, null: false
     t.integer "statistics_forms", default: 0, null: false
