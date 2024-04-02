@@ -10,7 +10,7 @@
         th Teilnahmebescheinigung?
         th.table-actions
       tr
-        th(colspan="6")
+        th(colspan="7")
           .btn-toolbar.justify-content-start.flex-nowrap.align-items-center
             .ms-0 = check_box_tag :multi_edit_all, nil, false
             .ms-2 = select_tag(:multi_edit_action, options_for_select([["Teilnahmebescheinigung per E-Mail senden", "send_cert_email"]]), class: "form-control", prompt: "Bitte wählen")
