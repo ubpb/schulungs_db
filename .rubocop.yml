@@ -12,23 +12,19 @@ inherit_mode:
 
 require:
   - standard
+  - standard-custom
   - rubocop-performance
   - rubocop-rails
 
 inherit_gem:
-  standard: config/base.yml
-  standard-performance: config/base.yml
+  ubpb-rubocop-config: config/base.yml
   standard-custom: config/base.yml
-  ubpb-rubocop-config:
-    - config/rails.yml
-    - config/custom.yml
+  standard-performance: config/base.yml
+  standard: config/base.yml
 
 inherit_from:
-  - .rubocop_todo.yml
-  - .rubocop_strict.yml
   - .rubocop_custom.yml
 
 AllCops:
   SuggestExtensions: false
   TargetRubyVersion: 3.2
-
