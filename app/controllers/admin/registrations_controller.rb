@@ -87,7 +87,7 @@ class Admin::RegistrationsController < Admin::ApplicationController
       send_cert_email(registration)
     end
 
-    flash[:success] = "Teilnahmebescheinigungen wurde versendet"
+    flash[:success] = "Teilnahmebescheinigungen wurden versendet"
   end
 
 private
