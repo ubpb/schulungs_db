@@ -11,7 +11,7 @@ ruby:
   .date.fw-icon-item
     = icon("fas", "calendar-alt", class: "fa-fw", "data-bs-toggle": "tooltip", title: t("frontend.training_courses.tooltips.date"))
     = l(training_course.date_and_time.to_date)
-    span.badge.badge-info =< date_in_words(training_course.date_and_time.to_date)
+    span.badge.text-bg-dark =< date_in_words(training_course.date_and_time.to_date)
 
 - if show_time
   .time.fw-icon-item
