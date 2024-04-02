@@ -1,7 +1,10 @@
 .container-fluid
   .d-flex.flex-row.justify-content-between.align-items-end
     .title
-      h3 = @training_course.title
+      h3
+        = link_to admin_training_courses_path do
+          i.fa-solid.fa-fw.fa-arrow-left.me-2
+        = @training_course.title
       h5 = l(@training_course.date_and_time)
     .btn-toolbar
       .ms-0 = link_to admin_training_course_registrations_path(@training_course, format: :xlsx), class: "btn btn-primary" do
