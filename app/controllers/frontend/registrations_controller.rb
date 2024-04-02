@@ -25,9 +25,9 @@ class Frontend::RegistrationsController < Frontend::ApplicationController
       Mailers::RegistrationsMailer.registration_confirmation(@registration).deliver
       Mailers::RegistrationsMailer.registration_notification(@registration).deliver
 
-      if @training_course.date_and_time.to_date == Date.today && @registration.sent_reminder_message_at.blank?
+      if @training_course.date_and_time.to_date == Time.zone.today && @registration.sent_reminder_message_at.blank?
         Mailers::TrainingCoursesMailer.reminder_message(@training_course, @registration).deliver
-        @registration.update_column(:sent_reminder_message_at, Time.zone.now)
+        @registration.update(:sent_reminder_message_at, Time.zone.now)
       end
 
       redirect_to frontend_training_courses_path
@@ -36,7 +36,7 @@ class Frontend::RegistrationsController < Frontend::ApplicationController
     end
   end
 
-private
+  private
 
   def set_breadcrumbs_and_page_title
     add_breadcrumb(t("frontend.breadcrumbs.training_courses.index"), frontend_training_courses_path)
