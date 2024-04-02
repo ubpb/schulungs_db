@@ -27,9 +27,8 @@
             td = tc.title
             td.table-actions
               .btn-toolbar.justify-content-end.flex-nowrap
-                - if tc.registrations.count > 0
-                  .ms-0
-                    = link_to t(".link_to_registrations"), admin_training_course_registrations_path(tc), class: "btn btn-primary"
+                .ms-0
+                  = link_to t(".link_to_registrations"), admin_training_course_registrations_path(tc), class: "btn btn-primary"
                 .ms-2.btn-group
                   button.btn.btn-outline-primary.dropdown-toggle(type="button" data-bs-toggle="dropdown")
                     = icon("fas", "cogs")
