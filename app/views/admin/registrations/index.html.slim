@@ -4,9 +4,12 @@
       h3 = @training_course.title
       h5 = l(@training_course.date_and_time)
     .btn-toolbar
-      = link_to admin_training_course_registrations_path(@training_course, format: :xlsx), class: "btn btn-primary" do
+      .ms-0 = link_to admin_training_course_registrations_path(@training_course, format: :xlsx), class: "btn btn-primary" do
         = icon("fas", "download")
         =< t(".excel_download")
+      .ms-2 = link_to new_admin_training_course_registration_path(@training_course), class: "btn btn-primary" do
+        = icon("fas", "plus")
+        =< "Teilnehmer hinzufügen"
 
   .mt-3
     - if @registrations.present?

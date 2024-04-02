@@ -1,0 +1,13 @@
+.container-fluid
+  .row.justify-content-center
+    .col-md-8
+      .card
+        h5.card-header = "Neuen Teilnehmer hinzufügen"
+        = simple_form_for [:admin, @training_course, @registration] do |f|
+          .card-body
+            = render "form_fields", form: f
+          .card-footer
+            .btn-toolbar.justify-content-between.flex-nowrap
+              div
+                = f.submit t("admin.application.btn_save"), class: "btn btn-primary"
+                =< link_to t("admin.application.btn_cancel"), admin_training_course_registrations_path(@training_course), class: "btn btn-secondary"

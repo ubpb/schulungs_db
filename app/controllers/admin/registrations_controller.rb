@@ -19,8 +19,24 @@ class Admin::RegistrationsController < Admin::ApplicationController
     end
   end
 
+  def new
+    @registration = @training_course.registrations.new
+  end
+
   def edit
     @registration = @training_course.registrations.find(params[:id])
+  end
+
+  def create
+    @registration = @training_course.registrations.new(registration_params)
+    @registration.dsgvo_consent = true
+
+    if @registration.save
+      flash[:success] = t("admin.registrations.update.flash.success")
+      redirect_to admin_training_course_registrations_path(@training_course)
+    else
+      render :new
+    end
   end
 
   def update

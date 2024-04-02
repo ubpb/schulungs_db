@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       get :export, on: :collection
       patch :batch_update, path: "batch-update", on: :collection
 
-      resources :registrations, only: [:index, :edit, :update, :destroy] do
+      resources :registrations do
         get :download_certificate, on: :member, path: "zertifikat/download"
         get :email_certificate, on: :member, path: "zertifikat/email"
         patch :batch_update, path: "batch-update", on: :collection
