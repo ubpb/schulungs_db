@@ -1,5 +1,3 @@
-require HexaPDF.data_dir + '/cert/demo_cert.rb'
-
 class Admin::RegistrationsController < Admin::ApplicationController
 
   before_action :load_training_course
@@ -16,7 +14,7 @@ class Admin::RegistrationsController < Admin::ApplicationController
           @training_course.title.parameterize
         ].join("_")
 
-        response.headers['Content-Disposition'] = "attachment; filename=\"#{filename}.xlsx\""
+        response.headers["Content-Disposition"] = "attachment; filename=\"#{filename}.xlsx\""
       }
     end
   end
@@ -90,7 +88,7 @@ class Admin::RegistrationsController < Admin::ApplicationController
     flash[:success] = "Teilnahmebescheinigungen wurden versendet"
   end
 
-private
+  private
 
   def load_training_course
     @training_course = TrainingCourse.find(params[:training_course_id])
