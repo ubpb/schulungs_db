@@ -166,7 +166,7 @@ class Admin::RegistrationsController < Admin::ApplicationController
 
       pdf.formatted_text(
         [{
-          text: "Hinweis: Die Gültigkeit der digitalen Version dieser Teilnahmebescheinigung kann unter https://schulungen.ub.uni-paderborn.de/validate überprüft werden",
+          text: "Hinweis: Die Gültigkeit der digitalen Version dieser Teilnahmebescheinigung kann unter https://schulungen.ub.uni-paderborn.de/validate überprüft werden.",
           fill_color: "gray"
         }],
         valign: :bottom,
