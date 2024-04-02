@@ -123,7 +123,6 @@ class Admin::TrainingCoursesController < Admin::ApplicationController
   def preview_reminder_message
     training_course = TrainingCourse.find(params[:id])
     dummy_registration = Registration.new(
-      salutation: "frau",
       firstname: "Claudia",
       lastname: "Kroner",
       email: "schulung@ub.uni-paderborn.de"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_22_142721) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_02_092820) do
   create_table "categories", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", precision: nil, null: false
@@ -55,7 +55,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_22_142721) do
     t.string "firstname", null: false
     t.string "lastname", null: false
     t.text "notes"
-    t.string "salutation", null: false
     t.string "email"
     t.string "field_of_interest"
     t.text "internal_notes"

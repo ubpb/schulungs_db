@@ -1,7 +1,5 @@
 = simple_form_for [:frontend, @training_course, @registration] do |f|
   .row
-    .col-xl-3.col-md-6 = f.input :salutation, collection: Registration::SALUTATIONS, prompt: :translate
-  .row
     .col-xl-6 = f.input :firstname
     .col-xl-6 = f.input :lastname
   .row

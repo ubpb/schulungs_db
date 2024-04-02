@@ -4,7 +4,6 @@
 
 # Static headers
 headers = [
-  "Anrede",
   "Vorname",
   "Nachname",
   "E-Mail",
@@ -23,7 +22,6 @@ sheet.add_row(headers)
 #
 registrations.each do |r|
   values = [
-    t("simple_form.options.defaults.salutation.#{r.salutation}"),
     r.firstname,
     r.lastname,
     r.email,

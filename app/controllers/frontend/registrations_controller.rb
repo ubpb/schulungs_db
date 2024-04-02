@@ -67,7 +67,7 @@ class Frontend::RegistrationsController < Frontend::ApplicationController
 
   def registration_params
     params.require(:registration).permit(
-      :salutation, :firstname, :lastname, :email, :field_of_interest,
+      :firstname, :lastname, :email, :field_of_interest,
       :notes, :dsgvo_consent, institution_ids: []
     )
   end

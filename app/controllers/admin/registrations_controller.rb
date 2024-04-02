@@ -57,7 +57,8 @@ class Admin::RegistrationsController < Admin::ApplicationController
       cert,
       filename: cert_filename(@registration),
       type: "application/pdf",
-      disposition: "attachment")
+      disposition: "attachment"
+    )
   end
 
   def email_certificate
@@ -97,7 +98,7 @@ private
 
   def registration_params
     params.require(:registration).permit(
-      :salutation, :firstname, :lastname, :email, :field_of_interest,
+      :firstname, :lastname, :email, :field_of_interest,
       :notes, :internal_notes, institution_ids: []
     )
   end
@@ -115,9 +116,9 @@ private
   end
 
   def generate_cert_pdf(registration)
-    upb_logo = File.join(Rails.root, "etc/cert-upb-logo.png")
-    ub_logo = File.join(Rails.root, "etc/cert-ub-logo.png")
-    io = StringIO.new(''.b)
+    upb_logo = Rails.root.join("etc/cert-upb-logo.png").to_s
+    ub_logo = Rails.root.join("etc/cert-ub-logo.png").to_s
+    io = StringIO.new("".b)
 
     # Create the PDF
     HexaPDF::Composer.create(io, page_size: :A4, margin: [40, 40, 40, 60]) do |pdf|
@@ -129,9 +130,9 @@ private
 
       pdf.text("Teilnahmebescheinigung", font_size: 20, align: :left, margin: [60, 0, 0, 0], font: ["Helvetica", variant: :bold])
 
-      pdf.text("#{registration.salutation == "herr" ? "Herr" : "Frau"} #{registration.fullname}", font: ["Helvetica", variant: :bold], margin: [40, 0, 0, 0])
+      pdf.text(registration.fullname, font: ["Helvetica", variant: :bold], margin: [40, 0, 0, 0])
       pdf.text("hat im Rahmen der Angebote zur Informationskompetenz der Universitätsbibliothek am #{I18n.l(registration.training_course.date_and_time.to_date)} an der Veranstaltung", margin: [20, 0, 0, 0])
-      pdf.text(registration.training_course.title, font: ['Helvetica', variant: :bold], margin: [20, 0, 0, 0])
+      pdf.text(registration.training_course.title, font: ["Helvetica", variant: :bold], margin: [20, 0, 0, 0])
       pdf.text("teilgenommen.", margin: [20, 0, 0, 0])
 
       if registration.training_course.certificate_learning_results.present?
@@ -163,10 +164,11 @@ private
 
     # Secure the PDF, allowing only printing
     doc = HexaPDF::Document.new(io: io)
-    out_io = StringIO.new(''.b)
+    out_io = StringIO.new("".b)
     doc.encrypt(
       owner_password: SecureRandom.hex(10),
-      permissions: HexaPDF::Encryption::StandardSecurityHandler::Permissions::PRINT)
+      permissions: HexaPDF::Encryption::StandardSecurityHandler::Permissions::PRINT
+    )
     doc.write(out_io)
 
     # Get the PDF content

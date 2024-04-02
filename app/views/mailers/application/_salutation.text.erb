@@ -1,5 +1,1 @@
-<% if @registration.salutation == "herr" %>
-<%= "Sehr geehrter Herr #{@registration.lastname}," %>
-<% else %>
-<%= "Sehr geehrte Frau #{@registration.lastname}," %>
-<% end %>
+<%= "Hallo #{@registration.fullname}," %>

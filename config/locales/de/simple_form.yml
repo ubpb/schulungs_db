@@ -25,7 +25,6 @@ de:
         published: "Öffentlich sichtbar"
         registration_required: "Anmeldung erforderlich"
         reminder_message: "E-Mail Erinnerung"
-        salutation: "Anrede"
         start_date: "Erster Termin"
         target_audiences: "Zielgruppen"
         time: "Uhrzeit"
@@ -82,9 +81,6 @@ de:
 
     options:
       defaults:
-        salutation:
-          herr: "Herr"
-          frau: "Frau"
 
       filter:
         date:

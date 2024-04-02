@@ -8,7 +8,6 @@ Zeit: <%= l(@training_course.date_and_time.to_time, format: :short) %> Uhr
 
 Folgende Person hat sich angemeldet:
 
-Anrede: <%=  t("simple_form.options.defaults.salutation.#{@registration.salutation}") %>
 Nachname: <%= @registration.lastname %>
 Vorname: <%= @registration.firstname %>
 E-Mail: <%= @registration.email %>

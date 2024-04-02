@@ -1,5 +1,4 @@
 module MailerHelper
-
   def render_reminder_message(training_course, registration)
     if (message = training_course.reminder_message).present?
       message = message.gsub(/###ANREDE###/, render_salutation(registration))
@@ -13,14 +12,10 @@ module MailerHelper
     message.presence || ""
   end
 
-private
+  private
 
   def render_salutation(registration)
-    if registration.salutation == "herr"
-      "Sehr geehrter Herr #{registration.lastname}"
-    else
-      "Sehr geehrte Frau #{registration.lastname}"
-    end
+    "Hallo #{registration.fullname}"
   end
 
   def render_date(training_course)
@@ -42,5 +37,4 @@ private
   def render_title(training_course)
     training_course.title
   end
-
 end
