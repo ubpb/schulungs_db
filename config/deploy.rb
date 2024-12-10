@@ -30,7 +30,7 @@ namespace :app do
 
       # Dump db on remote server
       on(server) do |host|
-        db_config = YAML.load(capture("cat #{shared_path}/config/database.yml"))[fetch(:rails_env)]
+        db_config = YAML.load(capture("cat #{shared_path}/config/database.yml"), aliases: true)[fetch(:rails_env)]
 
         host     = db_config["host"]
         database = db_config["database"]
